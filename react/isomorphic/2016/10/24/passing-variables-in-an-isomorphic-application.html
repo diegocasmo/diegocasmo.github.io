@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<title>Diego Castillo's Blog - Using React's Context to Pass Variables From the Server to the Client</title>
+<meta name="description" content="Diego Castillo's software development blog.">
+<meta name="keywords" content="software engineer, software, developer, panama, freelance, independent">
+
+<!-- og data -->
+<meta property="og:title" content="Using React's Context to Pass Variables From the Server to the Client" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://diegocasmo.me//react/isomorphic/2016/10/24/passing-variables-in-an-isomorphic-application.html" />
+<meta property="og:image" content="http://diegocasmo.me/images/diegocasmo-og.png" />
+<meta property="og:site_name" content="Diego Castillo's Blog" />
+<meta property="og:description" content="I recently got hired by I client to create a new functionality for a single page application. The client wanted the marketing team of the company to be able to easily change the landing page content. The landing page was already..." />
+<!-- end of og data -->
+
+<!-- twitter cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@diegocasmo">
+<meta name="twitter:creator" content="@diegocasmo">
+<meta name="twitter:title" content="Using React's Context to Pass Variables From the Server to the Client">
+<meta name="twitter:description" content="I recently got hired by I client to create a new functionality for a single page application. The client wanted the marketing team of the company to be able to easily change the landing page content. The landing page was already...">
+<meta name="twitter:image:src" content="http://diegocasmo.me/images/diegocasmo-card.png">
+<!-- end of twitter cards -->
+
+
+  <!-- favicon -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-128.png" sizes="128x128" />
+<!-- end favicon -->
+
+
+  <!-- custom fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <!-- end custom fonts-->
+
+  <!-- custom CSS -->
+    <link rel="stylesheet" href="/styles/vendor/syntax.css">
+    <link rel="stylesheet" href="/styles/vendor/normalize.css">
+    <link rel="stylesheet" href="/styles/main.css">
+  <!-- end custom CSS -->
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="user-profile">
+  <img class="user-profile-avatar" src="/images/diegocasmo-avatar.png" alt="Diego Castillo" >
+  <h2 class="user-profile-name">Diego Castillo</h2>
+  <h4 class="user-profile-profession">Independent Software Engineer</h4>
+  <p class="user-profile-description">Passionate independent software engineer who seeks to become not only a better professional, but also a better human being every day.</p>
+</div>
+    <ul class="social-networks">
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-github" class="social-network github" href="https://github.com/diegocasmo/">
+      <i class="fa fa-github footer-social-icon"></i>
+    </a>
+  </li>
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-twitter" class="social-network twitter" href="https://twitter.com/diegocasmo">
+      <i class="fa fa-twitter footer-social-icon"></i>
+    </a>
+  </li>
+</ul>
+
+  </div>
+</div>
+<div class="center-content">
+
+  <ul class="navigation">
+  <li class="navigation-item">
+    <a data-ga="nav-home" class="navigation-link" href="/">Home</a>
+  </li>
+  <li class="navigation-item">
+    <a data-ga="nav-projects" class="navigation-link" href="/projects.html">Projects</a>
+  </li>
+</ul>
+
+  <div class="post">
+
+    <header class="post-header">
+      <h3 class="post-title">Using React's Context to Pass Variables From the Server to the Client</h3>
+      <p class="post-meta">Oct 24, 2016</p>
+    </header>
+
+    <article class="post-content">
+      <h3>Adding New Features To An Existing Application</h3>
+
+<p>I recently got hired by I client to create a new functionality for a single page application. The client wanted the marketing team of the company to be able to easily change the landing page content. The landing page was already built with <code>React</code> using <a href="http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/">isomorphic/universal rendering</a> and the ability to edit and save the page content was also already in place and saved in a database.</p>
+
+<p>The problem I had to solve was how to pass variables (containing the data necessary for rendering the page) from the server to the client in an application using <a href="https://github.com/ReactTraining/react-router">react-router</a> without loosing the benefits of isomorphic rendering. Initially, this seemed to me as a very easy task, but as I will later explain, the fact that the application was built with isomorphic rendering made this task an opportunity to learn something new.</p>
+
+<p>The goal of this blog post is to explain how I used React&#39;s context feature to pass variables from the server to the client without loosing the benefits of isomorphic rendering.</p>
+
+<h3>The Challenge</h3>
+
+<p>I found a couple of solutions to similar problems online, but none of them worked for the same reason: the HTML rendered by the server wasn&#39;t the same as the one rendered by the client. In an isomorphic application, the HTML rendered by the server must be the same as the one rendered by the client, otherwise you would loose the benefits of it and get a <a href="http://stackoverflow.com/a/34315767/6373590">React check-sum warning</a>.</p>
+
+<h3>The Solution</h3>
+
+<p>I had already worked with the well known state container <code>Redux</code>, and I figured I could use something similar to the <code>react-redux</code> <a href="https://github.com/reactjs/react-redux/blob/master/src/components/Provider.js">Provider</a> component. So I went ahead and took a look at the source code and found out this component internally uses React&#39;s context feature (unknown to me at this time) to make the state of the application seemingly available to all container components.</p>
+
+<p>React&#39;s context feature allows to pass data through the component tree without having to pass the props down manually at every level. It&#39;s actually  similar to using global variables to pass state through the application, thus it must be used sparingly (also its API is an experimental feature which is likely to change in the future).</p>
+
+<p>Let me now explain all the components I used to implement the desired feature. I hope this gives you a better understanding of how I was able to use React&#39;s context feature to solve the problem described above:</p>
+
+<ul>
+<li><code>Provider</code>: This component implements the context feature, and exposes the <code>prop</code> called <code>appData</code> to other components. The whole application is going to be wrapped by it:</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">class Provider extends React.Component {
+  getChildContext() {
+    return {appData: this.props.appData};
+  }
+
+  render() {
+    return(
+      &lt;div&gt;
+        {this.props.children}
+      &lt;/div&gt;
+    );
+  }
+}
+
+Provider.childContextTypes = {
+  appData: React.PropTypes.object.isRequired
+};
+</code></pre></div>
+<ul>
+<li><code>server.jsx</code>: This file has an <code>Express</code> handler to catch all routes and isomorphically serve the application using React&#39;s <code>renderToString</code> method. Notice <code>appData</code> is passed to both the <code>Provider</code> and the <code>index</code> template:</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">  res.render(&#39;index&#39;, {
+    renderedRoot: ReactDOMServer.renderToString(
+      &lt;Provider appData={appData}&gt;
+        &lt;RouterContext {...props}/&gt;
+      &lt;/Provider&gt;
+    ),
+    appData: appData
+  });
+</code></pre></div>
+<ul>
+<li><code>index.ejs</code>: This file bootstraps the whole application. It receives <code>appData</code> and then initializes the application:</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;html&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;root&quot;&gt;&lt;%- renderedRoot %&gt;&lt;/div&gt;
+    &lt;script src=&quot;/app.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+      var config = {
+        appData: &lt;%-JSON.stringify(appData)%&gt;
+      };
+      MY_APP.initialize(config);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<ul>
+<li><code>client.jsx</code>: This file starts the application like you would normally do in the client side. It is wrapped by the <code>Provider</code> component and passes to it the <code>appData</code> received from the <code>index.ejs</code> file:</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">window[&#39;MY_APP&#39;] = window[&#39;MY_APP&#39;] || (() =&gt; {
+  return {
+    initialize: (config) =&gt; {
+      ReactDOM.render(
+        &lt;Provider appData={config.appData}&gt;
+          &lt;Router history={browserHistory}&gt;
+            { routes }
+          &lt;/Router&gt;
+        &lt;/Provider&gt;,
+        document.getElementById(&#39;root&#39;)
+      );
+    }
+  };
+})();
+</code></pre></div>
+<ul>
+<li><code>App.jsx</code> (optional): The <code>App</code> component is the top level component of the application and all other components are wrapped by it as such (using <code>react-router</code>):</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">  &lt;Route component={App}&gt;
+    &lt;Route path=&quot;/&quot; component={HomeContainer}/&gt;
+  &lt;/Route&gt;
+</code></pre></div>
+<p>This component is optional because <code>appData</code> is already available to all components of the application through React&#39;s <code>context</code>. But as mentioned above, <code>context</code> must be used sparingly, so I decided to map the <code>context</code> as <code>props</code> for all container components instead since this is the common approach when using React:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">class App extends React.Component {
+
+  // Encapsulate &#39;appData&#39; context as props for all children
+  renderChildrenWithContextAsProps() {
+      return React.Children.map(this.props.children, (child) =&gt; {
+          return React.cloneElement(child, {
+              appData: this.context.appData
+          });
+      });
+  };
+
+  render() {
+    return (
+      &lt;div&gt;
+        {this.renderChildrenWithContextAsProps()}
+      &lt;/div&gt;
+    );
+  }
+}
+
+App.contextTypes = {
+  appData: React.PropTypes.object.isRequired
+};
+</code></pre></div>
+<p>Now all container components such as <code>HomeContainer</code> can access <code>appData</code> through <code>props</code> as you would normally do in React.</p>
+
+<h3>Conclusion</h3>
+
+<p>Implementing React&#39;s context feature was a fun learning experience and I hope this post serves as a guide of how to do so without having to add more dependencies to an application. Have you ever had to solve a similar issue? How did you manage to do it?</p>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'diegocasmo';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+</div>
+  <!-- scripts vendor -->
+    <script src="/scripts/vendor/modernizr.js"></script>
+    <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/scripts/analytics.js"></script>
+  <!-- end scripts vendor -->
+
+  <!-- addthis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54caa66915979525" async="async"></script>
+  <!-- end addthis -->
+
+  <!-- google analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58905822-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  <!-- end google analytics -->
+
+  </body>
+</html>
+

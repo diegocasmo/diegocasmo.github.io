@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<title>Diego Castillo's Blog - The Karatsuba Multiplication Algorithm</title>
+<meta name="description" content="Diego Castillo's software development blog.">
+<meta name="keywords" content="software engineer, software, developer, panama, freelance, independent">
+
+<!-- og data -->
+<meta property="og:title" content="The Karatsuba Multiplication Algorithm" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://diegocasmo.me//algorithms/ruby/2015/12/17/karatsuba-multiplication.html" />
+<meta property="og:image" content="http://diegocasmo.me/images/diegocasmo-og.png" />
+<meta property="og:site_name" content="Diego Castillo's Blog" />
+<meta property="og:description" content="Over the past few months, I have developed an interest for Artificial Intelligence (specifically Machine Learning in the form of data mining). Because of this, I have decided I will start off by reviewing (while learning some new things as well) the fundamentals of computer science (data strucutres and algorithms), before diving into data mining itself..." />
+<!-- end of og data -->
+
+<!-- twitter cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@diegocasmo">
+<meta name="twitter:creator" content="@diegocasmo">
+<meta name="twitter:title" content="The Karatsuba Multiplication Algorithm">
+<meta name="twitter:description" content="Over the past few months, I have developed an interest for Artificial Intelligence (specifically Machine Learning in the form of data mining). Because of this, I have decided I will start off by reviewing (while learning some new things as well) the fundamentals of computer science (data strucutres and algorithms), before diving into data mining itself...">
+<meta name="twitter:image:src" content="http://diegocasmo.me/images/diegocasmo-card.png">
+<!-- end of twitter cards -->
+
+
+  <!-- favicon -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-128.png" sizes="128x128" />
+<!-- end favicon -->
+
+
+  <!-- custom fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <!-- end custom fonts-->
+
+  <!-- custom CSS -->
+    <link rel="stylesheet" href="/styles/vendor/syntax.css">
+    <link rel="stylesheet" href="/styles/vendor/normalize.css">
+    <link rel="stylesheet" href="/styles/main.css">
+  <!-- end custom CSS -->
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="user-profile">
+  <img class="user-profile-avatar" src="/images/diegocasmo-avatar.png" alt="Diego Castillo" >
+  <h2 class="user-profile-name">Diego Castillo</h2>
+  <h4 class="user-profile-profession">Independent Software Engineer</h4>
+  <p class="user-profile-description">Passionate independent software engineer who seeks to become not only a better professional, but also a better human being every day.</p>
+</div>
+    <ul class="social-networks">
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-github" class="social-network github" href="https://github.com/diegocasmo/">
+      <i class="fa fa-github footer-social-icon"></i>
+    </a>
+  </li>
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-twitter" class="social-network twitter" href="https://twitter.com/diegocasmo">
+      <i class="fa fa-twitter footer-social-icon"></i>
+    </a>
+  </li>
+</ul>
+
+  </div>
+</div>
+<div class="center-content">
+
+  <ul class="navigation">
+  <li class="navigation-item">
+    <a data-ga="nav-home" class="navigation-link" href="/">Home</a>
+  </li>
+  <li class="navigation-item">
+    <a data-ga="nav-projects" class="navigation-link" href="/projects.html">Projects</a>
+  </li>
+</ul>
+
+  <div class="post">
+
+    <header class="post-header">
+      <h3 class="post-title">The Karatsuba Multiplication Algorithm</h3>
+      <p class="post-meta">Dec 17, 2015</p>
+    </header>
+
+    <article class="post-content">
+      <h3>Back to basics</h3>
+
+<p>Over the past few months, I have developed an interest for Artificial Intelligence (specifically Machine Learning in the form of data mining). Because of this, I have decided I will start off by reviewing (while learning some new things as well) the fundamentals of computer science (data strucutres and algorithms), before diving into data mining itself. To do this, I will be reading the book <a href="http://beust.com/algorithms.pdf">Algorithms by S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani</a>. If you would like to read it, keep in mind it does have a <a href="http://cseweb.ucsd.edu/%7Edasgupta/book/errata.pdf">few mistakes</a>, thus I recommend correcting them before you start reading.</p>
+
+<h3>Divide-and-conquer</h3>
+
+<p>The second chapter starts off with the divide-and-conquer design paradigm. The main idea of the divide-and-conquer design paradigm is:</p>
+
+<ul>
+<li>Break a problem into subproblems</li>
+<li>Recursively solve these subproblems</li>
+<li>Combine their answers</li>
+</ul>
+
+<p>To better illustrate this, the author explains the Karatsuba multiplication algorithm. The whole idea behind this algorithm, is that the product of two complex numbers can be done with just three real-number multiplications (instead of four). In the divide-and-conquer design paradigm, reducing the number of subproblems (that is, reducing the branching factor of the recursion tree) produces a big impact in the overall running time of the algorithm. This happens because the reduction of subproblems occurs at every level of the recursion tree, producing a compounding effect which leads to a better performance.</p>
+
+<h3>The Karatsuba Multiplication Algorithm</h3>
+
+<h4><a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Pseudocode:</a></h4>
+<div class="highlight"><pre><code class="language-text" data-lang="text">procedure karatsuba(num1, num2)
+  if (num1 &lt; 10) or (num2 &lt; 10)
+    return num1*num2
+  /* calculates the size of the numbers */
+  m = max(size_base10(num1), size_base10(num2))
+  m2 = m/2
+  /* split the digit sequences about the middle */
+  high1, low1 = split_at(num1, m2)
+  high2, low2 = split_at(num2, m2)
+  /* 3 calls made to numbers approximately half the size */
+  z0 = karatsuba(low1,low2)
+  z1 = karatsuba((low1+high1),(low2+high2))
+  z2 = karatsuba(high1,high2)
+  return (z2*10^(2*m2))+((z1-z2-z0)*10^(m2))+(z0)
+</code></pre></div>
+<h4>Implementation:</h4>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Karatsuba</span>
+  <span class="c1"># Multiply two numbers using the Karatsuba</span>
+  <span class="c1"># multiplication algorithm</span>
+  <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">num_1</span><span class="p">,</span> <span class="n">num_2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num_1</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">num_2</span> <span class="o">&lt;</span> <span class="mi">10</span>
+      <span class="k">return</span> <span class="n">num_1</span> <span class="o">*</span> <span class="n">num_2</span>
+    <span class="k">end</span>
+    <span class="n">m_2</span> <span class="o">=</span> <span class="o">[</span><span class="n">num_1</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">num_2</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">length</span><span class="o">].</span><span class="n">max</span><span class="o">/</span><span class="mi">2</span>
+    <span class="c1"># Split the digit sequences about the middle</span>
+    <span class="n">high_1</span><span class="p">,</span> <span class="n">low_1</span> <span class="o">=</span> <span class="n">num_1</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">m_2</span><span class="p">)</span>
+    <span class="n">high_2</span><span class="p">,</span> <span class="n">low_2</span> <span class="o">=</span> <span class="n">num_2</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">m_2</span><span class="p">)</span>
+    <span class="c1"># Recursively calculate the product using three</span>
+    <span class="c1"># multiplications of smaller numbers</span>
+    <span class="n">z_0</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="n">low_1</span><span class="p">,</span> <span class="n">low_2</span><span class="p">)</span>
+    <span class="n">z_1</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">((</span><span class="n">low_1</span> <span class="o">+</span> <span class="n">high_1</span><span class="p">),</span> <span class="p">(</span><span class="n">low_2</span> <span class="o">+</span> <span class="n">high_2</span><span class="p">))</span>
+    <span class="n">z_2</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="n">high_1</span><span class="p">,</span> <span class="n">high_2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">z_2</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m_2</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="n">z_1</span> <span class="o">-</span> <span class="n">z_2</span> <span class="o">-</span> <span class="n">z_0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">m_2</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="n">z_0</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
+
+<h4>Tests:</h4>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;minitest/autorun&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;./karatsuba&#39;</span>
+
+<span class="n">describe</span> <span class="no">Karatsuba</span> <span class="k">do</span>
+  <span class="n">before</span> <span class="k">do</span>
+    <span class="vi">@karatsuba</span> <span class="o">=</span> <span class="no">Karatsuba</span><span class="o">.</span><span class="n">new</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">&quot;#multiply&quot;</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">&quot;should multiply small numbers of equal size&quot;</span> <span class="k">do</span>
+      <span class="n">assert_equal</span><span class="p">(</span><span class="vi">@karatsuba</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">25</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">&quot;should multiply small numbers of different size&quot;</span> <span class="k">do</span>
+      <span class="n">assert_equal</span><span class="p">(</span><span class="vi">@karatsuba</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="mi">36</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">&quot;should multiply small numbers with zeros inbetween&quot;</span> <span class="k">do</span>
+      <span class="n">assert_equal</span><span class="p">(</span><span class="vi">@karatsuba</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">&quot;should multiply large numbers with zeros inbetween&quot;</span> <span class="k">do</span>
+      <span class="n">assert_equal</span><span class="p">(</span><span class="vi">@karatsuba</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">100020001</span><span class="p">,</span> <span class="mi">10030501</span><span class="p">),</span> <span class="mi">1003250720050501</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">&quot;should multiply large numbers of equal size&quot;</span> <span class="k">do</span>
+      <span class="n">assert_equal</span><span class="p">(</span><span class="vi">@karatsuba</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">345345345</span><span class="p">,</span> <span class="mi">146348395</span><span class="p">),</span> <span class="mi">50540736961471275</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">&quot;should multiply large numbers of different size&quot;</span> <span class="k">do</span>
+      <span class="n">assert_equal</span><span class="p">(</span><span class="vi">@karatsuba</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">7655432</span><span class="p">,</span> <span class="mi">7853</span><span class="p">),</span> <span class="mi">60118107496</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
+
+<h3>Conclusion</h3>
+
+<p>The Karatsuba multiplication algorithm was relatively straightforward and fun to implement. I look forward to keep reviewing/learning more while I enjoy reading this book.</p>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'diegocasmo';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+</div>
+  <!-- scripts vendor -->
+    <script src="/scripts/vendor/modernizr.js"></script>
+    <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/scripts/analytics.js"></script>
+  <!-- end scripts vendor -->
+
+  <!-- addthis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54caa66915979525" async="async"></script>
+  <!-- end addthis -->
+
+  <!-- google analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58905822-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  <!-- end google analytics -->
+
+  </body>
+</html>
+

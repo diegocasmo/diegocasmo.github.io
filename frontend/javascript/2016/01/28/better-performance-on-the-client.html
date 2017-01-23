@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<title>Diego Castillo's Blog - Improving Application Performance and Responsiveness on the Client</title>
+<meta name="description" content="Diego Castillo's software development blog.">
+<meta name="keywords" content="software engineer, software, developer, panama, freelance, independent">
+
+<!-- og data -->
+<meta property="og:title" content="Improving Application Performance and Responsiveness on the Client" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://diegocasmo.me//frontend/javascript/2016/01/28/better-performance-on-the-client.html" />
+<meta property="og:image" content="http://diegocasmo.me/images/diegocasmo-og.png" />
+<meta property="og:site_name" content="Diego Castillo's Blog" />
+<meta property="og:description" content="Performance and responsiveness on client side applications are very important topics which usually don't receive much attention until they are an obvious problem. At Ubiqua, as we began to increment the number of features our product offered..." />
+<!-- end of og data -->
+
+<!-- twitter cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@diegocasmo">
+<meta name="twitter:creator" content="@diegocasmo">
+<meta name="twitter:title" content="Improving Application Performance and Responsiveness on the Client">
+<meta name="twitter:description" content="Performance and responsiveness on client side applications are very important topics which usually don't receive much attention until they are an obvious problem. At Ubiqua, as we began to increment the number of features our product offered...">
+<meta name="twitter:image:src" content="http://diegocasmo.me/images/diegocasmo-card.png">
+<!-- end of twitter cards -->
+
+
+  <!-- favicon -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-128.png" sizes="128x128" />
+<!-- end favicon -->
+
+
+  <!-- custom fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <!-- end custom fonts-->
+
+  <!-- custom CSS -->
+    <link rel="stylesheet" href="/styles/vendor/syntax.css">
+    <link rel="stylesheet" href="/styles/vendor/normalize.css">
+    <link rel="stylesheet" href="/styles/main.css">
+  <!-- end custom CSS -->
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="user-profile">
+  <img class="user-profile-avatar" src="/images/diegocasmo-avatar.png" alt="Diego Castillo" >
+  <h2 class="user-profile-name">Diego Castillo</h2>
+  <h4 class="user-profile-profession">Independent Software Engineer</h4>
+  <p class="user-profile-description">Passionate independent software engineer who seeks to become not only a better professional, but also a better human being every day.</p>
+</div>
+    <ul class="social-networks">
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-github" class="social-network github" href="https://github.com/diegocasmo/">
+      <i class="fa fa-github footer-social-icon"></i>
+    </a>
+  </li>
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-twitter" class="social-network twitter" href="https://twitter.com/diegocasmo">
+      <i class="fa fa-twitter footer-social-icon"></i>
+    </a>
+  </li>
+</ul>
+
+  </div>
+</div>
+<div class="center-content">
+
+  <ul class="navigation">
+  <li class="navigation-item">
+    <a data-ga="nav-home" class="navigation-link" href="/">Home</a>
+  </li>
+  <li class="navigation-item">
+    <a data-ga="nav-projects" class="navigation-link" href="/projects.html">Projects</a>
+  </li>
+</ul>
+
+  <div class="post">
+
+    <header class="post-header">
+      <h3 class="post-title">Improving Application Performance and Responsiveness on the Client</h3>
+      <p class="post-meta">Jan 28, 2016</p>
+    </header>
+
+    <article class="post-content">
+      <p>Performance and responsiveness on client side applications are very important topics which usually don&#39;t receive much attention until they are an obvious problem. At <a href="http://www.ubiqua.me/">Ubiqua</a>, as we began to increment the number of features our product offered, we started to experience the following problems:</p>
+
+<ul>
+<li>Application reloaded too often in mobile devices.</li>
+<li>Application took too long to reload.</li>
+<li>UI thread performed heavy computations which resulted in bad UX.</li>
+<li>Overall application performance was poor.</li>
+</ul>
+
+<p>In this blogpost, I&#39;ll show some of the techniques we used to enhance the performance and responsiveness of our application.</p>
+
+<h3>Measure Then Act</h3>
+
+<p>The very first thing we have to make sure we do before attempting to fix anything, is to measure what we believe is causing the application to perform poorly. Chrome DevTools offer a variety of tools which facilitate this:</p>
+
+<ul>
+<li><p><a href="https://developer.chrome.com/devtools/docs/cpu-profiling">Collect JavaScript CPU Profile</a>: CPU profiles help to visualize where the execution time is spent in the JavaScript that is being run. Collecting JavaScript CPU profile was critical for us to replicate user actions we already knew were performing slow. We identified methods executed during those user actions which were taking too long and then optimized them. After these methods were optimized, we collected another CPU profile by executing the same previous user actions and we measured if the execution time had decreased in comparison with the first measurements. The console API method <code>console.profile([label])</code> can turn out to be helpful here as it allows you to measure user actions from specific places in the code and make comparisons.</p></li>
+<li><p><a href="https://developer.chrome.com/devtools/docs/heap-profiling">Take Heap Snapshot</a>: A heap snapshot profile shows memory distribution among JavaScript objects and related DOM nodes.
+A key concept to understand when taking heap snapshots is the difference between <code>shallow size</code> and <code>retained size</code> of a JavaScript object. Shallow size refers to the size of memory that is held by the object itself, while retained size is the size of memory that is freed once the object is garbage collected. When taking heap snapshots, we payed special attention to objects which had a large retained size and thus prevented other objects from being freed from memory. We made a list of these objects and proceeded to re-factor them to only initialize other objects/dependencies when it was strictly needed (if it was needed at all). After that, we took comparison heap snapshots to check if the in memory object count was reducing or incrementing.</p></li>
+<li><p><a href="https://developer.chrome.com/devtools/docs/timeline">Timeline Analysis</a>: The Timeline panel records and analyzes all the activity in an application as it runs. Timeline analysis was convenient for discovering what was making our application take so long when reloading. We learned that is was garbage collection and then proceeded to take heap snapshots to further investigate the issue.</p></li>
+</ul>
+
+<h3>Freeing up the UI Thread</h3>
+
+<p>To battle against the UI thread being blocked by heavy computations we decided to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a>. A Web Worker provides an API to delegate work to a different thread such that the main UI thread is free to receive user interaction. An important observation to make when using Web Workers is that a new variable has to be added to the time taking to execute a script: <code>communication</code>. In addition to the time taken by the script to execute, we must add the time it takes for the application to send the message to the Web Worker, and the time it takes to the Web Worker to send the result back to the application. Because of this, when working with Web Workers always make sure to only pass and return from the Web Worker the information that is needed.</p>
+
+<h3>Faster Rendering</h3>
+
+<p>Modifying the DOM through JavaScript is expensive and should only be done when it is a must. We were able to make several performance improvements when the DOM had to be updated by doing the following:</p>
+
+<ul>
+<li>Use small view components: When data changes small parts of the DOM have to be re-rendered as opposed to re-rendering large parts of it.</li>
+<li>Map child views of a collection and then append to DOM instead of appending each child view individually.</li>
+<li><a href="http://stackoverflow.com/a/779785">Using <code>setTimeout</code> of <code>0</code> to render non high priority content</a>: Give the browser a chance to finish doing some non-JavaScript things that have been waiting to finish before attempting to execute this new piece of JavaScript. In other words, it re-queues the new JavaScript at the end of the execution queue.</li>
+</ul>
+
+<h3>Conclusion</h3>
+
+<p>In the past months we have learned a lot about improving client side application performance, and many of the techniques described above have now become implicit in our development workflow. Application performance and responsiveness should always be a high priority task in your team, as it directly relates with the main stakeholder of your application: the user.</p>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'diegocasmo';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+</div>
+  <!-- scripts vendor -->
+    <script src="/scripts/vendor/modernizr.js"></script>
+    <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/scripts/analytics.js"></script>
+  <!-- end scripts vendor -->
+
+  <!-- addthis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54caa66915979525" async="async"></script>
+  <!-- end addthis -->
+
+  <!-- google analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58905822-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  <!-- end google analytics -->
+
+  </body>
+</html>
+

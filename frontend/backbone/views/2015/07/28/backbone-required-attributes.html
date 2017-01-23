@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<title>Diego Castillo's Blog - Backbone Required Attributes</title>
+<meta name="description" content="Diego Castillo's software development blog.">
+<meta name="keywords" content="software engineer, software, developer, panama, freelance, independent">
+
+<!-- og data -->
+<meta property="og:title" content="Backbone Required Attributes" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://diegocasmo.me//frontend/backbone/views/2015/07/28/backbone-required-attributes.html" />
+<meta property="og:image" content="http://diegocasmo.me/images/diegocasmo-og.png" />
+<meta property="og:site_name" content="Diego Castillo's Blog" />
+<meta property="og:description" content="backbone-required-attributes is a view helper to enforce specific view constructor parameters. Its goal is to help designing Backbone.js views which do not perform complicated logic, but instead require to be initialized with certain paramaters in order to properly work..." />
+<!-- end of og data -->
+
+<!-- twitter cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@diegocasmo">
+<meta name="twitter:creator" content="@diegocasmo">
+<meta name="twitter:title" content="Backbone Required Attributes">
+<meta name="twitter:description" content="backbone-required-attributes is a view helper to enforce specific view constructor parameters. Its goal is to help designing Backbone.js views which do not perform complicated logic, but instead require to be initialized with certain paramaters in order to properly work...">
+<meta name="twitter:image:src" content="http://diegocasmo.me/images/diegocasmo-card.png">
+<!-- end of twitter cards -->
+
+
+  <!-- favicon -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-128.png" sizes="128x128" />
+<!-- end favicon -->
+
+
+  <!-- custom fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <!-- end custom fonts-->
+
+  <!-- custom CSS -->
+    <link rel="stylesheet" href="/styles/vendor/syntax.css">
+    <link rel="stylesheet" href="/styles/vendor/normalize.css">
+    <link rel="stylesheet" href="/styles/main.css">
+  <!-- end custom CSS -->
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="user-profile">
+  <img class="user-profile-avatar" src="/images/diegocasmo-avatar.png" alt="Diego Castillo" >
+  <h2 class="user-profile-name">Diego Castillo</h2>
+  <h4 class="user-profile-profession">Independent Software Engineer</h4>
+  <p class="user-profile-description">Passionate independent software engineer who seeks to become not only a better professional, but also a better human being every day.</p>
+</div>
+    <ul class="social-networks">
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-github" class="social-network github" href="https://github.com/diegocasmo/">
+      <i class="fa fa-github footer-social-icon"></i>
+    </a>
+  </li>
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-twitter" class="social-network twitter" href="https://twitter.com/diegocasmo">
+      <i class="fa fa-twitter footer-social-icon"></i>
+    </a>
+  </li>
+</ul>
+
+  </div>
+</div>
+<div class="center-content">
+
+  <ul class="navigation">
+  <li class="navigation-item">
+    <a data-ga="nav-home" class="navigation-link" href="/">Home</a>
+  </li>
+  <li class="navigation-item">
+    <a data-ga="nav-projects" class="navigation-link" href="/projects.html">Projects</a>
+  </li>
+</ul>
+
+  <div class="post">
+
+    <header class="post-header">
+      <h3 class="post-title">Backbone Required Attributes</h3>
+      <p class="post-meta">Jul 28, 2015</p>
+    </header>
+
+    <article class="post-content">
+      <p><a href="https://github.com/ubiqua/backbone-required-attributes">backbone-required-attributes</a> is a view helper to enforce specific view constructor parameters. Its goal is to help designing <a href="http://backbonejs.org/#View">Backbone.js views</a> which do not perform complicated logic, but instead require to be initialized with certain paramaters in order to properly work.</p>
+
+<h2>Usage</h2>
+
+<p><code>backbone-required-attributes</code> allows to define in an object literal notation the necessary information a <code>Backbone.View</code> will need in order to properly work. Ideally, the information a <code>Backbone.View</code> needs will be passed to it in an object literal notation in its <code>initialize</code> method and then validated against its expected type or instance using the <code>requiredAttrs</code> object literal. <code>backbone-required-attributes</code> internally uses <a href="http://underscorejs.org/">underscore</a> and if a value doesn&#39;t comply to its expected type or instance, a <code>console.error</code> will be logged.</p>
+
+<p>After <code>backbone-required-attributes</code> has been loaded, it can be used as follows:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">MyExampleView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+
+    <span class="nx">requiredAttrs</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s1">&#39;exampleModel&#39;</span><span class="o">:</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">,</span>
+      <span class="s1">&#39;age&#39;</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;title&#39;</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span>
+    <span class="p">}</span>
+
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">validateAttrs</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+    <span class="p">}</span>
+
+  <span class="p">});</span>
+</code></pre></div>
+<h2>Available rules</h2>
+
+<ul>
+<li><code>&#39;string&#39;</code>: Tests if object is a String.</li>
+<li><code>&#39;boolean&#39;</code>: Tests if object is either true or false.</li>
+<li><code>&#39;array&#39;</code>: Tests if object is an Array.</li>
+<li><code>&#39;number&#39;</code>: Tests if object is a Number (including NaN).</li>
+<li>If a function is provided as a rule to <code>backbone-required-attributes</code>, it will attempt to test if the value has in its prototype chain the prototype property of the constructor (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof">see more</a>). Therefore, you can also use rules such as:
+
+<ul>
+<li><code>Backbone.Router</code></li>
+<li><code>Backbone.Collection</code></li>
+<li><code>Backbone.Model</code></li>
+<li><code>Backbone.View</code></li>
+</ul></li>
+</ul>
+
+<h2>Roadmap</h2>
+
+<ul>
+<li>[ ] Log errors and warnings with specific view name.</li>
+<li>[ ] API to create custom rules.</li>
+<li>[ ] Avoid running helper on tests since it will make it difficult to test views in an isolated manner.</li>
+</ul>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'diegocasmo';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+</div>
+  <!-- scripts vendor -->
+    <script src="/scripts/vendor/modernizr.js"></script>
+    <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/scripts/analytics.js"></script>
+  <!-- end scripts vendor -->
+
+  <!-- addthis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54caa66915979525" async="async"></script>
+  <!-- end addthis -->
+
+  <!-- google analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58905822-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  <!-- end google analytics -->
+
+  </body>
+</html>
+

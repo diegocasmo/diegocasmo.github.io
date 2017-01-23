@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<title>Diego Castillo's Blog - The Basics of TypeScript</title>
+<meta name="description" content="Diego Castillo's software development blog.">
+<meta name="keywords" content="software engineer, software, developer, panama, freelance, independent">
+
+<!-- og data -->
+<meta property="og:title" content="The Basics of TypeScript" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://diegocasmo.me//typescript/2016/08/01/the-basics-of-typescript.html" />
+<meta property="og:image" content="http://diegocasmo.me/images/diegocasmo-og.png" />
+<meta property="og:site_name" content="Diego Castillo's Blog" />
+<meta property="og:description" content="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript and can be run in any web browser or in a server in a NodeJS application. TypeScript offers support for the latest and evolving JavaScript features, including those from ECMAScript 2015. Since TypeScript is a superset of Javascript..." />
+<!-- end of og data -->
+
+<!-- twitter cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@diegocasmo">
+<meta name="twitter:creator" content="@diegocasmo">
+<meta name="twitter:title" content="The Basics of TypeScript">
+<meta name="twitter:description" content="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript and can be run in any web browser or in a server in a NodeJS application. TypeScript offers support for the latest and evolving JavaScript features, including those from ECMAScript 2015. Since TypeScript is a superset of Javascript...">
+<meta name="twitter:image:src" content="http://diegocasmo.me/images/diegocasmo-card.png">
+<!-- end of twitter cards -->
+
+
+  <!-- favicon -->
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicon/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicon/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicon/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-128.png" sizes="128x128" />
+<!-- end favicon -->
+
+
+  <!-- custom fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <!-- end custom fonts-->
+
+  <!-- custom CSS -->
+    <link rel="stylesheet" href="/styles/vendor/syntax.css">
+    <link rel="stylesheet" href="/styles/vendor/normalize.css">
+    <link rel="stylesheet" href="/styles/main.css">
+  <!-- end custom CSS -->
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="user-profile">
+  <img class="user-profile-avatar" src="/images/diegocasmo-avatar.png" alt="Diego Castillo" >
+  <h2 class="user-profile-name">Diego Castillo</h2>
+  <h4 class="user-profile-profession">Independent Software Engineer</h4>
+  <p class="user-profile-description">Passionate independent software engineer who seeks to become not only a better professional, but also a better human being every day.</p>
+</div>
+    <ul class="social-networks">
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-github" class="social-network github" href="https://github.com/diegocasmo/">
+      <i class="fa fa-github footer-social-icon"></i>
+    </a>
+  </li>
+  <li class="social-network-item">
+    <a target="_blank" data-ga="social-twitter" class="social-network twitter" href="https://twitter.com/diegocasmo">
+      <i class="fa fa-twitter footer-social-icon"></i>
+    </a>
+  </li>
+</ul>
+
+  </div>
+</div>
+<div class="center-content">
+
+  <ul class="navigation">
+  <li class="navigation-item">
+    <a data-ga="nav-home" class="navigation-link" href="/">Home</a>
+  </li>
+  <li class="navigation-item">
+    <a data-ga="nav-projects" class="navigation-link" href="/projects.html">Projects</a>
+  </li>
+</ul>
+
+  <div class="post">
+
+    <header class="post-header">
+      <h3 class="post-title">The Basics of TypeScript</h3>
+      <p class="post-meta">Aug 1, 2016</p>
+    </header>
+
+    <article class="post-content">
+      <h3>Looking Forward to New Challenges</h3>
+
+<p>Recently, I started working for a new client who uses <a href="https://www.typescriptlang.org/">TypeScript</a> for both client and server side development. I had previously worked with <a href="http://coffeescript.org/">Coffeescript</a> and learning how to use TypeScript was something that I was definitely looking forward to do. There has been a lot of buzz about TypeScript in the JavaScript community; <a href="https://angular.io/">Angular 2</a> is actually written in TypeScript (even though you don’t have to use it to write Angular 2 applications).</p>
+
+<p>In this blogpost, my goal is to give you a brief introduction to TypeScript and hopefully convince you to use it for your next big project.</p>
+
+<h3>Why TypeScript?</h3>
+
+<p><a href="https://www.typescriptlang.org/">TypeScript is a typed superset of JavaScript that compiles to plain JavaScript</a> and can be run in any web browser or in a server in a NodeJS application. TypeScript offers support for the latest and evolving JavaScript features, including those from ECMAScript 2015. Since TypeScript is a superset of Javascript, it is extremely similar and it is very easy for JavaScript developers to learn how to use it. Static typing makes code safer as it helps to create applications with fewer bugs, make more predictable code, and most of the time easier to debug. TypeScript also enables faster development as IDEs and text editors that support Typescript allow to examine methods and properties in custom types. As if all of that wasn&#39;t  just enough, the TypeScript compilation step catches all kinds of errors before they reach runtime and break something.</p>
+
+<h3>Static Typing and Functions</h3>
+
+<p>TypeScript allows to define the type of variables and functions and the compiler will make sure they aren&#39;t assigned to other types in the application (if you are using and IDE or text editor with support for TypeScript, you will be warned immediately as you are writing your code):</p>
+
+<h4>Variable declaration example:</h4>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts">  <span class="c1">// &#39;dayOfTheWeek&#39; must be of type string</span>
+  <span class="kd">let</span> <span class="nx">dayOfTheWeek</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s1">&#39;Monday&#39;</span><span class="p">;</span>
+
+  <span class="c1">// Warning: Assigned expression type number is not assignable to type string</span>
+  <span class="nx">dayOfTheWeek</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<h4>Function declaration example:</h4>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts">  <span class="c1">// &#39;sumAllNumbers&#39; takes an array of numbers and must return a number</span>
+  <span class="kd">function</span> <span class="nx">sumAllNumbers</span><span class="p">(</span><span class="nx">numbers</span>: <span class="kt">number</span><span class="p">[])</span><span class="o">:</span> <span class="kt">number</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">prev</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">curr</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">prev</span> <span class="o">+</span> <span class="nx">curr</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// &#39;numbers&#39; is an array of numbers</span>
+  <span class="kr">const</span> <span class="nx">numbers</span>: <span class="kt">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+  <span class="kr">const</span> <span class="nx">totalSum</span>: <span class="kt">number</span> <span class="o">=</span> <span class="nx">sumAllNumbers</span><span class="p">(</span><span class="nx">numbers</span><span class="p">);</span>
+  <span class="c1">// TypeScript supports many ES6 features including template literals:</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">The</span> <span class="nx">total</span> <span class="nx">sum</span> <span class="nx">is</span> <span class="nx">$</span><span class="p">{</span><span class="nx">totalSum</span><span class="p">}</span><span class="err">`</span><span class="p">);</span> <span class="c1">// The total sum is 6</span>
+</code></pre></div>
+<p>As another option, you can leave out the type declaration and TypeScript will infer it for you and check if any further declaration follow the initial type of the variable. TypeScript types are only useful during development and later on completely removed when compiled to Javascript.</p>
+
+<h3>Interfaces and Classes</h3>
+
+<p>TypeScript allows to define interfaces which are the equivalent of a contract of what shape will an object have. Interfaces are useful for defining function parameters, return types, and implementing classes. A class that implements an interface must provide the code for all of the required methods and properties of the interface. Interfaces definition are completely removed when compiled to Javascript; these are only useful in the development stage.</p>
+
+<p>In the following example, I show a simple snippet of how to use both interfaces and classes with TypeScript:</p>
+<div class="highlight"><pre><code class="language-ts" data-lang="ts"><span class="c1">// Enums are useful for defining a finite</span>
+<span class="c1">// number of values that can be used</span>
+<span class="kr">enum</span> <span class="nx">Gender</span> <span class="p">{</span><span class="nx">Male</span><span class="p">,</span> <span class="nx">Female</span><span class="p">};</span>
+
+<span class="c1">// Whoever uses this interface must implement</span>
+<span class="c1">// all of its properties and methods</span>
+<span class="kr">interface</span> <span class="nx">IAnimal</span> <span class="p">{</span>
+  <span class="nx">name</span>: <span class="kt">string</span>
+  <span class="nx">gender</span>: <span class="kt">Gender</span>
+  <span class="nx">age</span>: <span class="kt">number</span>
+  <span class="nx">whoAmI</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">}</span>
+
+<span class="c1">// The &#39;Person&#39; class implements the</span>
+<span class="c1">// &#39;IAnimal&#39; interface</span>
+<span class="kr">class</span> <span class="nx">Person</span> <span class="kr">implements</span> <span class="nx">IAnimal</span> <span class="p">{</span>
+
+  <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+  <span class="nx">gender</span>: <span class="kt">Gender</span><span class="p">;</span>
+  <span class="nx">age</span>: <span class="kt">number</span><span class="p">;</span>
+
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">gender</span>: <span class="kt">Gender</span><span class="p">,</span> <span class="nx">age</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">gender</span> <span class="o">=</span> <span class="nx">gender</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">whoAmI</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">`</span><span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span> <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="nx">Gender</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">gender</span><span class="p">]}</span> <span class="o">-</span> <span class="nx">$</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">age</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">aPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s1">&#39;Diego Castillo&#39;</span><span class="p">,</span> <span class="nx">Gender</span><span class="p">.</span><span class="nx">Male</span><span class="p">,</span> <span class="mi">24</span><span class="p">);</span>
+
+<span class="nx">aPerson</span><span class="p">.</span><span class="nx">whoAmI</span><span class="p">();</span> <span class="c1">// Diego Castillo - Male - 24</span>
+</code></pre></div>
+<p>As you might have noticed, the syntax is very similar to classes in ECMAScript 2015, except that types make them more robust.</p>
+
+<h3>Type Definitions</h3>
+
+<p>Type definitions are declaration files to make JavaScript libraries compatible with TypeScript. Type definition files have the extension <code>.d.ts</code> and mainly consist of interfaces that help the TypeScript compiler type check the application code. These files do not contain any implementation details of the library they define the types for.</p>
+
+<p><a href="https://github.com/DefinitelyTyped/DefinitelyTyped">DefinitelyType</a> is probably the largest repository of type definitions right now, but there are others such as NPM packages.</p>
+
+<p>Type definitions can be installed manually, but for larger projects it is recommended to use a type definitions manager tool. A very popular tool for managing type definitions nowadays is <a href="https://github.com/typings/typings">typings</a>. Typings can resolve type definitions to the Typings Registry, GitHub, NPM, Bower, HTTP and local files. Here&#39;s a quick example of how to use the typings library:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Search for the type definitions of a particular library</span>
+typings search react-dom
+
+<span class="c"># Install one of the definitions found (dt = DefinitelyType)</span>
+typings install --global --save dt~react-dom
+</code></pre></div>
+<p>As you can see, installing and managing type definitions is very easy and similar to managing packages with NPM.</p>
+
+<h3>Conclusion</h3>
+
+<p>I hope this short blogpost has given you enough information to be excited about trying out TypeScript. I expect TypeScript usage to keep increasing, as current large and complex applications need more tools like this which enforce developers to follow consistent rules all across an application. Finally, I you are interested in learning more about TypeScript, I highly recommend the course
+<a href="https://www.pluralsight.com/courses/typescript-in-depth">TypeScript In-depth</a> from Pluralsight (this course has been incredible helpful to me while learning more about TypeScript).</p>
+
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'diegocasmo';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+</div>
+  <!-- scripts vendor -->
+    <script src="/scripts/vendor/modernizr.js"></script>
+    <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/scripts/analytics.js"></script>
+  <!-- end scripts vendor -->
+
+  <!-- addthis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54caa66915979525" async="async"></script>
+  <!-- end addthis -->
+
+  <!-- google analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58905822-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  <!-- end google analytics -->
+
+  </body>
+</html>
+
