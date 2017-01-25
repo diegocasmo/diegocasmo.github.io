@@ -1,2 +1,2 @@
 # diegocasmo.github.io
-A repository for my personal blog.
+A repository for my personal site.
