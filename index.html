@@ -21,9 +21,174 @@
   <meta name="twitter:description" content=""/>
   <meta name="twitter:image:src" content=""/>
 
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="./images/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./images/favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./images/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./images/favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="./images/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="./images/favicon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="./images/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="./images/favicon/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="./images/favicon/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="./images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="./images/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./images/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="./images/favicon/favicon-128.png" sizes="128x128" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Actor" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      min-width: 320px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Lato', sans-serif;
+    }
+    p, a, span {
+      font-family: 'Actor', sans-serif;
+    }
+    .container {
+      position: relative;
+      background-color: rgb(244, 208, 63);
+      background-image: -webkit-linear-gradient(right, rgb(22, 160, 133), rgb(244, 208, 63));
+      background-image: linear-gradient(to left, rgb(22, 160, 133), rgb(244, 208, 63));
+      width: 100%;
+      height: 100%;
+    }
+    .card-container {
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      right: 0px;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+      text-align: center;
+      width: 80%;
+      max-width: 550px;
+      margin: 0px auto;
+      padding: 15px;
+      background: #f3f3f3;
+      border-radius: 4px;
+      box-shadow: 0 0 10px 0 rgba(40,40,40,0.3);
+    }
+    .card-avatar {
+      width: 220px;
+      height: auto;
+      border-radius: 100%;
+      display: block;
+      margin: 10px auto 0px auto;
+    }
+    .card-title {
+      text-transform: uppercase;
+      color: #3a3a3a;
+      margin: 15px 0px 20px;
+    }
+    .card-description {
+      font-size: 18px;
+      color: #505050;
+    }
+    .card-link__list,
+    .social-networks__list {
+      list-style: none;
+      margin: 20px 0px;
+      padding: 0px;
+    }
+    .card_link__item,
+    .social-network__item {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .card_link__item:last-child,
+    .social-network__item:last-child {
+      margin-right: 0px;
+    }
+    .card_link__item-link {
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 4px;
+      min-width: 80px;
+      display: block;
+      text-align: center;
+      box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      background: #32a67c;
+      color: #f3f3f3;
+    }
+    .card_link__item-link:hover,
+    .card_link__item-link:focus,
+    .card_link__item-link:active {
+      text-decoration: none;
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+      background: #32a67c;
+      color: #f3f3f3;
+    }
+    .social-network__item-link {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      background: white;
+      border-radius: 100%;
+      display: block;
+      text-align: center;
+      margin: 0px;
+      padding: 0px;
+      font-size: 28px;
+      box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      background: #32a67c;
+      color: #f3f3f3;
+    }
+    .social-network__item-link:hover,
+    .social-network__item-link:focus,
+    .social-network__item-link:active {
+      text-decoration: none;
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2);
+      background: #32a67c;
+      color: #f3f3f3;
+    }
+  </style>
 </head>
 <body>
-  <p>WIP: Diego Castillo</p>
+  <div class="container">
+    <div class="card-container">
+      <img class="card-avatar"src="./images/diegocasmo.jpg" alt="diegocasmo"/>
+      <h2 class="card-title">Diego Castillo</h2>
+      <p class="card-description">Passionate independent software engineer who seeks to become not only a better professional, but also a better human being every day.</p>
+      <ul class="card-link__list">
+        <li class="card_link__item">
+          <a target="_blank" class="card_link__item-link" href="https://medium.com/@diegocasmo">Blog</a>
+        </li>
+        <li class="card_link__item">
+          <a target="_blank" class="card_link__item-link" href="https://www.upwork.com/o/profiles/users/_~0152f7923a3d9380be/">Hire me</a>
+        </li>
+      </ul>
+      <ul class="social-networks__list">
+        <li class="social-network__item">
+          <a target="_blank" class="social-network__item-link" href="https://github.com/diegocasmo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li class="social-network__item">
+          <a target="_blank" class="social-network__item-link" href="https://twitter.com/diegocasmo">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li class="social-network__item">
+          <a target="_blank" class="social-network__item-link" href="https://www.linkedin.com/in/diegocasmo">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
