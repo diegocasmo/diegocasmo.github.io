@@ -166,30 +166,51 @@
       <p class="card-description">Passionate independent software engineer who seeks to become not only a better professional, but also a better human being every day.</p>
       <ul class="card-link__list">
         <li class="card_link__item">
-          <a target="_blank" class="card_link__item-link" href="https://medium.com/@diegocasmo/latest">Blog</a>
+          <a data-ga="blog" class="card_link__item-link" href="https://medium.com/@diegocasmo/latest">Blog</a>
         </li>
         <li class="card_link__item">
-          <a target="_blank" class="card_link__item-link" href="https://www.upwork.com/o/profiles/users/_~0152f7923a3d9380be/">Hire me</a>
+          <a data-ga="hire-me" class="card_link__item-link" href="https://www.upwork.com/o/profiles/users/_~0152f7923a3d9380be/">Hire me</a>
         </li>
       </ul>
       <ul class="social-networks__list">
         <li class="social-network__item">
-          <a target="_blank" class="social-network__item-link" href="https://github.com/diegocasmo">
+          <a data-ga="social-github" class="social-network__item-link" href="https://github.com/diegocasmo">
             <i class="fa fa-github" aria-hidden="true"></i>
           </a>
         </li>
         <li class="social-network__item">
-          <a target="_blank" class="social-network__item-link" href="https://twitter.com/diegocasmo">
+          <a data-ga="social-twitter" class="social-network__item-link" href="https://twitter.com/diegocasmo">
             <i class="fa fa-twitter" aria-hidden="true"></i>
           </a>
         </li>
         <li class="social-network__item">
-          <a target="_blank" class="social-network__item-link" href="https://www.linkedin.com/in/diegocasmo">
+          <a data-ga="social-linkedin" class="social-network__item-link" href="https://www.linkedin.com/in/diegocasmo">
             <i class="fa fa-linkedin" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
     </div>
   </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-91245483-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script>
+    $(function() {
+      $('a').click(function(event) {
+        var dataGa = $(this).attr('data-ga');
+        if (dataGa) {
+          dataGa = dataGa.toLowerCase().replace(/ /g, '-');
+          ga('send', 'event', 'page', 'click', dataGa);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
