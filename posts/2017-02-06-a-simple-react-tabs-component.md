@@ -8,14 +8,11 @@ I wanted to create a very flexible tabs component. The main goal was for it to a
 
 ``` javascript
 <Tabs>
-    <Tab iconClassName={'icon-class-0'}
-         linkClassName={'link-class-0'}>
+    <Tab iconClassName={'icon-class-0'} linkClassName={'link-class-0'}>
         <p>content 0</p>
     </Tab>
-    <Tab iconClassName={'icon-class-1'}
-         linkClassName={'link-class-1'}>
-        <CustomComponent propA={'foo'}
-                         propB={this.handleSomething}/>
+    <Tab iconClassName={'icon-class-1'} linkClassName={'link-class-1'}>
+        <CustomComponent propA={'foo'} propB={this.handleSomething}/>
     </Tab>
 </Tabs>
 ```
