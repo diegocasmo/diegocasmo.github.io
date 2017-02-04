@@ -88,13 +88,13 @@ The ``<Tab/>`` component is a stateless component. Its goal is to simply render 
 ``` javascript
 export const Tab = (props) => {
     return (
-        <li className="kz-tab">
-            <a className={`kz-tab__link ${props.linkClassName} ${props.isActive ? 'active' : ''}`}
+        <li className="ab">
+            <a className={`tab__link ${props.linkClassName} ${props.isActive ? 'active' : ''}`}
                 onClick={(event) => {
                     event.preventDefault();
                     props.onClick(props.tabIndex);
                 }}>
-                <i className={`kz-tab__icon ${props.iconClassName}`}/>
+                <i className={`tab__icon ${props.iconClassName}`}/>
             </a>
         </li>
     )
