@@ -38,7 +38,8 @@ export class Tabs extends Component {
         };
         this.handleTabClick = this.handleTabClick.bind(this);
     }
-
+    
+    // Toggle currently active tab
     handleTabClick(tabIndex) {
         this.setState({
             activeTabIndex: tabIndex === this.state.activeTabIndex ? this.props.defaultActiveTabIndex : tabIndex
