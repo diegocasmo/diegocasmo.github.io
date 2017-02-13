@@ -6,7 +6,7 @@ The next algorithm in the divide-and-conquer design paradigm chapter the [book](
 
 The correctness of the merge sort algorithm is self-evident as long as a proper merge subroutine is implemented. But how can we merge two subarrays ``x`` and ``y`` into a single sorted array ``z``? The method the author proposes is by looking at the very first index of each subarray, ``x[1]`` and ``y[1]``, and whichever one is the smallest will be the very first element of the sorted array ``z``. The rest of ``z`` can then be built recursively.
 
-To analyze the running time of merge sort algorithm, we can take a look at the relation of ``a/b^d`` presented by the master method (where ``a = # recursive calls``, ``b = branching factor``, ``d = exponent of the combine step running time``), ``a`` would be equal to ``2``, ``b = 2``, and ``d = 1``, which will lead to ``a/b^d = 1``, and that corresponds to a running time of ``O(nlogn)``. In other words, the rate of work shrinkage per subproblem is equal to the rate of subproblem proliferation (same amount of work at each level of the recursion tree).
+To analyze the running time of merge sort algorithm, we can take a look at the relation of ``a/b^d`` presented by the master method (where ``a = # recursive calls``, ``b = branching factor``, ``d = exponent of the combined step running time``), ``a`` would be equal to ``2``, ``b = 2``, and ``d = 1``, which will lead to ``a/b^d = 1``, and that corresponds to a running time of ``O(nlogn)``. In other words, the rate of work shrinkage per subproblem is equal to the rate of subproblem proliferation (same amount of work at each level of the recursion tree).
 
 #### Pseudocode:
 
@@ -98,4 +98,4 @@ end
 
 ### Conclusion
 
-Just as the author explained, sorting problems immediately lend towards a divide-and-conquer approach. Next, I will be revisiting/learning more about medians, matrix multiplication, and the fast Fourier transform.
+Just as the author explained, sorting problems immediately lend towards a divide-and-conquer approach. Next, I will be revisiting medians, matrix multiplication, and the fast Fourier transform.
