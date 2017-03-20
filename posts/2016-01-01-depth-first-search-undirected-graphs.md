@@ -1,4 +1,4 @@
-Chapter 3 and 4 of the book [Algorithms by S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani](http://beust.com/algorithms.pdf) focus on graphs. A graph is specified as a set of vertices ``V`` (or nodes) and edges ``E`` between select pairs of vertices. One of the big advantages of using graphs, is that graphs provide clarity when solving problems, since they are not cluttered with irrelevant information, just the mathematical object.
+Chapter 3 and 4 of the book Algorithms by S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani focus on graphs. A graph is specified as a set of vertices ``V`` (or nodes) and edges ``E`` between selected pairs of vertices. One of the big advantages of using graphs is that graphs provide clarity when solving problems, since they are not cluttered with irrelevant information, just the mathematical object.
 
 ### Graph Representation
 A graph with ``n=|V|`` vertices ``v1,...,vn`` can be represented as a matrix (an array of ``n x n``), whose ``(i, j)th`` entry is:
@@ -13,14 +13,16 @@ By the number of edges a graph has, it can be classified as:
   - A dense graph: the number of edges is close to the maximum number of edges the graph can have
   - A sparse graph: the number of edges is close to the minimal number of edges the graph can have
 
-This is important since it plays a big role when selecting a proper data structure and algorithm to use when working with graphs. For instance, for storing the World Wide Web as graph (a Web page is a vertex, and it has edges to all the other Web pages it has a hyperlink to), it is more convenient to use an adjancency list because the World Wide Web graph is very sparse (the average Web page has hyperlinks to only about half a dozen other pages, out of billions of possibilities).
+This is important since it plays a big role when selecting a proper data structure and algorithm to use when working with graphs. For instance, for storing the World Wide Web as graph (a Web page is a vertex, and it has edges to all the other Web pages it has a hyper-link to), it is more convenient to use an adjacency list because the World Wide Web graph is very sparse (the average Web page has hyper-links to only about half a dozen other pages, out of billions of possibilities).
 
 ### Depth First Search in Undirected Graphs
-The first algorithm the author examines in Chapter 3 is depth first search in undirected graphs (in a undirected graph, vertices that are connected together have bidirectional edges). Depth first search is a linear time algorithm which essentially answers the following question:
+The first algorithm the author examines in Chapter 3 is depth first search in undirected graphs. In a undirected graph, vertices that are connected together have bidirectional edges.
+
+Depth first search is a linear time algorithm which essentially answers the following question:
 
 - What parts of the graph are reachable from a given vertex?
 
-The following implementation of the depth first search algorithm uses an adjancency list and returns all vertices of a graph which are reachable from the specified vertex.
+The following implementation of the depth first search algorithm uses an adjacency list and returns all vertices of a graph which are reachable from the specified vertex.
 
 ### Depth First Search Algorithm
 
@@ -117,4 +119,4 @@ end
 ```
 
 ### Conclusion
-Depth first search is an interesting algorithm, and as you might suspect, it is particularly well suited for inspecting if a graph is connected; if the tree returned by depth first search (also called the connected components of a graph) contains all vertices in the graph, it is connected, otherwise, it is not.
+Depth first search is an interesting algorithm, and as you might suspect, it is particularly well suited for inspecting if a graph is connected; if the tree returned by depth first search contains all vertices in the graph, it is connected, otherwise, it is not.
