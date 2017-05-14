@@ -8,7 +8,7 @@ A graph with ``n=|V|`` vertices ``v1,...,vn`` can be represented as a matrix (an
 
 In a matrix representation of a graph, the presence of a particular edge can be inspected in constant time, but it requires ``O(n^2)`` of memory space, which can be wasteful if the graph does not have many edges. Another representation of a graph is an adjacency list. It consists of ``|V|`` linked lists (one per vertex). Then, the linked list for vertex ``u`` holds the names of vertices which ``u`` has and outgoing edge. In contrast to the matrix representation, verifying the presence of a particular edge is now linear (by running down the corresponding linked list), but the memory required to store the graph is ``O(|E|)``.
 
-By the number of edges a graph has, it can be classified as:
+A graph can be classified by the number of edges it has as:
 
   - A dense graph: the number of edges is close to the maximum number of edges the graph can have
   - A sparse graph: the number of edges is close to the minimal number of edges the graph can have
