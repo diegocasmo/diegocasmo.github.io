@@ -188,7 +188,6 @@
       </ul>
     </div>
   </div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54caa66915979525" async="async"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -198,17 +197,27 @@
 
     ga('create', 'UA-91245483-1', 'auto');
     ga('send', 'pageview');
-  </script>
-  <script>
-    $(function() {
-      $('a').click(function(event) {
-        var dataGa = $(this).attr('data-ga');
-        if (dataGa) {
-          dataGa = dataGa.toLowerCase().replace(/ /g, '-');
-          ga('send', 'event', 'page', 'click', dataGa);
+
+    function findParentByTagName(element, tagName) {
+      var parent = element;
+      while (parent !== null && parent.tagName !== tagName.toUpperCase()) {
+          parent = parent.parentNode;
         }
-      });
-    });
+      return parent;
+    }
+
+    function handleAnchorClick(event) {
+      var event = event || window.event,
+          anchorTagName = 'A';
+
+      if (findParentByTagName(event.target || event.srcElement, anchorTagName)) {
+        var analyticsTag = event.target.getAttribute('data-ga');
+        ga('send', 'event', 'page', 'click', analyticsTag);
+      }
+    }
+
+    // Track click on links
+    document.documentElement.addEventListener('click', handleAnchorClick, false);
   </script>
 </body>
 </html>
