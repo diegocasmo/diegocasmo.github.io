@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:site" content="diegocasmo.github.io"/>
   <meta name="twitter:creator" content="@diegocasmo"/>
-  <meta name="twitter:title" content="Diego Castillo - Software Devloper"/>
+  <meta name="twitter:title" content="Diego Castillo - Software Developer"/>
   <meta name="twitter:description" content="Enthusiastic and detail oriented software developer interested in research related to the design of intelligent systems."/>
   <meta name="twitter:image:src" content="https://diegocasmo.github.io/images/diegocasmo.jpg"/>
 
@@ -37,8 +37,7 @@
   <link rel="icon" type="image/png" href="./images/favicon/favicon-128.png" sizes="128x128" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Actor" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     html, body {
@@ -46,15 +45,9 @@
       height: 100%;
       min-height: 100%;
       min-width: 320px;
-      background-color: #02ccb1;
-      background-image: -webkit-linear-gradient(right, #aa7ecd, #02ccb1);
-      background-image: linear-gradient(to left, #aa7ecd, #02ccb1);
     }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Lato', sans-serif;
-    }
-    p, a, span {
-      font-family: 'Actor', sans-serif;
+    h1, h2, h3, h4, h5, h6, p, a, span {
+      font-family: 'Space Mono', monospace, sans-serif;
     }
     .container {
       position: relative;
@@ -62,20 +55,10 @@
       height: 100%;
     }
     .card-container {
-      position: absolute;
-      top: 50%;
-      left: 0px;
-      right: 0px;
-      -webkit-transform: translateY(-50%);
-              transform: translateY(-50%);
-      text-align: center;
-      width: 80%;
-      max-width: 550px;
+      width: 90%;
+      max-width: 720px;
       margin: 0px auto;
-      padding: 15px;
-      background: #f3f3f3;
-      border-radius: 4px;
-      box-shadow: 0 0 10px 0 rgba(40,40,40,0.3);
+      padding: 25px 0px 15px;
     }
     .card-avatar {
       width: 220px;
@@ -87,16 +70,17 @@
     .card-title {
       text-transform: uppercase;
       color: #3a3a3a;
-      margin: 15px 0px 20px;
+      margin: 15px 0px;
     }
     .card-description {
       font-size: 18px;
       color: #505050;
+      margin: 15px 0px;
     }
     .card-link__list,
     .social-networks__list {
       list-style: none;
-      margin: 15px 0px 0px;
+      margin: 15px 0px;
       padding: 0px;
     }
     .card_link__item,
@@ -111,14 +95,14 @@
     .card_link__item-link {
       text-decoration: none;
       padding: 10px;
-      border-radius: 4px;
+      border-radius: 2px;
       min-width: 80px;
       display: block;
       text-align: center;
       box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
-      background: #2ebebd;
+      background: #282635;
       color: #f3f3f3;
     }
     .card_link__item-link:hover,
@@ -127,7 +111,7 @@
       text-decoration: none;
       -webkit-transform: scale(1.1);
               transform: scale(1.1);
-      background: #2ebebd;
+      background: #282635;
       color: #f3f3f3;
     }
     .social-network__item-link {
@@ -144,7 +128,7 @@
       box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
-      background: #2ebebd;
+      background: #282635;
       color: #f3f3f3;
     }
     .social-network__item-link:hover,
@@ -153,45 +137,73 @@
       text-decoration: none;
       -webkit-transform: scale(1.2);
               transform: scale(1.2);
-      background: #2ebebd;
+      background: #282635;
       color: #f3f3f3;
+    }
+    /* Tablet size */
+    @media only screen and (min-width: 768px) {
+      html, body {
+        background-color: #282635;
+      }
+      .vertical-align {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      .card-container {
+        left: 0px;
+        right: 0px;
+        background: #f3f3f3;
+        box-shadow: 0 0 10px 0 rgba(40,40,40,0.3);
+        padding: 15px;
+      }
+      .card-col-left {
+        left: 20px;
+      }
+      .card-col-right {
+        padding-left: 245px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="card-container">
-      <img class="card-avatar" src="./images/diegocasmo.jpg" alt="diegocasmo"/>
-      <h2 class="card-title">Diego Castillo</h2>
-      <p class="card-description">Enthusiastic and detail oriented software developer interested in research related to the design of intelligent systems. Experienced in developing robust, maintainable, verifiable, and readable code for dynamic and interactive web applications.</p>
-      <ul class="card-link__list">
-        <li class="card_link__item">
-          <a target="_blank" data-ga="blog" class="card_link__item-link" href="https://medium.com/@diegocasmo/latest">Blog</a>
-        </li>
-        <li class="card_link__item">
-          <a target="_blank" data-ga="resume" class="card_link__item-link" href="./files/resume.pdf">Resume</a>
-        </li>
-      </ul>
-      <ul class="social-networks__list">
-        <li class="social-network__item">
-          <a target="_blank" data-ga="social-github" class="social-network__item-link" href="https://github.com/diegocasmo">
-            <i class="fa fa-github" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="social-network__item">
-          <a target="_blank" data-ga="social-twitter" class="social-network__item-link" href="https://twitter.com/diegocasmo">
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li class="social-network__item">
-          <a target="_blank" data-ga="social-linkedin" class="social-network__item-link" href="https://www.linkedin.com/in/diegocasmo">
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
+    <div class="card-container vertical-align">
+      <div class="card-col-left vertical-align">
+        <img class="card-avatar" src="./images/diegocasmo.jpg" alt="diegocasmo"/>
+      </div>
+      <div class="card-col-right">
+        <h2 class="card-title">Diego Castillo</h2>
+        <p class="card-description">Enthusiastic and detail oriented software developer interested in research related to the design of intelligent systems. Experienced in developing robust, maintainable, verifiable, and readable code for dynamic and interactive web applications.</p>
+        <ul class="card-link__list">
+          <li class="card_link__item">
+            <a target="_blank" data-ga="blog" class="card_link__item-link" href="https://medium.com/@diegocasmo/latest">Blog</a>
+          </li>
+          <li class="card_link__item">
+            <a target="_blank" data-ga="resume" class="card_link__item-link" href="./files/resume.pdf">Resume</a>
+          </li>
+        </ul>
+        <ul class="social-networks__list">
+          <li class="social-network__item">
+            <a target="_blank" data-ga="social-github" class="social-network__item-link" href="https://github.com/diegocasmo">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social-network__item">
+            <a target="_blank" data-ga="social-twitter" class="social-network__item-link" href="https://twitter.com/diegocasmo">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social-network__item">
+            <a target="_blank" data-ga="social-linkedin" class="social-network__item-link" href="https://www.linkedin.com/in/diegocasmo">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54caa66915979525" async="async"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -201,17 +213,6 @@
 
     ga('create', 'UA-91245483-1', 'auto');
     ga('send', 'pageview');
-  </script>
-  <script>
-    $(function() {
-      $('a').click(function(event) {
-        var dataGa = $(this).attr('data-ga');
-        if (dataGa) {
-          dataGa = dataGa.toLowerCase().replace(/ /g, '-');
-          ga('send', 'event', 'page', 'click', dataGa);
-        }
-      });
-    });
   </script>
 </body>
 </html>
