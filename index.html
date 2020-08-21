@@ -35,176 +35,274 @@
   <link rel="icon" type="image/png" href="./images/favicon/favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="./images/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" type="image/png" href="./images/favicon/favicon-128.png" sizes="128x128" />
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     html, body {
+      font-family: 'Cardo', serif;
+      background: #FCFCFC;
       width: 100%;
       height: 100%;
       min-height: 100%;
       min-width: 320px;
     }
-    h1, h2, h3, h4, h5, h6, p, a, span {
-      font-family: 'Space Mono', monospace, sans-serif;
+    h1, h2, h3, h4, h5, h6 {
+     font-family: 'Oswald', sans-serif;
+     text-transform: uppercase;
     }
     .container {
-      position: relative;
-      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
       height: 100%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
     }
-    .card-container {
-      width: 90%;
-      max-width: 720px;
-      margin: 0px auto;
-      padding: 25px 0px 15px;
-    }
-    .card-avatar {
+    .card-avatar img {
       width: 220px;
       height: auto;
       border-radius: 100%;
       display: block;
       margin: 0px auto;
     }
-    .card-title {
-      text-transform: uppercase;
-      color: #3a3a3a;
-      margin: 15px 0px;
+    .card {
+      width: 90%;
+      max-width: 720px;
     }
-    .card-description {
-      font-size: 18px;
-      color: #505050;
-      margin: 15px 0px;
-    }
-    .card-link__list,
-    .social-networks__list {
-      list-style: none;
-      margin: 0px;
-      padding: 0px;
-    }
-    .card_link__item,
-    .social-network__item {
-      display: inline-block;
-      margin: 0px 10px 10px 0px;
-    }
-    .card_link__item:last-child,
-    .social-network__item:last-child {
-      margin-right: 0px;
-    }
-    .card_link__item-link {
+    .card-btn {
       text-decoration: none;
       padding: 10px;
       border-radius: 2px;
       min-width: 80px;
       display: block;
       text-align: center;
-      box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+      -webkit-box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+              box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+      background: #282635;
+      color: #FCFCFC;
       -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
-      background: #282635;
-      color: #f3f3f3;
     }
-    .card_link__item-link:hover,
-    .card_link__item-link:focus,
-    .card_link__item-link:active {
+    .card-btn:hover,
+    .card-btn:focus,
+    .card-btn:active {
+    -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+        transform: scale(1.1);
       text-decoration: none;
-      -webkit-transform: scale(1.1);
-              transform: scale(1.1);
       background: #282635;
-      color: #f3f3f3;
+      color: #FCFCFC;
     }
-    .social-network__item-link {
+    .card-details {
+      margin: 0px 0px 0px 15px;
+    }
+    .card-title {
+      text-transform: uppercase;
+      color: #3a3a3a;
+      margin: 15px 0px;
+    }
+    .card-about {
+      font-size: 20px;
+      color: #505050;
+      margin: 15px 0px;
+    }
+    .card-link__list,
+    .card-networks__list {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+    }
+    .card-link__item,
+    .card-network__item {
+      display: inline-block;
+      margin: 0px 10px 10px 0px;
+    }
+    .card-link__item:last-child,
+    .card-network__item:last-child {
+      margin-right: 0px;
+    }
+    .card-network__item-link {
       width: 40px;
       height: 40px;
       line-height: 40px;
-      background: white;
+      background: #FCFCFC;
       border-radius: 100%;
       display: block;
       text-align: center;
       margin: 0px;
       padding: 0px;
       font-size: 28px;
-      box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+      -webkit-box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+              box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.3);
+      background: #282635;
+      color: #FCFCFC;
       -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
-      background: #282635;
-      color: #f3f3f3;
     }
-    .social-network__item-link:hover,
-    .social-network__item-link:focus,
-    .social-network__item-link:active {
+    .card-network__item-link:hover,
+    .card-network__item-link:focus,
+    .card-network__item-link:active {
+      -webkit-transform: scale(1.1);
+              -ms-transform: scale(1.1);
+          transform: scale(1.1);
       text-decoration: none;
-      -webkit-transform: scale(1.2);
-              transform: scale(1.2);
       background: #282635;
-      color: #f3f3f3;
+      color: #FCFCFC;
     }
-    .card-col-right {
-      text-align: center;
+    .card-posts__list {
+      margin: 0px 0px 20px;
+      padding: 0px 0px 0px 18px;
+    }
+    .card-post-item {
+      margin-bottom: 7px;
+      font-size: 20px;
+    }
+    .card-post__item-link {
+      text-decoration: none;
+    }
+    .card-post__item-link:hover,
+    .card-post__item-link:focus,
+    .card-post__item-link:active {
+      text-decoration: underline;
+    }
+    .card-posts-cta {
+      width: 120px;
     }
     /* Tablet size or larger */
     @media only screen and (min-width: 640px) {
-      html, body {
-        background-color: #282635;
+      .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        width: 100%;
       }
-      .vertical-align {
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
+      .column {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
       }
-      .card-container {
-        left: 0px;
-        right: 0px;
-        background: #f3f3f3;
-        box-shadow: 0 0 10px 0 rgba(40,40,40,0.3);
-        padding: 15px;
-      }
-      .card-col-left {
-        left: 20px;
-      }
-      .card-col-right {
-        padding-left: 245px;
-        text-align: left;
+      .double-column {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+        -webkit-box-flex: 2;
+            -ms-flex: 2;
+                flex: 2;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="card-container vertical-align">
-      <div class="card-col-left vertical-align">
-        <img class="card-avatar" src="./images/diegocasmo.jpg" alt="diegocasmo"/>
+    <div class="card">
+      <div class="row">
+        <div class="column">
+          <div class="card-avatar">
+            <img src="./images/diegocasmo.jpg" alt="diegocasmo"/>
+          </div>
+        </div>
+        <div class="double-column">
+          <div class="card-details">
+            <!-- Details -->
+            <h1 class="card-title">Diego Castillo</h1>
+            <p class="card-about">Experienced and detail oriented software developer with solid knowledge of Ruby & JavaScript with over 5 years of experience building user-focused products.</p>
+
+            <!-- Resume -->
+            <ul class="card-link__list">
+              <li class="card-link__item">
+                <a target="_blank" class="card-btn" href="./files/cv.pdf">Resume</a>
+              </li>
+            </ul>
+
+            <!-- Social networks -->
+            <ul class="card-networks__list">
+              <li class="card-network__item">
+                <a target="_blank" class="card-network__item-link" href="https://github.com/diegocasmo">
+                  <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="card-network__item">
+                <a target="_blank" class="card-network__item-link" href="https://twitter.com/diegocasmo">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="card-network__item">
+                <a target="_blank" class="card-network__item-link" href="https://www.linkedin.com/in/diegocasmo">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
       </div>
-      <div class="card-col-right">
-        <h2 class="card-title">Diego Castillo</h2>
-        <p class="card-description">Experienced and detail oriented software developer with solid knowledge of Ruby & JavaScript with over 5 years of experience building user-focused products.</p>
-        <ul class="card-link__list">
-          <li class="card_link__item">
-            <a target="_blank" class="card_link__item-link" href="https://medium.com/@diegocasmo">Blog</a>
-          </li>
-          <li class="card_link__item">
-            <a target="_blank" class="card_link__item-link" href="./files/cv.pdf">CV</a>
-          </li>
-        </ul>
-        <ul class="social-networks__list">
-          <li class="social-network__item">
-            <a target="_blank" class="social-network__item-link" href="https://github.com/diegocasmo">
-              <i class="fa fa-github" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li class="social-network__item">
-            <a target="_blank" class="social-network__item-link" href="https://twitter.com/diegocasmo">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li class="social-network__item">
-            <a target="_blank" class="social-network__item-link" href="https://www.linkedin.com/in/diegocasmo">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="double-column">
+          <h2>Latest blog posts</h2>
+
+          <!-- Blog posts -->
+          <ol class="card-posts__list">
+            <li class="card-post-item">
+              <a target="_blank" class="card-post__item-link" href="https://medium.com/@diegocasmo/using-postgres-enum-type-in-rails-799db99117ff">
+                Using Postgres Enum Type in Rails
+              </a>
+            </li>
+            <li class="card-post-item">
+              <a target="_blank" class="card-post__item-link" href="https://medium.com/@diegocasmo/using-active-support-concerns-to-encapsulate-data-access-and-validation-e57ac46f34cd">
+                Using Active Support Concerns to Encapsulate Data Access and Validation
+              </a>
+            </li>
+            <li class="card-post-item">
+              <a target="_blank" class="card-post__item-link" href="https://medium.com/swlh/okrs-as-a-framework-for-personal-growth-5b1d5de35d10">
+                OKRs as a Framework for Personal Growth
+              </a>
+            </li>
+            <li class="card-post-item">
+              <a target="_blank" class="card-post__item-link" href="https://medium.com/@diegocasmo/iam-dataset-writer-recognition-using-a-cnn-b3fe32774cb9">
+                IAM Dataset Writer Recognition Using a CNN
+              </a>
+            </li>
+          </ol>
+
+          <a target="_blank" class="card-posts-cta card-btn" href="https://medium.com/@diegocasmo">Read more</a>
+        </div>
       </div>
     </div>
   </div>
