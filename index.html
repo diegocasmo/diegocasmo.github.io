@@ -51,6 +51,13 @@
      font-family: 'Oswald', sans-serif;
      text-transform: uppercase;
     }
+    .card {
+      height: 100%;
+      height: auto;
+      margin: 0px auto;
+      max-width: 720px;
+      width: 90%;
+    }
     .card-avatar img {
       width: 220px;
       height: auto;
@@ -58,12 +65,8 @@
       display: block;
       margin: 0px auto;
     }
-    .card {
-      height: 100%;
-      height: auto;
-      margin: 20px auto 40px auto;
-      max-width: 720px;
-      width: 90%;
+    .card-avatar {
+      margin-top: 30px;
     }
     .card-btn {
       text-decoration: none;
@@ -158,6 +161,7 @@
     }
     .card-posts-cta {
       width: 120px;
+      margin-bottom: 30px;
     }
     /* Tablet size or larger */
     @media only screen and (min-width: 640px) {
@@ -225,8 +229,14 @@
       .card {
         height: auto;
       }
+      .card-avatar {
+        margin-top: 0px;
+      }
       .card-details {
         margin: 0px 0px 0px 15px;
+      }
+      .card-posts-cta {
+        margin-bottom: 0px;
       }
     }
   </style>
