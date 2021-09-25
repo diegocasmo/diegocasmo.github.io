@@ -18,6 +18,8 @@ const Seo = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
+            siteUrl
+            image
             social {
               twitter
             }
@@ -29,6 +31,8 @@ const Seo = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const siteUrl = site.siteMetadata?.siteUrl
+  const image = site.siteMetadata?.image
 
   return (
     <Helmet
@@ -40,7 +44,7 @@ const Seo = ({ description, lang, meta, title }) => {
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+            content: metaDescription,
         },
         {
           property: `og:title`,
@@ -70,7 +74,18 @@ const Seo = ({ description, lang, meta, title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ].concat(
+        [
+          {
+            property: 'og:image',
+            content: `${siteUrl}${image}`,
+          },
+          {
+            name: 'twitter:image',
+            content: `${siteUrl}${image}`,
+          },
+        ]
+      ).concat(meta)}
     />
   )
 }
