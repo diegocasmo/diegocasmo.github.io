@@ -4,8 +4,6 @@ title: An Introduction to Data Mining
 date: 2016-03-07
 ---
 
-### Extracting Meaningful Information from Data
-
 Decision making might be one of the most common yet more difficult things to do. When doing so, we have to make sure we are being as objective as possible and confirm our hypothesis about the given situation is correct. One way to do this is by analyzing data about the desired scenarios to later on translate these into specific actionable. At [Ubiqua](http://www.ubiqua.me/), we had the opportunity to help the product development decision making process by analyzing the comments section of one of our products. We wanted to be able to:
 
 - Find and objectively prioritize problems (or opportunities) which our application failed to solve.

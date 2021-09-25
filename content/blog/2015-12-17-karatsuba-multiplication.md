@@ -4,7 +4,6 @@ title: The Karatsuba Multiplication Algorithm
 date: 2015-12-17
 ---
 
-### Back to basics
 Over the past few months, I have developed an interest for Artificial Intelligence (specifically Machine Learning in the form of data mining). Because of this, I have decided I will start off by reviewing (while learning some new things as well) the fundamentals of computer science (data structures and algorithms), before diving into data mining itself. To do this, I will be reading the book [Algorithms by S. Dasgupta, C. H. Papadimitriou, and U. V. Vazirani](http://beust.com/algorithms.pdf). If you would like to read it, keep in mind it does have a [few mistakes](http://cseweb.ucsd.edu/~dasgupta/book/errata.pdf), thus I recommend correcting them before you start reading.
 
 ### Divide-and-conquer

@@ -4,7 +4,6 @@ title: Getting Started With Acceptance Testing
 date: 2016-01-18
 ---
 
-### A Larger Product and Team
 At [Ubiqua](http://www.ubiqua.me/), as we started to grow both our product and engineering team, we realized some things had to be re-prioritized and fixed. Some of the problems we were having were:
 
 - Onboarding for new developers took more time than we desired. This was mainly being cause by legacy code and the bad documentation of features and processes.
