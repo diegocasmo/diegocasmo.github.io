@@ -16,8 +16,6 @@ const Bio = () => {
         width={50}
       />
       <p>
-        Experienced software engineer with solid knowledge of Ruby & JavaScript ⚒️.
-        <br/>
         Amateur explorer, professional thinker 🤔.
         <br/>
         Frontend Engineer <a target="blank" rel="noopener" href="https://twitter.com/remote">@remote</a>.
