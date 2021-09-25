@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Diego Castillo]]></title><description><![CDATA[Experienced software engineer with solid knowledge of Ruby & JavaScript]]></description><link>https://diegocasmo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Sep 2021 19:42:03 GMT</lastBuildDate><item><title><![CDATA[OKRs as a Framework for Personal Growth]]></title><description><![CDATA[A couple of years ago I worked for a company where Objectives and
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Diego Castillo]]></title><description><![CDATA[Experienced software engineer with solid knowledge of Ruby & JavaScript]]></description><link>https://diegocasmo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Sep 2021 20:01:19 GMT</lastBuildDate><item><title><![CDATA[OKRs as a Framework for Personal Growth]]></title><description><![CDATA[A couple of years ago I worked for a company where Objectives and
 Key Results (OKRs) were used
 as a framework to track objectives and key…]]></description><link>https://diegocasmo.github.io/2019-08-19-okrs-as-a-framework-for-personal-growth/</link><guid isPermaLink="false">https://diegocasmo.github.io/2019-08-19-okrs-as-a-framework-for-personal-growth/</guid><pubDate>Mon, 19 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A couple of years ago I worked for a company where &lt;a href=&quot;https://en.wikipedia.org/wiki/OKR&quot;&gt;Objectives and
 Key Results&lt;/a&gt; (OKRs) were used
@@ -71,7 +71,28 @@ been a complete game changer. OKRs is the one framework that has
 allowed me to do so consistently for the past three years.&lt;/p&gt;
 &lt;p&gt;How do you hold yourself accountable for your personal growth? Leave
 a comment below if you do, I would love to read more about others’
-approach to personal growth!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Convolutional Neural Networks For Galaxy Morphology Classification]]></title><description><![CDATA[Last semester a group of classmates and I had the opportunity to
+approach to personal growth!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[IAM Dataset Writer Recognition Using a CNN]]></title><description><![CDATA[During the past few days I have been studying how to identify the
+author of a text based on their writing styles. Fortunately, I found
+the…]]></description><link>https://diegocasmo.github.io/2018-11-09-iam-dataset-writer-recognition-using-a-cnn/</link><guid isPermaLink="false">https://diegocasmo.github.io/2018-11-09-iam-dataset-writer-recognition-using-a-cnn/</guid><pubDate>Fri, 09 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;During the past few days I have been studying how to identify the
+author of a text based on their writing styles. Fortunately, I found
+the
+&lt;a href=&quot;https://github.com/priya-dwivedi/Deep-Learning/tree/master/handwriting_recognition&quot;&gt;“handwriting_recognition”&lt;/a&gt;
+Jupyter notebook by &lt;a href=&quot;https://github.com/priya-dwivedi&quot;&gt;“Priyanka Dwivedi”&lt;/a&gt;,
+which uses the method explained in the paper &lt;a href=&quot;https://arxiv.org/abs/1606.06472&quot;&gt;“DeepWriter: A
+Multi-Stream Deep CNN for Text-independent Writer
+Identification”&lt;/a&gt; to solve this
+problem.&lt;/p&gt;
+&lt;p&gt;I had some issues while trying to understand the notebook, as it
+lacks specific instructions on how to setup the dataset and how
+exactly the data parsing is done. As a result, I decided to rewrite
+the notebook step-by-step to improve my own understanding of the
+method, and hopefully help others who wish to do the same.&lt;/p&gt;
+&lt;p&gt;The code and instructions on how to set it up can be found in the
+&lt;a href=&quot;https://github.com/diegocasmo/iam_writer_recognition&quot;&gt;“iam_writer_recognition”&lt;/a&gt;
+repository. I have tried to explain each step during the process
+as clearly as possible, as well as to provide visual examples of
+what the code is doing at each step. Let me know if you have any
+questions or suggestions on how to improve it.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Convolutional Neural Networks For Galaxy Morphology Classification]]></title><description><![CDATA[Last semester a group of classmates and I had the opportunity to
 tackle the “Galaxy Zoo
 Challenge” by
 Kaggle as a project for a machine…]]></description><link>https://diegocasmo.github.io/2018-10-24-convolutional-neural-networks-for-galaxy-morphology-classification/</link><guid isPermaLink="false">https://diegocasmo.github.io/2018-10-24-convolutional-neural-networks-for-galaxy-morphology-classification/</guid><pubDate>Wed, 24 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last semester a group of classmates and I had the opportunity to
