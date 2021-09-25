@@ -4,8 +4,6 @@ title: The Basics of TypeScript
 date: 2016-08-01
 ---
 
-### Looking Forward to New Challenges
-
 Recently, I started working for a new client who uses [TypeScript](https://www.typescriptlang.org/) for both client and server side development. I had previously worked with [Coffeescript](http://coffeescript.org/) and learning how to use TypeScript was something that I was definitely looking forward to do. There has been a lot of buzz about TypeScript in the JavaScript community; [Angular 2](https://angular.io/) is actually written in TypeScript (even though you don’t have to use it to write Angular 2 applications).
 
 In this blogpost, my goal is to give you a brief introduction to TypeScript and hopefully convince you to use it for your next big project.

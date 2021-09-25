@@ -4,7 +4,6 @@ title: Using React's Context to Pass Variables From the Server to the Client
 date: 2016-10-24
 ---
 
-### Adding New Features To An Existing Application
 I recently got hired by I client to create a new functionality for a single page application. The client wanted the marketing team of the company to be able to easily change the landing page content. The landing page was already built with ``React`` using [isomorphic/universal rendering](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/) and the ability to edit and save the page content was also already in place and saved in a database.
 
 The problem I had to solve was how to pass variables (containing the data necessary for rendering the page) from the server to the client in an application using [react-router](https://github.com/ReactTraining/react-router) without loosing the benefits of isomorphic rendering. Initially, this seemed to me as a very easy task, but as I will later explain, the fact that the application was built with isomorphic rendering made this task an opportunity to learn something new.
