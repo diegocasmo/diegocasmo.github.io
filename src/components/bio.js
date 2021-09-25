@@ -6,8 +6,6 @@ const Bio = () => {
     <div className="bio">
       <StaticImage
         className="bio-avatar"
-        layout="fixed"
-        formats={["auto", "webp", "avif"]}
         src="../images/avatar.png"
         width={50}
         height={50}
