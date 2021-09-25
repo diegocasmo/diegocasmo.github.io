@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Diego Castillo]]></title><description><![CDATA[Experienced software engineer with solid knowledge of Ruby & JavaScript]]></description><link>https://diegocasmo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Sep 2021 16:17:34 GMT</lastBuildDate><item><title><![CDATA[OKRs as a Framework for Personal Growth]]></title><description><![CDATA[A couple of years ago I worked for a company where Objectives and
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Diego Castillo]]></title><description><![CDATA[Experienced software engineer with solid knowledge of Ruby & JavaScript]]></description><link>https://diegocasmo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Sep 2021 19:42:03 GMT</lastBuildDate><item><title><![CDATA[OKRs as a Framework for Personal Growth]]></title><description><![CDATA[A couple of years ago I worked for a company where Objectives and
 Key Results (OKRs) were used
 as a framework to track objectives and key…]]></description><link>https://diegocasmo.github.io/2019-08-19-okrs-as-a-framework-for-personal-growth/</link><guid isPermaLink="false">https://diegocasmo.github.io/2019-08-19-okrs-as-a-framework-for-personal-growth/</guid><pubDate>Mon, 19 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A couple of years ago I worked for a company where &lt;a href=&quot;https://en.wikipedia.org/wiki/OKR&quot;&gt;Objectives and
 Key Results&lt;/a&gt; (OKRs) were used
@@ -71,7 +71,141 @@ been a complete game changer. OKRs is the one framework that has
 allowed me to do so consistently for the past three years.&lt;/p&gt;
 &lt;p&gt;How do you hold yourself accountable for your personal growth? Leave
 a comment below if you do, I would love to read more about others’
-approach to personal growth!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[A Simple React <Tabs/> Component]]></title><description><![CDATA[A client of mine recently gave me the task to code a feature which included designing tabs similar to those of Bootstrap. The client side of…]]></description><link>https://diegocasmo.github.io/2017-02-06-a-simple-react-tabs-component/</link><guid isPermaLink="false">https://diegocasmo.github.io/2017-02-06-a-simple-react-tabs-component/</guid><pubDate>Mon, 06 Feb 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A client of mine recently gave me the task to code a feature which included designing tabs similar to &lt;a href=&quot;https://codepen.io/wizly/pen/BlKxo/&quot;&gt;those of Bootstrap&lt;/a&gt;. The client side of such project was built using React and I initially thought about using the &lt;a href=&quot;https://github.com/reactjs/react-tabs&quot;&gt;react-tabs&lt;/a&gt; library, but later on decided to implement it myself as it was a very simple requirement and I wanted to have complete control of how it worked.&lt;/p&gt;
+approach to personal growth!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Convolutional Neural Networks For Galaxy Morphology Classification]]></title><description><![CDATA[Last semester a group of classmates and I had the opportunity to
+tackle the “Galaxy Zoo
+Challenge” by
+Kaggle as a project for a machine…]]></description><link>https://diegocasmo.github.io/2018-10-24-convolutional-neural-networks-for-galaxy-morphology-classification/</link><guid isPermaLink="false">https://diegocasmo.github.io/2018-10-24-convolutional-neural-networks-for-galaxy-morphology-classification/</guid><pubDate>Wed, 24 Oct 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last semester a group of classmates and I had the opportunity to
+tackle the &lt;a href=&quot;https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge&quot;&gt;“Galaxy Zoo
+Challenge”&lt;/a&gt; by
+Kaggle as a project for a machine learning course. We had quite a
+lot of fun, and ended up getting a Top 100 score. As a result, I
+thought it would be beneficial for others to make our report and
+results available. The full report is &lt;a href=&quot;https://diegocasmo.github.io/convolutional-neural-networks-for-galaxy-morphology-classification.pdf&quot;&gt;available
+here&lt;/a&gt;,
+and below I have provided its abstract:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In 2014, Kaggle organized the Galaxy Zoo challenge to analyze images of galaxies from the Sloan Digital Sky Survey in order to automate the tagging of morphological attributes. For a machine to automatically learn the features directly from data, a deep convolutional neural network was implemented based on an existing architecture that placed highly in a competitive image classification competition a number of years prior. The dataset consisted of 79975 test images and 61578 training images which were cropped and downsampled for dimensionality reduction and memory efficiency. The model was trained with a variety of batch sizes and input formats. These input formats included further dimensionality reductions, data augmentation, and color space conversions. One of the methods ultimately attained a Top 100 score on the Kaggle leaderboards. Further advances can be done to improve the performance of the model by tuning other hyper-parameters such as learning rate and number of epochs.&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[A Short List of Good Practices in Programming]]></title><description><![CDATA[Writing software is more than simply creating an application that
+fulfills its requirements; it has to be created to be maintainable,
+robust…]]></description><link>https://diegocasmo.github.io/2017-07-10-a-short-list-of-good-practices-in-programming/</link><guid isPermaLink="false">https://diegocasmo.github.io/2017-07-10-a-short-list-of-good-practices-in-programming/</guid><pubDate>Mon, 10 Jul 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Writing software is more than simply creating an application that
+fulfills its requirements; it has to be created to be maintainable,
+robust, verifiable, and readable, among many other things. Because
+of this, we as developers need to constantly strive to learn and
+find new ways that can help create better code, and ultimately, a
+better software application.&lt;/p&gt;
+&lt;p&gt;The goal of this blog post is to list a few good programming practices
+than can improve your code. This list is not by any means exhaustive
+(there are entire books written about this very topic). That being
+said, I have focused on listing good programming practices that
+have had the greatest impact on the quality of the code I write.&lt;/p&gt;
+&lt;h3&gt;Test Driven Development (TDD)&lt;/h3&gt;
+&lt;p&gt;Writing tests first offers many advantages such as verifiability,
+regression prevention, and documentation, among others. But one of
+my favorites is that it introduces a “user” of the code that will
+be written.&lt;/p&gt;
+&lt;p&gt;A test itself can be thought as a user of some code that will
+eventually be written, and as a result of it, writing code using
+the tests first approach enforces good design of code. This means
+that code written using TDD is usually better designed as writing
+the tests first forces the developer to write code that is easy to
+test, which is usually well designed code.&lt;/p&gt;
+&lt;p&gt;It is worth pointing out that TDD should be used together with
+Behavior Driven Development (BDD). TDD usually relies too much on
+the specific implementation a developer decided to use, while BDD
+instead tests the behavior of the code. This is specially useful
+while refactoring, as you can still be able to tell if the new code
+correctly implements the required behavior of the old code, without
+having to update any behavior tests at all.&lt;/p&gt;
+&lt;h3&gt;Use Pure Functions&lt;/h3&gt;
+&lt;p&gt;A pure function is defined as a method which, given the same input,
+will always return the same output and depend on no external mutable
+state. Pure functions offer a variety of benefits such as no side
+effects, ease of testing, ease of debugging, etc.&lt;/p&gt;
+&lt;p&gt;To illustrate pure functions, let us consider the following example:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; numbers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sortedNumbers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; numbers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// [1, 3, 5]&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sortedNumbers&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// [1, 3, 5]&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;numbers &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; sortedNumbers&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Array&lt;/code&gt; sort method is an impure function as it mutates the
+original array on which it is executed. This could lead to hard-to-find
+bugs, as the application would not necessarily always want to have
+the array of &lt;code class=&quot;language-text&quot;&gt;numbers&lt;/code&gt; in that particular order. A pure implementation
+in ES6 would instead look like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sortArray&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; compareFunction &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;compareFunction&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; numbers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; sortedNumbers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sortArray&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;numbers&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// [5, 3, 1]&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sortedNumbers&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// [1, 3, 5]&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;numbers &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; sortedNumbers&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The example above does not mutate the &lt;code class=&quot;language-text&quot;&gt;numbers&lt;/code&gt; array anymore. In
+addition to that, it allows passing of an optional sort method to
+specify how to sort the array, which makes the &lt;code class=&quot;language-text&quot;&gt;sortArray&lt;/code&gt; method
+more reusable.&lt;/p&gt;
+&lt;p&gt;A related point to consider is favoring the use of functional
+programming. Functional programming is a declarative software
+programming paradigm and it avoids changing state and mutable data.
+There are many concepts to functional programming other than pure
+functions, but the use of it will enforce code that uses pure
+functions.&lt;/p&gt;
+&lt;h3&gt;Single Source of Truth (SSOT)&lt;/h3&gt;
+&lt;p&gt;The concept of a single source of truth refers to the idea of storing
+application data in only one place. Any other link to a specific
+piece of information is simply done by reference, and thus this
+approach can help to both avoid data synchronization issues and
+create a clearer separation of data and its representation.&lt;/p&gt;
+&lt;p&gt;SSOT can also be applied to other endeavors outside of software
+development, such as to an organization or product development.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;boolean&lt;/code&gt; variables should be named positively and contain &lt;code class=&quot;language-text&quot;&gt;is&lt;/code&gt;
+which implies &lt;code class=&quot;language-text&quot;&gt;true/false&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Naming &lt;code class=&quot;language-text&quot;&gt;boolean&lt;/code&gt; variables positively helps to avoid double negatives
+which are more complicated to understand. Consider the following
+example in English:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;You can&apos;t see no one in this crowd&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This sentence actually means you can see everyone in this crowd,
+but it is difficult to understand because it is written negatively.
+Let us now consider another example, but this time written in
+JavaScript:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; inactive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;inactive&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;is active&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This piece of code can be easily improved by applying the concepts
+from above. First, let us add the word &lt;code class=&quot;language-text&quot;&gt;is&lt;/code&gt; to the name of the
+variable, in order to imply &lt;code class=&quot;language-text&quot;&gt;true/false&lt;/code&gt;, and finally let us rename
+it to &lt;code class=&quot;language-text&quot;&gt;active&lt;/code&gt;, so that it is written positively:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isActive &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;isActive&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;is active&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This modified version is far easier to understand and read than the
+one written negatively. Always favor naming boolean variables
+positively and include &lt;code class=&quot;language-text&quot;&gt;is&lt;/code&gt; to imply &lt;code class=&quot;language-text&quot;&gt;true/false&lt;/code&gt;. With relatively
+low effort, this good practice will tremendously improve the
+readability of your code.&lt;/p&gt;
+&lt;h3&gt;Favor the Verb-noun Approach for Naming Methods&lt;/h3&gt;
+&lt;p&gt;Naming things is one of those problems that have haunted software
+developers for quite a long time. That being said, there are a few
+tricks developers can use to alleviate this issue, and one that has
+worked good for me is the verb-noun approach for naming methods.&lt;/p&gt;
+&lt;p&gt;When naming a method, start by describing the action it will perform
+with a verb, such as &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;set&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;, or &lt;code class=&quot;language-text&quot;&gt;render&lt;/code&gt;. After
+the action the method will perform has been specified, include a
+description of the value the method will return or update such as
+&lt;code class=&quot;language-text&quot;&gt;getInvestmentTotal(...args)&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;renderHeader(...args)&lt;/code&gt;, or
+&lt;code class=&quot;language-text&quot;&gt;saveUserAvatar(...args)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Using the verb-noun approach will help other developers to more
+clearly understand the code you have written and save them time by
+letting them understand what the method does without having to read
+its implementation.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;In this blog post, I have listed a few good programming practices
+that have helped me improve the quality of the code I write. As
+mentioned in the introduction, there are entire books written about
+this topic, and thus I have limited myself to only list those good
+practices that have had the greatest impact for me as a developer.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[A Simple React <Tabs/> Component]]></title><description><![CDATA[A client of mine recently gave me the task to code a feature which included designing tabs similar to those of Bootstrap. The client side of…]]></description><link>https://diegocasmo.github.io/2017-02-06-a-simple-react-tabs-component/</link><guid isPermaLink="false">https://diegocasmo.github.io/2017-02-06-a-simple-react-tabs-component/</guid><pubDate>Mon, 06 Feb 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A client of mine recently gave me the task to code a feature which included designing tabs similar to &lt;a href=&quot;https://codepen.io/wizly/pen/BlKxo/&quot;&gt;those of Bootstrap&lt;/a&gt;. The client side of such project was built using React and I initially thought about using the &lt;a href=&quot;https://github.com/reactjs/react-tabs&quot;&gt;react-tabs&lt;/a&gt; library, but later on decided to implement it myself as it was a very simple requirement and I wanted to have complete control of how it worked.&lt;/p&gt;
 &lt;p&gt;The goal of this blog post is to share and explain the code I created to built such functionality. Thus, giving you an alternative if one day you need to create a similar component without having to include yet another dependency to your project.&lt;/p&gt;
 &lt;h3&gt;The Gist&lt;/h3&gt;
 &lt;p&gt;I wanted to create a very flexible tabs component. The main goal was for it to allow any valid &lt;code class=&quot;language-text&quot;&gt;jsx&lt;/code&gt; to be rendered inside a tab. I wanted it to look something like this:&lt;/p&gt;
