@@ -7,7 +7,7 @@ module.exports = {
     },
     description: `Experienced software engineer with solid knowledge of Ruby & JavaScript`,
     siteUrl: `https://diegocasmo.github.io/`,
-    image: `/images/avatar.png`,
+    image: `/avatar.png`,
     social: {
       twitter: `diegocasmo`,
     },
