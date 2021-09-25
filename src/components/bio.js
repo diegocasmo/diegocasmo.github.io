@@ -5,12 +5,15 @@ const Bio = () => {
   return (
     <div className="bio">
       <StaticImage
+        alt="Profile picture"
         className="bio-avatar"
+        formats={["auto", "webp", "avif"]}
+        height={50}
+        imgStyle={{ borderRadius: '100%' }}
+        layout="fixed"
+        quality={95}
         src="../images/avatar.png"
         width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
       />
       <p>
         Experienced software engineer with solid knowledge of Ruby & JavaScript ⚒️.
