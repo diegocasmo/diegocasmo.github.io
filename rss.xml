@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Diego Castillo]]></title><description><![CDATA[Experienced software engineer with solid knowledge of Ruby & JavaScript]]></description><link>https://diegocasmo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 26 Sep 2021 16:56:33 GMT</lastBuildDate><item><title><![CDATA[Create a Simple React <Timer/> Component]]></title><description><![CDATA[I have recently been developing a workout application during my spare time. One of the requirements I set for it was to create a timer so…]]></description><link>https://diegocasmo.github.io/2020-10-18-create-a-simple-react-timer-component/</link><guid isPermaLink="false">https://diegocasmo.github.io/2020-10-18-create-a-simple-react-timer-component/</guid><pubDate>Fri, 18 Oct 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I have recently been developing a workout application during my spare time. One of the requirements I set for it was to create a timer so that users could keep track of their workouts. The primary goal was to build a timer which featured a way to “play”, “pause”, and “stop” a workout. Additionally, it would need to store enough information so that questions such as “How much time did the user take to complete the exercise?” or “How much time did it take to complete the entire workout?” could be answered.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Diego Castillo]]></title><description><![CDATA[Experienced software engineer with solid knowledge of Ruby & JavaScript]]></description><link>https://diegocasmo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 26 Sep 2021 17:00:20 GMT</lastBuildDate><item><title><![CDATA[Create a Simple React <Timer/> Component]]></title><description><![CDATA[I have recently been developing a workout application during my spare time. One of the requirements I set for it was to create a timer so…]]></description><link>https://diegocasmo.github.io/2020-10-18-create-a-simple-react-timer-component/</link><guid isPermaLink="false">https://diegocasmo.github.io/2020-10-18-create-a-simple-react-timer-component/</guid><pubDate>Fri, 18 Oct 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I have recently been developing a workout application during my spare time. One of the requirements I set for it was to create a timer so that users could keep track of their workouts. The primary goal was to build a timer which featured a way to “play”, “pause”, and “stop” a workout. Additionally, it would need to store enough information so that questions such as “How much time did the user take to complete the exercise?” or “How much time did it take to complete the entire workout?” could be answered.&lt;/p&gt;
 &lt;p&gt;In this blog post, I will explain a simple implementation of a timer component in React that can be extended to answer the aforementioned questions. At the end, there are links to a CodeSandbox demo and the GitHub repository of the code.&lt;/p&gt;
 &lt;h2&gt;The Plan 💡&lt;/h2&gt;
 &lt;p&gt;The main idea was to create an entity which would allow to store all the information that is needed. This entity would store when it started,  paused, and for how much time it ran. Let’s call this entity a “time entry” and define it as follows:&lt;/p&gt;
@@ -201,80 +201,7 @@
   &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Conclusion 🤝&lt;/h2&gt;
-&lt;p&gt;Alright, that was a bit longer than I anticipated. The idea of using time entries to store the timer’s state can be extended to include more information in each time entry, and thus be able to answer questions such as the ones I posted in the introduction. There’s a &lt;a href=&quot;https://codesandbox.io/s/react-timer-app-siyh4&quot;&gt;CodeSandbox demo&lt;/a&gt; of the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Timer/&gt;&lt;/code&gt; component and also a &lt;a href=&quot;https://github.com/diegocasmo/react-timer-app&quot;&gt;GitHub repo&lt;/a&gt; with all the code needed. Post a comment below if you have a question or idea to share 🙂.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[OKRs as a Framework for Personal Growth]]></title><description><![CDATA[A couple of years ago I worked for a company where Objectives and
-Key Results (OKRs) were used
-as a framework to track objectives and key…]]></description><link>https://diegocasmo.github.io/2019-08-19-okrs-as-a-framework-for-personal-growth/</link><guid isPermaLink="false">https://diegocasmo.github.io/2019-08-19-okrs-as-a-framework-for-personal-growth/</guid><pubDate>Mon, 19 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A couple of years ago I worked for a company where &lt;a href=&quot;https://en.wikipedia.org/wiki/OKR&quot;&gt;Objectives and
-Key Results&lt;/a&gt; (OKRs) were used
-as a framework to track objectives and key results (well, duh!).
-As I researched and learned more about the framework, I asked myself
-“companies keep track of business because it helps improve visibility
-of what is going on and thus increase their chance of success. Is
-it possible to use OKRs for personal growth?” Sure, you could argue
-keeping track of money is certainly easier than keeping track of
-happiness/health, but a quick search for &lt;a href=&quot;https://duckduckgo.com/?q=okrs+for+personal+growth&amp;#x26;ia=web&quot;&gt;OKRs for personal
-growth&lt;/a&gt; allowed
-me to realize I wasn’t alone in this camp. I have now being using
-OKRs as a framework for personal growth for three years, and it is
-by far the most important tool I use to align my goals with my
-day-to-day actions.&lt;/p&gt;
-&lt;p&gt;In this short blog post, I’ll share my experience
-with OKRs during the past three years. I hope it can help you to
-learn from my mistakes and consider systematically tracking progress
-towards your goals if not already doing it.&lt;/p&gt;
-&lt;p&gt;Initially, I used OKRs as a framework to hold myself accountable
-for professional continuous learning. I work as a software developer,
-and as such, I like to keep myself up-to-date with new trends/technologies
-as well as study well established software concepts. As I gained
-more confidence and got used to &lt;strong&gt;measuring my actions&lt;/strong&gt;, I started
-to create objectives and key results related to health, music,
-reading, and other areas of life I wanted to become better at. Only
-once I started to measure my progress towards these goals I was
-able to realize that I wasn’t doing what I actually wanted to do
-(pretty dumb, right?). How was I supposed to become a better jazz
-guitar player if I didn’t put enough hours of practice? How was I
-going to ever increase my squat if I wasn’t actually training? This
-was a weird but important realization for me. OKRs gave me the
-&lt;strong&gt;visibility&lt;/strong&gt; I needed to better understand my actions and evaluate
-how these were related to my goals.&lt;/p&gt;
-&lt;p&gt;It didn’t take long to learn motivation is overrated. While effective
-when present, consistency and discipline are far more powerful
-tools. OKRs taught me that a &lt;strong&gt;structured path and consistency&lt;/strong&gt;
-were the most important tools to achieve success. This is basically
-what schools and other institutions do for us. We delegate to these
-institutions the creation and evaluation of a curriculum that will
-allows us to gain the required knowledge to become a professional
-in some area. Only issue though, is that once we are done with these
-institutions, it is up to us to create a “curriculum” and evaluate
-whether we are making progress towards our personal and professional
-goals.&lt;/p&gt;
-&lt;p&gt;Using OKRs as a framework to track my personal growth eventually
-led me to realize I wanted to do too many things. I was simply
-unable to fit in my schedule the tasks that needed to be done in
-order to make progress towards the goals I had set for myself. This
-led me to learn more about another important topic: &lt;strong&gt;prioritization&lt;/strong&gt;.
-I had to prioritize and carefully choose what goals were of utmost
-importance to me and only then execute. Interestingly enough, this
-exercise made me realize I had many goals which I actually didn’t
-care that much about, and thus required less/no attention.&lt;/p&gt;
-&lt;p&gt;One of my favorite things about OKRs is that these enforce creating
-&lt;a href=&quot;https://en.wikipedia.org/wiki/SMART_criteria&quot;&gt;SMART&lt;/a&gt; goals. As I
-said in the introduction, it is difficult to measure goals such as
-how happy/healthy we are, but we can measure actions that make us
-happier/healthier. In my case, these actions go anywhere from
-traveling, training, writing or simply reading a book in my leisure
-time. The best part is that consistently doing these actions leads
-to create &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Power_of_Habit&quot;&gt;habits that have compounding
-effect&lt;/a&gt; in my
-life and those around me. Using OKRs has helped me to create and
-sustain habits that aid me to consistently grow as a person and
-professional.&lt;/p&gt;
-&lt;h3&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;Measuring how my day-to-day actions relate to my personal goals has
-been a complete game changer. OKRs is the one framework that has
-allowed me to do so consistently for the past three years.&lt;/p&gt;
-&lt;p&gt;How do you hold yourself accountable for your personal growth? Leave
-a comment below if you do, I would love to read more about others’
-approach to personal growth!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Using Postgres Enum Type in Rails]]></title><description><![CDATA[Last week I wrote Using Active Support Concerns to Encapsulate Data Access and Validation, where I explained how to use Active Support…]]></description><link>https://diegocasmo.github.io/2019-08-19-using-postgres-enum-type-in-rails/</link><guid isPermaLink="false">https://diegocasmo.github.io/2019-08-19-using-postgres-enum-type-in-rails/</guid><pubDate>Mon, 19 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last week I wrote &lt;a href=&quot;https://dev.to/diegocasmo/using-active-support-concerns-to-encapsulate-data-access-and-validation-5b6c&quot;&gt;Using Active Support Concerns to Encapsulate Data Access and Validation&lt;/a&gt;, where I explained how to use Active Support concerns to define data access and validation rules for an Active Record enum attribute. The attribute mapped values to integers in the database, similar to this example:&lt;/p&gt;
+&lt;p&gt;Alright, that was a bit longer than I anticipated. The idea of using time entries to store the timer’s state can be extended to include more information in each time entry, and thus be able to answer questions such as the ones I posted in the introduction. There’s a &lt;a href=&quot;https://codesandbox.io/s/react-timer-app-siyh4&quot;&gt;CodeSandbox demo&lt;/a&gt; of the &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Timer/&gt;&lt;/code&gt; component and also a &lt;a href=&quot;https://github.com/diegocasmo/react-timer-app&quot;&gt;GitHub repo&lt;/a&gt; with all the code needed. Post a comment below if you have a question or idea to share 🙂.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Using Postgres Enum Type in Rails]]></title><description><![CDATA[Last week I wrote Using Active Support Concerns to Encapsulate Data Access and Validation, where I explained how to use Active Support…]]></description><link>https://diegocasmo.github.io/2019-08-19-using-postgres-enum-type-in-rails/</link><guid isPermaLink="false">https://diegocasmo.github.io/2019-08-19-using-postgres-enum-type-in-rails/</guid><pubDate>Mon, 19 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last week I wrote &lt;a href=&quot;https://dev.to/diegocasmo/using-active-support-concerns-to-encapsulate-data-access-and-validation-5b6c&quot;&gt;Using Active Support Concerns to Encapsulate Data Access and Validation&lt;/a&gt;, where I explained how to use Active Support concerns to define data access and validation rules for an Active Record enum attribute. The attribute mapped values to integers in the database, similar to this example:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Project&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;Base&lt;/span&gt;
   enum status&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token symbol&quot;&gt;:active&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token symbol&quot;&gt;:archived&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
   validates &lt;span class=&quot;token symbol&quot;&gt;:status&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; inclusion&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; statuses&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;keys &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
@@ -370,7 +297,80 @@ approach to personal growth!&lt;/p&gt;</content:encoded></item><item><title><![C
 &lt;p&gt;Done! Models that include the concern can easily test its functionality by using a shared example as described above.&lt;/p&gt;
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;In this short blog post, I have shown a simple solution to encapsulate and group together data access and validation of an attribute. Note I have chosen to use &lt;code class=&quot;language-text&quot;&gt;ActiveSupport::Concern&lt;/code&gt; because the same attribute is used by many models. If the &lt;code class=&quot;language-text&quot;&gt;currency&lt;/code&gt; attribute was only used by a single model, I would not have defined a concern for it. Finally, I have demonstrated how to use &lt;code class=&quot;language-text&quot;&gt;rspec&lt;/code&gt;’s shared examples to simplify testing shared behavior of classes or modules.&lt;/p&gt;
-&lt;p&gt;Have you ever implemented something similar? How did you do it? Let me know in a comment below :).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[IAM Dataset Writer Recognition Using a CNN]]></title><description><![CDATA[During the past few days I have been studying how to identify the
+&lt;p&gt;Have you ever implemented something similar? How did you do it? Let me know in a comment below :).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[OKRs as a Framework for Personal Growth]]></title><description><![CDATA[A couple of years ago I worked for a company where Objectives and
+Key Results (OKRs) were used
+as a framework to track objectives and key…]]></description><link>https://diegocasmo.github.io/2019-08-11-okrs-as-a-framework-for-personal-growth/</link><guid isPermaLink="false">https://diegocasmo.github.io/2019-08-11-okrs-as-a-framework-for-personal-growth/</guid><pubDate>Sun, 11 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A couple of years ago I worked for a company where &lt;a href=&quot;https://en.wikipedia.org/wiki/OKR&quot;&gt;Objectives and
+Key Results&lt;/a&gt; (OKRs) were used
+as a framework to track objectives and key results (well, duh!).
+As I researched and learned more about the framework, I asked myself
+“companies keep track of business because it helps improve visibility
+of what is going on and thus increase their chance of success. Is
+it possible to use OKRs for personal growth?” Sure, you could argue
+keeping track of money is certainly easier than keeping track of
+happiness/health, but a quick search for &lt;a href=&quot;https://duckduckgo.com/?q=okrs+for+personal+growth&amp;#x26;ia=web&quot;&gt;OKRs for personal
+growth&lt;/a&gt; allowed
+me to realize I wasn’t alone in this camp. I have now being using
+OKRs as a framework for personal growth for three years, and it is
+by far the most important tool I use to align my goals with my
+day-to-day actions.&lt;/p&gt;
+&lt;p&gt;In this short blog post, I’ll share my experience
+with OKRs during the past three years. I hope it can help you to
+learn from my mistakes and consider systematically tracking progress
+towards your goals if not already doing it.&lt;/p&gt;
+&lt;p&gt;Initially, I used OKRs as a framework to hold myself accountable
+for professional continuous learning. I work as a software developer,
+and as such, I like to keep myself up-to-date with new trends/technologies
+as well as study well established software concepts. As I gained
+more confidence and got used to &lt;strong&gt;measuring my actions&lt;/strong&gt;, I started
+to create objectives and key results related to health, music,
+reading, and other areas of life I wanted to become better at. Only
+once I started to measure my progress towards these goals I was
+able to realize that I wasn’t doing what I actually wanted to do
+(pretty dumb, right?). How was I supposed to become a better jazz
+guitar player if I didn’t put enough hours of practice? How was I
+going to ever increase my squat if I wasn’t actually training? This
+was a weird but important realization for me. OKRs gave me the
+&lt;strong&gt;visibility&lt;/strong&gt; I needed to better understand my actions and evaluate
+how these were related to my goals.&lt;/p&gt;
+&lt;p&gt;It didn’t take long to learn motivation is overrated. While effective
+when present, consistency and discipline are far more powerful
+tools. OKRs taught me that a &lt;strong&gt;structured path and consistency&lt;/strong&gt;
+were the most important tools to achieve success. This is basically
+what schools and other institutions do for us. We delegate to these
+institutions the creation and evaluation of a curriculum that will
+allows us to gain the required knowledge to become a professional
+in some area. Only issue though, is that once we are done with these
+institutions, it is up to us to create a “curriculum” and evaluate
+whether we are making progress towards our personal and professional
+goals.&lt;/p&gt;
+&lt;p&gt;Using OKRs as a framework to track my personal growth eventually
+led me to realize I wanted to do too many things. I was simply
+unable to fit in my schedule the tasks that needed to be done in
+order to make progress towards the goals I had set for myself. This
+led me to learn more about another important topic: &lt;strong&gt;prioritization&lt;/strong&gt;.
+I had to prioritize and carefully choose what goals were of utmost
+importance to me and only then execute. Interestingly enough, this
+exercise made me realize I had many goals which I actually didn’t
+care that much about, and thus required less/no attention.&lt;/p&gt;
+&lt;p&gt;One of my favorite things about OKRs is that these enforce creating
+&lt;a href=&quot;https://en.wikipedia.org/wiki/SMART_criteria&quot;&gt;SMART&lt;/a&gt; goals. As I
+said in the introduction, it is difficult to measure goals such as
+how happy/healthy we are, but we can measure actions that make us
+happier/healthier. In my case, these actions go anywhere from
+traveling, training, writing or simply reading a book in my leisure
+time. The best part is that consistently doing these actions leads
+to create &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Power_of_Habit&quot;&gt;habits that have compounding
+effect&lt;/a&gt; in my
+life and those around me. Using OKRs has helped me to create and
+sustain habits that aid me to consistently grow as a person and
+professional.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Measuring how my day-to-day actions relate to my personal goals has
+been a complete game changer. OKRs is the one framework that has
+allowed me to do so consistently for the past three years.&lt;/p&gt;
+&lt;p&gt;How do you hold yourself accountable for your personal growth? Leave
+a comment below if you do, I would love to read more about others’
+approach to personal growth!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[IAM Dataset Writer Recognition Using a CNN]]></title><description><![CDATA[During the past few days I have been studying how to identify the
 author of a text based on their writing styles. Fortunately, I found
 the…]]></description><link>https://diegocasmo.github.io/2018-11-09-iam-dataset-writer-recognition-using-a-cnn/</link><guid isPermaLink="false">https://diegocasmo.github.io/2018-11-09-iam-dataset-writer-recognition-using-a-cnn/</guid><pubDate>Fri, 09 Nov 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;During the past few days I have been studying how to identify the
 author of a text based on their writing styles. Fortunately, I found
