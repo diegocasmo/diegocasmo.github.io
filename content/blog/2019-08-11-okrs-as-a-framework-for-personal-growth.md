@@ -1,7 +1,7 @@
 ---
 layout: post
 title: OKRs as a Framework for Personal Growth
-date: 2019-08-19
+date: 2019-08-11
 ---
 
 A couple of years ago I worked for a company where [Objectives and

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Create a Simple React <Timer/> Component
-date: 2019-10-18
+date: 2020-10-18
 ---
 
 I have recently been developing a workout application during my spare time. One of the requirements I set for it was to create a timer so that users could keep track of their workouts. The primary goal was to build a timer which featured a way to "play", "pause", and "stop" a workout. Additionally, it would need to store enough information so that questions such as "How much time did the user take to complete the exercise?" or "How much time did it take to complete the entire workout?" could be answered.
