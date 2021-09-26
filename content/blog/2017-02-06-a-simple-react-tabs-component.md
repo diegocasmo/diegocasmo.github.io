@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Simple React <Tabs/> Component
+title: A Simple React Tabs Component
 date: 2017-02-06
 ---
 

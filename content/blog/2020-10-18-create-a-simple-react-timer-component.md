@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create a Simple React <Timer/> Component
+title: Create a Simple React Timer Component
 date: 2020-10-18
 ---
 
