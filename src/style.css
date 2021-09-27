@@ -310,6 +310,7 @@ a:focus {
 
 .blog-post img {
   max-width: var(--maxWidth-wrapper);
+  width: 100%;
   height: auto;
 }
 
