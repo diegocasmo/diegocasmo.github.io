@@ -308,6 +308,11 @@ a:focus {
   margin-bottom: var(--spacing-8);
 }
 
+.blog-post img {
+  max-width: var(--maxWidth-wrapper);
+  height: auto;
+}
+
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
