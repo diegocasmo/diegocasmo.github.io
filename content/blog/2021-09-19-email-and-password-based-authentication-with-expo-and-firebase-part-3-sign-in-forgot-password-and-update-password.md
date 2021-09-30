@@ -5,9 +5,9 @@ date: 2021-09-19
 ---
 
 - This is part 3/3 of a series of blog posts that showcase email and password based authentication using Expo and Firebase.
-    - [Part 1: Project Setup](https://diegocasmo.github.io/2021-08-29-email-and-password-based-authentication-with-expo-and-firebase-part-1-project-setup/)
-    - [Part 2: Sign Up, Email Verification, and Sign Out](https://diegocasmo.github.io/2021-09-10-email-and-password-based-authentication-with-expo-and-firebase-part-2-sign-up-email-verification-and-sign-out/)
-    - Part 3: Sign In, Forgot Password, and Update Password (you are here)
+  - [Part 1: Project Setup](https://diegocasmo.github.io/2021-08-29-email-and-password-based-authentication-with-expo-and-firebase-part-1-project-setup/)
+  - [Part 2: Sign Up, Email Verification, and Sign Out](https://diegocasmo.github.io/2021-09-10-email-and-password-based-authentication-with-expo-and-firebase-part-2-sign-up-email-verification-and-sign-out/)
+  - Part 3: Sign In, Forgot Password, and Update Password (you are here)
 
 This is the last part of a series of blog posts covering how to setup email and password based authentication with Expo and Firebase. In this blog post, we'll finish off by implementing the sign in, forgot password, and update password features. Let's get started!
 
