@@ -29,7 +29,7 @@ const Bio = () => {
         {" • "}
         <a target="blank" rel="noopener" href="https://twitter.com/diegocasmo">Twitter</a>
         {" • "}
-        <a target="blank" rel="noopener" href="https://www.linkedin.com/in/diegocasmo/">Linkedin</a>
+        <a target="blank" rel="noopener" href="https://www.linkedin.com/in/diegocasmo/">LinkedIn</a>
       </section>
     </>
   )
