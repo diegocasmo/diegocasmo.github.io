@@ -13,7 +13,7 @@ const Bio = () => {
           imgStyle={{ borderRadius: "100%" }}
           layout="fixed"
           quality={95}
-          src="../images/avatar.png"
+          src="../images/avatar.jpg"
           width={100}
         />
         <p>
