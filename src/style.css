@@ -299,13 +299,28 @@ a:focus {
   margin-bottom: var(--spacing-4);
 }
 
+.global-wrapper[data-is-root-path="true"] .navigation,
 .global-wrapper[data-is-root-path="true"] .social-networks {
   margin-bottom: var(--spacing-12);
 }
 
+.navigation,
 .social-networks {
   text-align: center;
+}
+
+.navigation {
   margin-bottom: var(--spacing-8);
+}
+
+.navigation > a,
+.social-networks > a {
+  margin: 0 10px;
+}
+
+.navigation > a:first-child,
+.social-networks > a:first-child {
+  margin: 0 10px 0 0;
 }
 
 .blog-post img {
@@ -344,6 +359,7 @@ a:focus {
     margin-bottom: var(--spacing-0);
   }
 
+  .navigation,
   .social-networks {
     text-align: left;
   }

@@ -1,9 +1,11 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Bio } from "../components/Bio"
+import { Layout } from "../components/Layout"
+import { Seo } from "../components/Seo"
+import { Navigation } from "../components/Navigation"
+import { SocialNetworks } from "../components/SocialNetworks"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -14,11 +16,15 @@ const BlogIndex = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
         <Bio />
+
+        <Navigation />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
           gatsby-config.js).
         </p>
+
+        <SocialNetworks />
       </Layout>
     )
   }
@@ -27,6 +33,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <Bio />
+      <Navigation />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
@@ -59,6 +66,7 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ol>
+      <SocialNetworks />
     </Layout>
   )
 }
