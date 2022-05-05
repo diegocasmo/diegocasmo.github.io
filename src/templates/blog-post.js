@@ -1,16 +1,14 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { Navigation } from "../components/Navigation"
-import { SocialNetworks } from "../components/SocialNetworks"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -34,7 +32,6 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
         <hr />
-        <SocialNetworks />
       </article>
     </Layout>
   )

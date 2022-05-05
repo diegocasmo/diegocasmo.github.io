@@ -6,7 +6,6 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 
 import { Navigation } from "../components/Navigation"
-import { SocialNetworks } from "../components/SocialNetworks"
 import { LongAbout } from "../components/LongAbout"
 
 const AboutIndex = ({ data, location }) => {
@@ -18,7 +17,6 @@ const AboutIndex = ({ data, location }) => {
       <Bio />
       <Navigation />
       <LongAbout />
-      <SocialNetworks />
     </Layout>
   )
 }

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { SocialNetworks } from "../components/SocialNetworks"
 
 export const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -13,6 +14,7 @@ export const Layout = ({ location, title, children }) => {
         </h1>
       </header>
       <main>{children}</main>
+      <SocialNetworks />
     </div>
   )
 }

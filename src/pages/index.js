@@ -5,7 +5,6 @@ import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { Navigation } from "../components/Navigation"
-import { SocialNetworks } from "../components/SocialNetworks"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -23,8 +22,6 @@ const BlogIndex = ({ data, location }) => {
           directory you specified for the "gatsby-source-filesystem" plugin in
           gatsby-config.js).
         </p>
-
-        <SocialNetworks />
       </Layout>
     )
   }
@@ -66,7 +63,6 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ol>
-      <SocialNetworks />
     </Layout>
   )
 }
