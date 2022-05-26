@@ -11,8 +11,9 @@ export const LongAbout = () => (
       <a target="blank" rel="noopener" href="https://twitter.com/remote">
         Remote
       </a>
-      , where along side a great team, I contribute to creating wonderful user
-      experiences which allow customers to employ anywhere in the world.
+      , where along side a great team, I contribute to creating wonderful and
+      accessible user experiences which allow customers to employ anywhere in
+      the world.
     </p>
     <p>
       Aside from developing software, I enjoy working out 🏋️, playing the guitar
