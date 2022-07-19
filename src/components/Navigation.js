@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 export const Navigation = () => (
-  <section className="navigation">
+  <nav className="navigation">
     <Link to="/" itemProp="url">
       Home
     </Link>
@@ -10,5 +10,5 @@ export const Navigation = () => (
     <Link to="/about" itemProp="url">
       About
     </Link>
-  </section>
+  </nav>
 )
