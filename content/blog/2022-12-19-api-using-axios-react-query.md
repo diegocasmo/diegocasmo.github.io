@@ -129,7 +129,7 @@ The data layer was designed to be extendable in such a way that its API takes ca
 
 Additionally, the data layer uses TypeScript, which makes it easier for developers to adopt the hooks; provides autocomplete suggestions when typing an endpoint name depending on the hook being used (i.e., depending on the configuration file the hook uses);and even raises an error if an endpoint that doesn't exist is specified.
 
-![Data layer autocomplete suggestions when typing an endpoint name](https://images.ctfassets.net/8naaccf28y0f/743WJ1lmVex0oEsdT9jaB6/ab182fadeb4e1e38af9a22c31906d290/data-layer-autocomplete-suggestions.png)
+![Data layer autocomplete suggestions when typing an endpoint name](https://raw.githubusercontent.com/diegocasmo/diegocasmo.github.io/main/static/data-layer-autocomplete-suggestions.png)
 Autocomplete suggestions when typing an endpoint name.
 
 ## Looking Forward
