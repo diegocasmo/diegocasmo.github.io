@@ -15,10 +15,17 @@ export const Bio = () => (
       width={100}
     />
     <p>
-      Experienced software engineer with solid knowledge of Ruby & JavaScript
-      ⚒️.
+      ⚒️ Experienced software engineer with solid knowledge of Ruby &
+      JavaScript.
       <br />
-      Amateur explorer, professional thinker 🤔.
+      🎶 Improvising bits and melodies{" "}
+      <a
+        target="blank"
+        rel="noopener"
+        href="https://www.youtube.com/diegocasmo"
+      >
+        @diegocasmo.
+      </a>
       <br />
       Frontend Engineer{" "}
       <a target="blank" rel="noopener" href="https://twitter.com/remote">
