@@ -27,7 +27,7 @@ export const Bio = () => (
         @diegocasmo.
       </a>
       <br />
-      Frontend Engineer{" "}
+      💻 Frontend Engineer{" "}
       <a target="blank" rel="noopener" href="https://twitter.com/remote">
         @remote
       </a>
