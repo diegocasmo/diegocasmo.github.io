@@ -7,7 +7,7 @@ export const LongAbout = () => (
       deep interest in design principles.
     </p>
     <p>
-      Currently, I work at
+      Currently, I work at{" "}
       <a target="blank" rel="noopener" href="https://twitter.com/remote">
         Remote
       </a>
