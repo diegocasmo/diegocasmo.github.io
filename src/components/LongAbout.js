@@ -3,25 +3,26 @@ import * as React from "react"
 export const LongAbout = () => (
   <section>
     <p>
-      Hey there! My name is Diego, and I'm a curious software engineer
-      interested in software craftsmanship and design principles.
+      I'm a curious software engineer with a passion for craftsmanship and a
+      deep interest in design principles.
     </p>
     <p>
-      I currently work at{" "}
+      Currently, I work at
       <a target="blank" rel="noopener" href="https://twitter.com/remote">
         Remote
       </a>
-      , where along side a great team, I contribute to creating wonderful and
-      accessible user experiences which allow customers to employ anywhere in
-      the world.
+      , where alongside a great team, I immerse myself in the full spectrum of
+      development, crafting delightful and accessible user experiences and
+      ensuring everything runs smoothly under the hood, with the collective goal
+      of enabling people to work from anywhere in the world.
     </p>
     <p>
-      Aside from developing software, I enjoy working out 🏋️, playing the guitar
-      🎸, hiking ⛰, and drinking coffee ☕️.
+      Beyond developing software, I have a variety of hobbies including working
+      out 🏋️, playing the guitar 🎸, hiking ⛰, and enjoying coffee ☕️.
     </p>
     <p>
-      If you’d like to get a hang of me, feel free to do it through any of the
-      social networks linked below; I’ll be happy to chat 🙂.
+      If you wish to reach out, please feel free to contact me through any of
+      the social networks linked below; I'd be delighted to chat 🙂.
     </p>
   </section>
 )
