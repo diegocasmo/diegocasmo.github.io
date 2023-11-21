@@ -6,5 +6,9 @@ export const Navigation = () => (
     <Link to="/" itemProp="url">
       Home
     </Link>
+    {" • "}
+    <Link to="/about" itemProp="url">
+      About
+    </Link>
   </nav>
 )

@@ -1,7 +1,7 @@
 import * as React from "react"
 
 export const SocialNetworks = () => (
-  <footer class="social-networks">
+  <div class="social-networks">
     <a target="blank" rel="noopener" href="https://github.com/diegocasmo">
       GitHub
     </a>
@@ -17,5 +17,5 @@ export const SocialNetworks = () => (
     >
       LinkedIn
     </a>
-  </footer>
+  </div>
 )

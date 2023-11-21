@@ -83,10 +83,6 @@ body {
   color: var(--color-text);
 }
 
-footer {
-  padding: var(--spacing-6) var(--spacing-0);
-}
-
 hr {
   background: var(--color-accent);
   height: 1px;
@@ -299,14 +295,17 @@ a:focus {
   margin-bottom: var(--spacing-4);
 }
 
-.global-wrapper[data-is-root-path="true"] .navigation,
-.global-wrapper[data-is-root-path="true"] .social-networks {
+.global-wrapper[data-is-root-path="true"] .navigation {
   margin-bottom: var(--spacing-12);
 }
 
 .navigation,
 .social-networks {
   text-align: center;
+}
+
+.social-networks {
+  margin-bottom: var(--spacing-2);
 }
 
 .navigation {
