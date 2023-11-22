@@ -28,8 +28,9 @@ export const Bio = () => (
           rel="noopener"
           href="https://www.youtube.com/diegocasmo"
         >
-          @diegocasmo.
+          @diegocasmo
         </a>
+        .
       </p>
       <hr />
     </div>
