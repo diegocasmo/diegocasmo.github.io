@@ -1,8 +1,6 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
-import { SocialNetworks } from "../components/SocialNetworks"
-
 export const Bio = () => (
   <section className="bio">
     <StaticImage
@@ -17,11 +15,13 @@ export const Bio = () => (
       width={100}
     />
     <div>
-      <SocialNetworks />
+      <hr />
       <p>
-        ⚒️ Experienced software engineer with solid knowledge of Ruby &
-        JavaScript.
-        <br />
+        ⚒️ Detail-oriented software engineer with over a decade of experience in
+        developing user-centric products.
+      </p>
+      <hr />
+      <p>
         🎶 Improvising bits and melodies{" "}
         <a
           target="blank"
@@ -31,6 +31,7 @@ export const Bio = () => (
           @diegocasmo.
         </a>
       </p>
+      <hr />
     </div>
   </section>
 )

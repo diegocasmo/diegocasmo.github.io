@@ -1,9 +1,11 @@
-// custom typefaces
-import "typeface-montserrat"
-import "typeface-merriweather"
-// normalize CSS across browsers
+// Custom typefaces
+import "@fontsource/fira-code"
+import "@fontsource/roboto-mono"
+
+// Normalize CSS across browsers
 import "./src/normalize.css"
-// custom CSS styles
+
+// Custom CSS styles
 import "./src/style.css"
 
 // Highlighting for code blocks

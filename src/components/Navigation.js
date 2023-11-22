@@ -10,5 +10,22 @@ export const Navigation = () => (
     <Link to="/about" itemProp="url">
       About
     </Link>
+    {" • "}
+    <a target="blank" rel="noopener" href="https://github.com/diegocasmo">
+      GitHub
+    </a>
+    {" • "}
+    <a target="blank" rel="noopener" href="https://twitter.com/diegocasmo">
+      Twitter
+    </a>
+    {" • "}
+    <a
+      target="blank"
+      rel="noopener"
+      href="https://www.linkedin.com/in/diegocasmo/"
+    >
+      LinkedIn
+    </a>
+    <hr />
   </nav>
 )
