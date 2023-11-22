@@ -17,8 +17,8 @@ export const Bio = () => (
     <div>
       <hr />
       <p>
-        ⚒️ Detail-oriented software engineer with over a decade of experience in
-        developing user-centric products.
+        ⚒️ Detail-oriented software engineer experienced in developing robust,
+        user-centric products.
       </p>
       <hr />
       <p>
