@@ -22,7 +22,7 @@ export const LongAbout = () => (
     </p>
     <p>
       If you wish to reach out, please feel free to contact me through any of
-      the social networks linked below; I'd be delighted to chat 🙂.
+      the social networks linked above; I'd be delighted to chat 🙂.
     </p>
   </section>
 )
