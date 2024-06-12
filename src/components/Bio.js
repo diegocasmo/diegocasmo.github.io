@@ -17,12 +17,18 @@ export const Bio = () => (
     <div>
       <hr />
       <p>
-        ⚒️ Detail-oriented software engineer experienced in developing robust,
-        user-centric products.
+        Curious software engineer with a keen interest in craftsmanship and
+        design principles. At{" "}
+        <a target="blank" rel="noopener" href="https://x.com/remote">
+          Remote
+        </a>
+        , I work with a great team to create delightful products, ensuring
+        everything runs smoothly under the hood, aiming to enable global remote
+        work.
       </p>
       <hr />
       <p>
-        🎶 Improvising bits and melodies{" "}
+        Improvising bits and melodies{" "}
         <a
           target="blank"
           rel="noopener"

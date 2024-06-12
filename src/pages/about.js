@@ -6,7 +6,6 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 
 import { Navigation } from "../components/Navigation"
-import { LongAbout } from "../components/LongAbout"
 
 const AboutIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -16,7 +15,6 @@ const AboutIndex = ({ data, location }) => {
       <Seo title="All posts" />
       <Bio />
       <Navigation />
-      <LongAbout />
     </Layout>
   )
 }

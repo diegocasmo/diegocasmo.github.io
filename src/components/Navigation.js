@@ -7,16 +7,12 @@ export const Navigation = () => (
       Home
     </Link>
     {" • "}
-    <Link to="/about" itemProp="url">
-      About
-    </Link>
-    {" • "}
     <a target="blank" rel="noopener" href="https://github.com/diegocasmo">
       GitHub
     </a>
     {" • "}
-    <a target="blank" rel="noopener" href="https://twitter.com/diegocasmo">
-      Twitter
+    <a target="blank" rel="noopener" href="https://x.com/diegocasmo">
+      X/Twitter
     </a>
     {" • "}
     <a
