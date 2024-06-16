@@ -8,8 +8,8 @@
   --maxWidth-lg: 32rem; /* 512px */
   --maxWidth-xl: 36rem; /* 576px */
   --maxWidth-2xl: 48rem; /* 768px */
-  --maxWidth-3xl: 62rem; /* 992px */
-  --maxWidth-4xl: 75rem; /* 1200px */
+  --maxWidth-3xl: 55rem; /* 880px */
+  --maxWidth-4xl: 62rem; /* 992px */
   --maxWidth-full: "100%";
   --maxWidth-wrapper: var(--maxWidth-3xl);
   --spacing-px: "1px";
