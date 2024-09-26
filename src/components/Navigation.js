@@ -12,7 +12,7 @@ export const Navigation = () => (
     </a>
     {" • "}
     <a target="blank" rel="noopener" href="https://x.com/diegocasmo">
-      X/Twitter
+      X
     </a>
     {" • "}
     <a
