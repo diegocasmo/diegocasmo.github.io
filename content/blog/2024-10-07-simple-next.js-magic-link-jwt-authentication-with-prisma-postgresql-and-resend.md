@@ -33,7 +33,7 @@ yarn add prisma --dev
 Once Prisma is installed, initialize it and create a `schema.prisma` file by running:
 
 ```bash
-npx prisma init
+yarn prisma init
 ```
 
 Next, set up the `DATABASE_URL` in your `.env` file (i.e., `touch .env`). Make sure to replace `<username>`, `<password>`, and `<db_name>` with your actual database credentials:
@@ -81,7 +81,7 @@ model VerificationToken {
 After updating the `schema.prisma` file, run the following commands to create the migration and apply the changes to your database. This ensures that your schema is correctly set up:
 
 ```bash
-npx prisma migrate dev --name init
+yarn prisma migrate dev --name init
 yarn prisma generate
 ```
 
