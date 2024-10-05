@@ -18,11 +18,11 @@ To get started, initialize a new Next.js app:
 npx create-next-app@latest
 ```
 
-For this setup, I’ve configured the new app `nextjs-magic-link-auth` to use TypeScript, ESLint, Tailwind, a `/src` directory, the App Router, and a custom import alias `@/*` for cleaner imports.
+For this setup, I've configured the new app named `nextjs-magic-link-auth` to use TypeScript, ESLint, Tailwind, a `/src` directory, the App Router, and a custom import alias `@/*` for cleaner imports.
 
 ### Prisma Setup
 
-The next step is to set up the Prisma ORM and connect it to the database. I’ve chosen PostgreSQL for its strong support for relational data, ease of integration with Prisma, and reliability for production use.
+The next step is to set up the Prisma ORM and connect it to the database. I've chosen PostgreSQL for its strong support for relational data, ease of integration with Prisma, and reliability for production use.
 
 ```markdown
 cd nextjs-magic-link-auth
@@ -42,7 +42,7 @@ Next, set up the `DATABASE_URL` in your `.env` file (i.e., `touch .env`). Make s
 DATABASE_URL="postgresql://<username>:<password>@localhost:5432/<db_name>?schema=public"
 ```
 
-Now, update the `schema.prisma` file to define the tables and columns needed for email magic link authentication. For this example, I’ve only added the essentials, but you might want to refer to the [Auth.js Prisma documentation](https://authjs.dev/getting-started/adapters/prisma) to tailor it to your needs.
+Now, update the `schema.prisma` file to define the tables and columns needed for email magic link authentication. For this example, I've only added the essentials, but you might want to refer to the [Auth.js Prisma documentation](https://authjs.dev/getting-started/adapters/prisma) to tailor it to your needs.
 
 ```bash
 generator client {
@@ -82,7 +82,6 @@ After updating the `schema.prisma` file, run the following commands to create th
 
 ```bash
 yarn prisma migrate dev --name init
-yarn prisma generate
 ```
 
 The `migrate dev` command will prompt you to name your migration (e.g., `init`). It will also create a new migration file in the `prisma/migrations` directory, allowing you to track changes to your schema over time.
@@ -110,7 +109,7 @@ The code creates a single instance of `PrismaClient` and attaches it to the glob
 
 ### Configure the Resend Provider with Prisma
 
-Once Prisma is set up, it’s time to integrate it with [Resend](https://resend.com/). If you don’t have a Resend account yet, start by creating one and generating an API key. Save this API key in your `.env` file as `AUTH_RESEND_KEY`:
+Once Prisma is set up, it's time to integrate it with [Resend](https://resend.com/). If you don't have a Resend account yet, start by creating one and generating an API key. Save this API key in your `.env` file as `AUTH_RESEND_KEY`:
 
 ```bash
 AUTH_RESEND_KEY=<your-resend-api-key>
@@ -125,12 +124,12 @@ yarn add next-auth@beta @auth/prisma-adapter
 After installing these dependencies, add the `AUTH_SECRET` environment variable to your `.env` file. You can generate a random secret by running:
 
 ```bash
-openssl rand -hex 32
+echo "AUTH_SECRET=\"$(openssl rand -hex 32)\"" >> .env
 ```
 
 This `AUTH_SECRET` is used by Auth.js to encrypt tokens and email verification hashes securely.
 
-Now, it’s time to set up the Auth.js configuration. Create a folder and file to hold the configuration:
+Now, it's time to set up the Auth.js configuration. Create a folder and file to hold the configuration:
 
 ```bash
 mkdir src/lib/auth
@@ -176,9 +175,9 @@ import { handlers } from "@/lib/auth";
 export const { GET, POST } = handlers;
 ```
 
-And that’s it! Run `yarn dev` and navigate to [`http://localhost:3000/api/auth/signin`](http://localhost:3000/api/auth/signin) to sign in with your email, verify that a sign-in email is sent to you, click on the link, and the user will be signed in.
+And that's it! Run `yarn dev`, then head over to [`http://localhost:3000/api/auth/signin`](http://localhost:3000/api/auth/signin) to sign in using your email. Check your inbox for the sign-in email, click on the link provided, and you'll be signed in.
 
-By default, the user will be redirected to `http://localhost:3000/dashboard` after signing in, which currently doesn’t exist in the project. Because of that, you’ll get a 404 error. To fix it, you’ll need to create a page in `src/app/dashboard/page.tsx`. I’ve chosen not to include that part in this blog post to keep it concise, but the [attached repository](https://github.com/diegocasmo/nextjs-magic-link-auth) includes it in case you want to fork it.
+I've also included a [GitHub repository](https://github.com/diegocasmo/nextjs-magic-link-auth) that showcases the implementation of this setup.
 
 ## Conclusion and Further Improvements
 
