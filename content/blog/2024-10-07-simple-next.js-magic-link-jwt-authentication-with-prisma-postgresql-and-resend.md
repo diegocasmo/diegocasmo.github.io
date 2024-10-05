@@ -125,7 +125,7 @@ yarn add next-auth@beta @auth/prisma-adapter
 After installing these dependencies, add the `AUTH_SECRET` environment variable to your `.env` file. You can generate a random secret by running:
 
 ```bash
-npx auth secret
+openssl rand -hex 32
 ```
 
 This `AUTH_SECRET` is used by Auth.js to encrypt tokens and email verification hashes securely.
