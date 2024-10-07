@@ -84,7 +84,7 @@ After updating the `schema.prisma` file, run the following commands to create th
 yarn prisma migrate dev --name init
 ```
 
-The `migrate dev` command will prompt you to name your migration (e.g., `init`). It will also create a new migration file in the `prisma/migrations` directory, allowing you to track changes to your schema over time.
+The `migrate dev` command will create a new migration file in the `prisma/migrations` directory, allowing you to track changes to your schema over time.
 
 Once the migration is complete, create a new file called `prisma.ts` in your `src/lib` directory to configure the Prisma client:
 
