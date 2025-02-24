@@ -7,6 +7,10 @@ export const Navigation = () => (
       Home
     </Link>
     {" • "}
+    <Link to="/projects" itemProp="url">
+      Projects
+    </Link>
+    {" • "}
     <a target="blank" rel="noopener" href="https://github.com/diegocasmo">
       GitHub
     </a>
