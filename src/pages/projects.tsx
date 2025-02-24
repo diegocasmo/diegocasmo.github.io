@@ -36,7 +36,7 @@ const ProjectsPage = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <h1>Projects</h1>
-        <ol style={{ padding: "revert" }}>
+        <ol style={{ listStyle: "none" }}>
           {PROJECTS.map((project, index) => (
             <li key={index} className="post-list-item">
               <header>
