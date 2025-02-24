@@ -247,6 +247,7 @@ a:focus {
 }
 
 .main-heading {
+  text-align: center;
   margin: 0;
 }
 
@@ -340,6 +341,10 @@ a:focus {
 /* Media queries */
 
 @media (min-width: 45rem) {
+  .main-heading {
+    text-align: left;
+  }
+
   .bio {
     flex-direction: row;
     text-align: left;
