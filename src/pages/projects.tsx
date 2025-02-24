@@ -8,9 +8,9 @@ import { Navigation } from "../components/Navigation"
 
 const PROJECTS = [
   {
-    title: "Momentum",
+    title: "findmomentum.xyz",
     description:
-      "A minimalist productivity app that helps you track and celebrate daily progress through small wins.",
+      "A productivity app that helps track and celebrate daily progress through small wins.",
     url: "https://findmomentum.xyz/",
     githubUrl: "https://github.com/diegocasmo/momentum",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
