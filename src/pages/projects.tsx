@@ -18,7 +18,7 @@ const PROJECTS = [
   {
     title: "findmomentum.xyz",
     description:
-      "A productivity app that helps track and celebrate daily progress through small wins.",
+      "An AI-powered, chat-based tone architect that helps musicians create presets for any multi-effects processor.",
     url: "https://findmomentum.xyz/",
     githubUrl: "https://github.com/diegocasmo/findmomentum.xyz",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
