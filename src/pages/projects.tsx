@@ -8,11 +8,19 @@ import { Navigation } from "../components/Navigation"
 
 const PROJECTS = [
   {
+    title: "tonebuilder.ai",
+    description:
+      "An AI-powered chat-based tone architect for modeling multi-effects setups.",
+    url: "https://tonebuilder.ai/",
+    githubUrl: "https://github.com/diegocasmo/tonebuilder.ai",
+    tech: ["Next.js", "Vercel AI SDK", "TypeScript", "Prisma", "PostgreSQL"],
+  },
+  {
     title: "findmomentum.xyz",
     description:
       "A productivity app that helps track and celebrate daily progress through small wins.",
     url: "https://findmomentum.xyz/",
-    githubUrl: "https://github.com/diegocasmo/momentum",
+    githubUrl: "https://github.com/diegocasmo/findmomentum.xyz",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
   },
 ]
