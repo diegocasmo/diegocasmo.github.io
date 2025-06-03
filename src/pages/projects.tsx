@@ -10,7 +10,7 @@ const PROJECTS = [
   {
     title: "tonebuilder.ai",
     description:
-      "An AI-powered chat-based tone architect for modeling multi-effects.",
+      "An AI-powered, chat-based tone architect that helps musicians create presets for any multi-effects processor.",
     url: "https://tonebuilder.ai/",
     githubUrl: "https://github.com/diegocasmo/tonebuilder.ai",
     tech: ["Next.js", "Vercel AI SDK", "TypeScript", "Prisma", "PostgreSQL"],
@@ -18,7 +18,7 @@ const PROJECTS = [
   {
     title: "findmomentum.xyz",
     description:
-      "An AI-powered, chat-based tone architect that helps musicians create presets for any multi-effects processor.",
+      "A productivity app that helps track and celebrate daily progress through small wins.",
     url: "https://findmomentum.xyz/",
     githubUrl: "https://github.com/diegocasmo/findmomentum.xyz",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
