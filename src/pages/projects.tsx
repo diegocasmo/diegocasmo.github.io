@@ -10,7 +10,7 @@ const PROJECTS = [
   {
     title: "tonebuilder.ai",
     description:
-      "An AI-powered chat-based tone architect for modeling multi-effects setups.",
+      "An AI-powered chat-based tone architect for modeling multi-effects.",
     url: "https://tonebuilder.ai/",
     githubUrl: "https://github.com/diegocasmo/tonebuilder.ai",
     tech: ["Next.js", "Vercel AI SDK", "TypeScript", "Prisma", "PostgreSQL"],
