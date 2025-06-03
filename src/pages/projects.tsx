@@ -12,7 +12,7 @@ const PROJECTS = [
     description:
       "An AI-powered, chat-based tone architect that helps musicians create presets for any multi-effects processor.",
     url: "https://tonebuilder.ai/",
-    githubUrl: "https://github.com/diegocasmo/tonebuilder.ai",
+    githubUrl: "https://github.com/diegocasmo/tonebuilder",
     tech: ["Next.js", "Vercel AI SDK", "TypeScript", "Prisma", "PostgreSQL"],
   },
   {
@@ -20,7 +20,7 @@ const PROJECTS = [
     description:
       "A productivity app that helps track and celebrate daily progress through small wins.",
     url: "https://findmomentum.xyz/",
-    githubUrl: "https://github.com/diegocasmo/findmomentum.xyz",
+    githubUrl: "https://github.com/diegocasmo/findmomentum",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
   },
 ]
