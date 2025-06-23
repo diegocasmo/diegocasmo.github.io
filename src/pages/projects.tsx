@@ -10,9 +10,8 @@ const PROJECTS = [
   {
     title: "tonebuilder.ai",
     description:
-      "An AI-powered, chat-based tone architect that helps musicians create presets for any multi-effects processor.",
+      "An AI-powered, chat-based tone architect for Line 6 Helix users.",
     url: "https://tonebuilder.ai/",
-    githubUrl: "https://github.com/diegocasmo/tonebuilder",
     tech: ["Next.js", "Vercel AI SDK", "TypeScript", "Prisma", "PostgreSQL"],
   },
   {
@@ -69,14 +68,18 @@ const ProjectsPage = ({ data, location }) => {
                   >
                     Live Demo
                   </a>
-                  {" • "}
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Source Code
-                  </a>
+                  {project.githubUrl && (
+                    <>
+                      {" • "}
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Source Code
+                      </a>
+                    </>
+                  )}
                 </div>
               </section>
             </li>
