@@ -6,7 +6,7 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { Navigation } from "../components/Navigation"
 
-const PROJECTS = [
+const PRODUCTS = [
   {
     title: "tonebuilder.ai",
     description:
@@ -29,12 +29,12 @@ const LIST_FORMATTER = new Intl.ListFormat("en", {
   type: "conjunction",
 })
 
-const ProjectsPage = ({ data, location }) => {
+const ProductsPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="Projects" />
+      <Seo title="Products" />
       <Bio />
       <Navigation />
       <article
@@ -42,37 +42,37 @@ const ProjectsPage = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <h1>Projects</h1>
+        <h1>Products</h1>
         <ol style={{ listStyle: "none" }}>
-          {PROJECTS.map((project, index) => (
+          {PRODUCTS.map((product, index) => (
             <li key={index} className="post-list-item">
               <header>
                 <h2>
                   <a
-                    href={project.url}
+                    href={product.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {project.title}
+                    {product.title}
                   </a>
                 </h2>
               </header>
               <section>
-                <p itemProp="description">{project.description}</p>
-                <p>Built with: {LIST_FORMATTER.format(project.tech)}.</p>
+                <p itemProp="description">{product.description}</p>
+                <p>Built with: {LIST_FORMATTER.format(product.tech)}.</p>
                 <div>
                   <a
-                    href={project.url}
+                    href={product.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Live Demo
+                    Try it now
                   </a>
-                  {project.githubUrl && (
+                  {product.githubUrl && (
                     <>
                       {" • "}
                       <a
-                        href={project.githubUrl}
+                        href={product.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -90,7 +90,7 @@ const ProjectsPage = ({ data, location }) => {
   )
 }
 
-export default ProjectsPage
+export default ProductsPage
 
 export const pageQuery = graphql`
   query {

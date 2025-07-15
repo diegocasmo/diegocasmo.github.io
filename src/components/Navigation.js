@@ -7,8 +7,8 @@ export const Navigation = () => (
       Home
     </Link>
     {" • "}
-    <Link to="/projects" itemProp="url">
-      Projects
+    <Link to="/products" itemProp="url">
+      Products
     </Link>
     {" • "}
     <a target="blank" rel="noopener" href="https://github.com/diegocasmo">
