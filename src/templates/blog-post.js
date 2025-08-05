@@ -12,7 +12,7 @@ const BlogPostTemplate = ({ data, location }) => {
 
   // Extract filename from fileAbsolutePath and generate image path
   const fileName = post.fileAbsolutePath?.split("/").pop()?.replace(/\.md$/, "")
-  const imagePath = fileName ? `/images/${fileName}.png` : null
+  const imagePath = fileName ? `${fileName}.png` : null
 
   return (
     <Layout location={location} title={siteTitle}>
