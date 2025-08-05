@@ -1,0 +1,88 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1e293b"/>
+  
+  <!-- TypeScript blue accent -->
+  <rect x="0" y="0" width="1200" height="8" fill="#3178c6"/>
+  
+  <!-- Main content area -->
+  <rect x="60" y="80" width="1080" height="470" fill="#0f172a" rx="12"/>
+  
+  <!-- Code window header -->
+  <rect x="60" y="80" width="1080" height="50" fill="#1e293b" rx="12"/>
+  <rect x="60" y="118" width="1080" height="432" fill="#0f172a"/>
+  
+  <!-- Window controls -->
+  <circle cx="90" cy="105" r="6" fill="#ef4444"/>
+  <circle cx="110" cy="105" r="6" fill="#f59e0b"/>
+  <circle cx="130" cy="105" r="6" fill="#10b981"/>
+  
+  <!-- Code content -->
+  <text x="90" y="160" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#64748b">
+    type LazyEval&lt;T&gt; = () =&gt; T;
+  </text>
+  
+  <text x="90" y="200" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#64748b">
+    
+  </text>
+  
+  <text x="90" y="240" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#3178c6">
+    function
+  </text>
+  <text x="200" y="240" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#e2e8f0">
+    lazy&lt;T&gt;(
+  </text>
+  <text x="320" y="240" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#f8fafc">
+    fn: LazyEval&lt;T&gt;
+  </text>
+  <text x="520" y="240" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#e2e8f0">
+    ) {
+  </text>
+  
+  <text x="120" y="280" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#3178c6">
+    let
+  </text>
+  <text x="170" y="280" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#e2e8f0">
+    cached: T | 
+  </text>
+  <text x="350" y="280" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#f59e0b">
+    undefined
+  </text>
+  <text x="480" y="280" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#e2e8f0">
+    ;
+  </text>
+  
+  <text x="120" y="320" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#3178c6">
+    return
+  </text>
+  <text x="210" y="320" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#e2e8f0">
+    cached ??= fn();
+  </text>
+  
+  <text x="90" y="360" font-family="JetBrains Mono, Monaco, Consolas, monospace" font-size="24" fill="#e2e8f0">
+    }
+  </text>
+  
+  <!-- Performance arrow -->
+  <path d="M 850 200 L 1000 200 L 990 190 M 1000 200 L 990 210" stroke="#10b981" stroke-width="3" fill="none"/>
+  <text x="860" y="190" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#10b981" font-weight="600">
+    Performance ↗
+  </text>
+  
+  <!-- Title -->
+  <text x="90" y="450" font-family="Inter, system-ui, sans-serif" font-size="32" fill="#f8fafc" font-weight="700">
+    Reducing Type Overhead
+  </text>
+  <text x="90" y="490" font-family="Inter, system-ui, sans-serif" font-size="32" fill="#3178c6" font-weight="700">
+    with Lazy Evaluation in TypeScript
+  </text>
+  
+  <!-- Subtle gradient overlay -->
+  <defs>
+    <linearGradient id="overlay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3178c6;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect x="60" y="80" width="1080" height="470" fill="url(#overlay)" rx="12"/>
+</svg>
