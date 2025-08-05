@@ -1,4 +1,4 @@
---
+---
 layout: post
 title: Reducing Type Overhead with Lazy Evaluation in TypeScript
 date: 2025-08-05
@@ -38,7 +38,7 @@ Instead of evaluating all possible paths up front, we changed the type to comput
 type ApiGet<Path extends keyof ApiRoutes> = ApiResponse<Path>;
 ```
 
-This change meant TypeScript would only resolve the types for the specific path we passed in. Since our internal hooks (read more about these in [Consistent Client-Side Interaction with API Endpoints Using Axios and React Query](https://diegocasmo.github.io/2022-12-19-api-using-axios-react-query/)) already received a path as a parameter, updating the generic definition was all it took to reduce the load.
+This change meant TypeScript would only resolve the types for the specific path we passed in. Since our [internal hooks](https://diegocasmo.github.io/2022-12-19-api-using-axios-react-query/) already received a path as a parameter, updating the generic definition was all it took to reduce the load.
 
 ## What to Avoid
 
