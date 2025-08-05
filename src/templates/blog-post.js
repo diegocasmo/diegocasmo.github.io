@@ -10,11 +10,16 @@ const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
+  // Extract filename from fileAbsolutePath and generate image path
+  const fileName = post.fileAbsolutePath?.split("/").pop()?.replace(/\.md$/, "")
+  const imagePath = fileName ? `/images/${fileName}.png` : null
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        imagePath={imagePath}
       />
       <Bio />
       <Navigation />
@@ -54,6 +59,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fileAbsolutePath
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
