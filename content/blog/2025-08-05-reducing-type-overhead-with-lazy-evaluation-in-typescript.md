@@ -6,7 +6,7 @@ date: 2025-08-05
 
 When working on large TypeScript codebases, it's easy to introduce performance issues through how types are written. One case we ran into involved building helper types over all API routes, which caused the type checker to slow down significantly.
 
-The insight and solution presented here came from my teammate [José Mussa](https://x.com/josemussa), who identified the root cause and proposed the fix that made a real difference in our day-to-day development.
+The insight and solution presented here came from my teammate [José Mussa](https://www.linkedin.com/in/jose-mussa/), who identified the root cause and proposed the fix that made a real difference in our day-to-day development.
 
 ## The Problem
 
