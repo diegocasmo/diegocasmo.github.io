@@ -104,7 +104,7 @@ which are more complicated to understand. Consider the following
 example in English:
 
 ```
-You can't see no one in this crowd
+There is no one in this crowd you can't see.
 ```
 
 This sentence actually means you can see everyone in this crowd,
