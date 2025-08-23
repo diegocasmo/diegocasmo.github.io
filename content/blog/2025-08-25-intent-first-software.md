@@ -12,9 +12,9 @@ Once I tried it, I wanted it everywhere. Instead of picking an Instagram filter,
 
 Quality finally crossed the line. Models can act on product data well enough that intent no longer feels like a demo. It shines when people can describe the goal better than they can navigate to it; it helps less when the task is already crisp, regulated, or step-bound.
 
-The direction is simple: intent first, interface second. Most software predates this shift, so the old model is still the base the new pattern builds on. In practice, intent starts the flow; the usual controls sit nearby to refine, verify, and repeat. A text box on top is easy and often underwhelming because intent only works when it is wired into real capabilities and clear feedback.
+The direction is simple: intent first, interface second. Most software predates this shift, so the old model is still the base the new pattern builds on. In practice, intent starts the flow; the usual controls sit nearby to refine, verify, and repeat.
 
-I no longer speak the product's map. I state the outcome, and the product handles the map. Menus and forms still matter, but they follow. Same system, different sequence. If a product makes me learn its schema first, it feels dated.
+I no longer speak the product's map. I state the outcome, and the product handles the map. Menus and forms still matter, but they follow. Same system, different sequence. If a product makes me learn its user interface first, it feels dated.
 
 ## Craft and opportunity
 
