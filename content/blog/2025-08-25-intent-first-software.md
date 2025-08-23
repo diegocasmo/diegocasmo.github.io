@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Intent-First Software
-date: 2025-08-23
+date: 2025-08-25
 ---
 
 User expectations shifted almost overnight. LLMs taught people they can state intent in plain language and watch software act.
