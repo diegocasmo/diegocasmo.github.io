@@ -6,7 +6,7 @@ date: 2025-08-25
 
 User expectations shifted almost overnight. LLMs taught people they can state intent in plain language and watch software act.
 
-Once I tried it, I wanted it everywhere. Instead of picking an Instagram filter, I say how I want the photo to look. Instead of keyword hunting on Pinterest, I describe the room I imagine and get options that feel right. On Amazon, I may not know the product name, but I can describe the job to be done and expect to find it. I tell the app, it does the thing. That is the bar now, and it changes how products should begin.
+Once I tried it, I wanted it everywhere. Instead of picking an Instagram filter, I say how I want the photo to look. Instead of keyword hunting on Pinterest, I describe the room I imagine and get options that feel right. On Amazon, I may not know the product name, but I can describe the job to be done and expect to find it. I tell the app, it does the thing. That is the bar now, and it changes how products should be built.
 
 ## Foundation and Fit
 
