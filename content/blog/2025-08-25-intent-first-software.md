@@ -16,7 +16,7 @@ The direction is simple: intent first, interface second. Most software predates 
 
 Put simply: users speak outcomes, not the product's UI. Menus and forms still matter, but they follow. Same system, different sequence. If a product makes me learn its UI first, it often feels dated.
 
-Quality is improving, and in more cases intent no longer feels like a demo. It often shines when users can describe the goal better than they can navigate to it. It helps less when compliance requires fixed, audited steps. Crisp tasks can benefit too when the tooling is solid.
+Quality is improving, and in more cases intent no longer feels like a demo. It often shines when users can describe the goal better than they can navigate to it. It helps less when compliance requires fixed, audited steps.
 
 ## Craft and Opportunity
 
