@@ -11,7 +11,7 @@ export const Navigation = () => (
       Products
     </Link>
     {" • "}
-    <a target="blank" rel="noopener" href="https://linktr.ee/diegocasmo">
+    <a target="blank" rel="noopener" href="https://diegocasmo.start.page/">
       Find Me
     </a>
     <hr />
