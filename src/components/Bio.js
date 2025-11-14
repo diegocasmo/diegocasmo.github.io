@@ -16,19 +16,20 @@ export const Bio = () => (
     />
     <div>
       <hr />
+
       <p>
-        Curious software engineer with a keen interest in craftsmanship and design
-        principles. At{' '}
+        Curious software engineer focused on craftsmanship and simple,
+        thoughtful products. At{" "}
         <a target="blank" rel="noopener" href="https://buffer.com/">
           Buffer
         </a>
         , I work with a fully remote team building tools that help creators and
-        small businesses plan, publish, and analyze their social media so they can
-        grow their audience and connect with their communities.
+        small businesses plan, publish, and analyze their social media so they
+        can grow and connect with their communities.
       </p>
       <hr />
       <p>
-        Improvising bits and melodies{' '}
+        Improvising bits and melodies{" "}
         <a
           target="blank"
           rel="noopener"
@@ -38,6 +39,7 @@ export const Bio = () => (
         </a>
         .
       </p>
+      <hr />
     </div>
   </section>
 )
