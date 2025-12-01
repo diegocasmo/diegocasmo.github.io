@@ -4,7 +4,7 @@ title: Onboarding as an Engineer in the Age of AI
 date: 2025-12-01
 ---
 
-This is the first time I've onboarded at a new company while modern LLM capabilities are readily available. The experience has been different, and better.
+This is the first time I've onboarded at a company while modern LLM capabilities are readily available. The experience has been different, and better.
 
 I joined [Buffer](https://buffer.com/), an async-first, remote company that builds tools to help creators and businesses manage their social media. The team has been excellent at providing guidance, context, and everything needed for a smooth onboarding. But when it comes to engineering, some things are best learned by doing, getting your hands dirty with the actual work.
 
@@ -29,3 +29,5 @@ Plan mode has been useful here too. Before committing to a solution, I explore m
 It's tempting to work in a silo when you can unblock yourself more easily. But that misses the point. I still reach out to teammates, ask questions, and pair on complex problems. I come to those conversations better prepared, with more context, with specific questions rather than broad confusion.
 
 Onboarding with AI tools available has been smoother. I can ramp up faster, understand the codebase more quickly, and get unblocked more easily. The tools help me contribute sooner while still building the relationships that make remote, async work successful.
+
+Have you onboarded at a company recently? What interesting ways have you used AI during onboarding? I'd love to hear your thoughts and experiences.
