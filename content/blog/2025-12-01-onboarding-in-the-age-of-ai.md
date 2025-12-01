@@ -26,6 +26,6 @@ Plan mode has been useful here too. Before committing to a solution, I explore m
 
 ## The Balance
 
-It's tempting to work in a silo when you can unblock yourself more easily. But that misses the point. I still reach out to teammates, ask questions, and pair on complex problems. The difference is I come to those conversations better prepared, with more context, with specific questions rather than broad confusion.
+It's tempting to work in a silo when you can unblock yourself more easily. But that misses the point. I still reach out to teammates, ask questions, and pair on complex problems. I come to those conversations better prepared, with more context, with specific questions rather than broad confusion.
 
-Onboarding with AI tools available has been different. I can ramp up faster, understand the codebase better, and get unblocked more easily. The tools help me contribute sooner while still building the relationships that make remote, async work successful.
+Onboarding with AI tools available has been smoother. I can ramp up faster, understand the codebase more quickly, and get unblocked more easily. The tools help me contribute sooner while still building the relationships that make remote, async work successful.
