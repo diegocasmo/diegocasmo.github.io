@@ -6,7 +6,7 @@ date: 2025-12-01
 
 This is the first time I've onboarded at a new company while modern LLM capabilities are readily available. The experience has been different, and better.
 
-I joined [Buffer](https://buffer.com/), an async-first, remote company. The team has been excellent at providing guidance, context, and everything needed for a smooth onboarding. But when it comes to engineering, some things are best learned by doing, getting your hands dirty with the actual work.
+I joined [Buffer](https://buffer.com/), an async-first, remote company that builds tools to help creators and businesses manage their social media. The team has been excellent at providing guidance, context, and everything needed for a smooth onboarding. But when it comes to engineering, some things are best learned by doing, getting your hands dirty with the actual work.
 
 AI tools have made it easier than ever to start contributing. Not just for implementation, but for building context and understanding what's happening in the codebase.
 
