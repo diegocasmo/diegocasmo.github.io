@@ -10,7 +10,7 @@ const PRODUCTS = [
   {
     title: "tonebuilder.ai",
     description:
-      "An AI-powered, chat-based tone architect for Line 6 Helix devices.",
+      "An AI-powered, chat-based tone architect for Line 6 Helix.",
     url: "https://tonebuilder.ai/",
     tech: ["Next.js", "AI SDK", "TypeScript", "Prisma", "PostgreSQL"],
   },
