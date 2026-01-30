@@ -18,8 +18,8 @@ export const Bio = () => (
       <hr />
 
       <p>
-        Curious software engineer focused on craftsmanship and simple,
-        thoughtful products. At{" "}
+        Architecting software focused on craftsmanship and simple, thoughtful
+        products. At{" "}
         <a target="blank" rel="noopener" href="https://buffer.com/">
           Buffer
         </a>
