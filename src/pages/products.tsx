@@ -15,6 +15,14 @@ const PRODUCTS = [
     tech: ["Next.js", "AI SDK", "TypeScript", "Prisma", "PostgreSQL"],
   },
   {
+    title: "Pocket Ledger",
+    description:
+      "A local-first expense tracker. No accounts. No cloud.",
+    url: "https://pocket-ledger-rho.vercel.app/calendar",
+    githubUrl: "https://github.com/diegocasmo/pocket-ledger",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Dexie", "TanStack Query"],
+  },
+  {
     title: "findmomentum.xyz",
     description:
       "A productivity app that helps track and celebrate daily progress through small wins.",
