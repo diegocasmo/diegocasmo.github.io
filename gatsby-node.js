@@ -2,7 +2,7 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         ) {
           nodes {
             id
+            fileAbsolutePath
             fields {
               slug
             }
@@ -54,6 +55,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
+
+      const filename = path.basename(post.fileAbsolutePath, '.md')
+      const oldSlug = `/${filename}/`
+      if (oldSlug !== post.fields.slug) {
+        createRedirect({
+          fromPath: oldSlug,
+          toPath: post.fields.slug,
+          isPermanent: true,
+        })
+      }
     })
   }
 }
@@ -62,12 +73,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const filePath = createFilePath({ node, getNode })
+    const slug = filePath.replace(/^\/\d{4}-\d{2}-\d{2}-/, '/')
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
     })
   }
 }
