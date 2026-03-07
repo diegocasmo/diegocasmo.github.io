@@ -13,7 +13,7 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+        <Seo title="Software Engineering Blog" pathname="/" />
         <Bio />
 
         <Navigation />
@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <Seo title="Software Engineering Blog" pathname="/" />
       <Bio />
       <Navigation />
       <h1>Writing</h1>

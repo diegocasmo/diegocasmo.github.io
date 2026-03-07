@@ -3,9 +3,9 @@ module.exports = {
     title: `Diego Castillo`,
     author: {
       name: `Diego Castillo`,
-      summary: `Experienced software engineer with solid knowledge of Ruby & JavaScript`,
+      summary: `Software engineer writing about web development, architecture, and building products`,
     },
-    description: `Experienced software engineer with solid knowledge of Ruby & JavaScript`,
+    description: `Blog by Diego Castillo — software engineer writing about web development, architecture, and building products.`,
     siteUrl: `https://diegocasmo.github.io/`,
     image: `/avatar.jpg`,
     social: {
@@ -113,8 +113,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Diego Castillo`,
+        short_name: `Diego Castillo`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
@@ -124,6 +124,7 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

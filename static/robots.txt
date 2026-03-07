@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://diegocasmo.github.io/sitemap/sitemap-index.xml

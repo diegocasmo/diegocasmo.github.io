@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-export const Seo = ({ description, lang, meta, title }) => {
+export const Seo = ({ description, lang, meta, title, pathname, ogType }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -31,7 +31,8 @@ export const Seo = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const siteUrl = site.siteMetadata?.siteUrl
+  const siteUrl = site.siteMetadata?.siteUrl?.replace(/\/$/, "")
+  const canonical = pathname ? `${siteUrl}${pathname}` : null
 
   return (
     <Helmet
@@ -40,6 +41,7 @@ export const Seo = ({ description, lang, meta, title }) => {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      link={canonical ? [{ rel: "canonical", href: canonical }] : []}
       meta={[
         {
           name: `description`,
@@ -55,11 +57,11 @@ export const Seo = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: ogType,
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -74,6 +76,11 @@ export const Seo = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
       ]
+        .concat(
+          canonical
+            ? [{ property: "og:url", content: canonical }]
+            : []
+        )
         .concat([
           {
             property: "og:image",
@@ -93,6 +100,7 @@ Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  ogType: `website`,
 }
 
 Seo.propTypes = {
@@ -100,4 +108,6 @@ Seo.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  pathname: PropTypes.string,
+  ogType: PropTypes.string,
 }

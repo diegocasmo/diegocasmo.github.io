@@ -9,12 +9,16 @@ import { Navigation } from "../components/Navigation"
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteUrl = data.site.siteMetadata?.siteUrl?.replace(/\/$/, "")
+  const image = data.site.siteMetadata?.image
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        pathname={location.pathname}
+        ogType="article"
       />
       <Bio />
       <Navigation />
@@ -27,6 +31,12 @@ const BlogPostTemplate = ({ data, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
+        <meta itemProp="datePublished" content={post.frontmatter.dateISO} />
+        <meta itemProp="dateModified" content={post.frontmatter.dateISO} />
+        {image && <meta itemProp="image" content={`${siteUrl}${image}`} />}
+        <div itemProp="author" itemScope itemType="http://schema.org/Person">
+          <meta itemProp="name" content={data.site.siteMetadata?.title} />
+        </div>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
@@ -48,6 +58,8 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
+        image
       }
     }
     markdownRemark(id: { eq: $id }) {
@@ -57,6 +69,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        dateISO: date(formatString: "YYYY-MM-DD")
         description
       }
     }
