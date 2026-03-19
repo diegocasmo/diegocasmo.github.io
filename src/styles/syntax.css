@@ -1,0 +1,65 @@
+/* Syntax highlighting styles */
+
+:root {
+  --code-border: color-mix(in srgb, var(--foreground) 25%, transparent);
+  --comment: color-mix(in srgb, var(--foreground) 50%, transparent);
+}
+
+/* Override Astro's default code block styles */
+.astro-code {
+  border: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent) !important;
+  padding: 20px 10px !important;
+}
+
+/* Line highlighting */
+.highlight-line {
+  display: block;
+  margin: 0 -10px;
+  padding: 0 10px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-left: 3px solid var(--accent);
+}
+
+/* Diff highlighting */
+.token.deleted {
+  color: #ff6666 !important;
+  background: color-mix(in srgb, #ff6666 10%, transparent);
+}
+
+.token.inserted {
+  color: #66ff66 !important;
+  background: color-mix(in srgb, #66ff66 10%, transparent);
+}
+
+/* Inline code in different contexts */
+.post-content code,
+.page code {
+  word-break: break-word;
+}
+
+/* Code block containers */
+.code-toolbar {
+  position: relative;
+}
+
+.code-toolbar .toolbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.code-toolbar .toolbar-item button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 2px 8px;
+  font-size: calc(var(--font-size) * 0.8);
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+
+.code-toolbar .toolbar-item button:hover {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+}

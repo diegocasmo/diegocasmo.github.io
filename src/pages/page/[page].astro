@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 10;
+  const allPosts = (await getCollection('posts'))
+    .filter(post => !post.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    params: { page: String(i + 2) },
+    props: {
+      posts: allPosts.slice((i + 1) * POSTS_PER_PAGE, (i + 2) * POSTS_PER_PAGE),
+      currentPage: i + 2,
+      totalPages,
+    },
+  }));
+}
+
+const { posts, currentPage, totalPages } = Astro.props;
+---
+
+<BaseLayout title={`Posts — Page ${currentPage}`} description="Blog by Diego Castillo — software engineer writing about web development, architecture, and building products.">
+  <div class="posts">
+    <h1 class="posts-title">Posts — Page {currentPage}</h1>
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+
+  <div class="pagination">
+    <div class="pagination__buttons">
+      {currentPage > 2 && (
+        <a href={`/page/${currentPage - 1}/`} class="button inline prev">
+          &lt; [<span class="button__text">Newer posts</span>]
+        </a>
+      )}
+      {currentPage === 2 && (
+        <a href="/" class="button inline prev">
+          &lt; [<span class="button__text">Newer posts</span>]
+        </a>
+      )}
+      {currentPage > 1 && currentPage < totalPages && <span>::</span>}
+      {currentPage < totalPages && (
+        <a href={`/page/${currentPage + 1}/`} class="button inline next">
+          [<span class="button__text">Older posts</span>] &gt;
+        </a>
+      )}
+    </div>
+  </div>
+</BaseLayout>
