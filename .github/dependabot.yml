@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    open-pull-requests-limit: 3
+    allow:
+      - dependency-type: 'direct'
+    commit-message:
+      prefix: 'chore(package.json):'
