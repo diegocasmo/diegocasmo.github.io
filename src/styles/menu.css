@@ -3,7 +3,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin: 20px 1px;
+  margin: 40px 1px 20px;
 }
 
 .navigation-menu__inner {
@@ -131,7 +131,7 @@
 /* Responsive */
 @media (max-width: 684px) {
   .navigation-menu {
-    margin: 0;
+    margin: 20px 0 0;
   }
   
   .menu--desktop {
@@ -140,7 +140,7 @@
   
   .menu--mobile {
     display: flex;
-    margin-top: 4px;
+    margin-top: 0;
   }
   
   .menu--mobile .menu__dropdown {
