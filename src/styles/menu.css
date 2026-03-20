@@ -117,6 +117,12 @@
   padding: 3px 8px;
 }
 
+/* Social icon alignment */
+.navigation-menu__inner a > svg,
+.menu__dropdown a > svg {
+  vertical-align: middle;
+}
+
 /* Responsive */
 @media (max-width: 684px) {
   .navigation-menu {
