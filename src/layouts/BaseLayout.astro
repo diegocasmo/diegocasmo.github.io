@@ -170,7 +170,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         const header = document.querySelector(".header");
         if (!header) return;
         window.addEventListener("scroll", () => {
-          header.classList.toggle("header--scrolled", window.scrollY > 50);
+          header.classList.toggle("header--scrolled", window.scrollY > 0);
         }, { passive: true });
       })();
     </script>

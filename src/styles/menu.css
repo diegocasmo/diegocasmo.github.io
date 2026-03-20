@@ -140,9 +140,9 @@
   
   .menu--mobile {
     display: flex;
-    margin-top: 4px;
+    margin-top: 0;
   }
-  
+
   .menu--mobile .menu__dropdown {
     left: auto;
     right: 0;
