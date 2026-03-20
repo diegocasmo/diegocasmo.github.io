@@ -10,7 +10,7 @@ A client of mine recently gave me the task to code a feature which included desi
 
 The goal of this blog post is to share and explain the code I created to built such functionality. Thus, giving you an alternative if one day you need to create a similar component without having to include yet another dependency to your project.
 
-### The Gist
+## The Gist
 I wanted to create a very flexible tabs component. The main goal was for it to allow any valid ``jsx`` to be rendered inside a tab. I wanted it to look something like this:
 
 ``` jsx
@@ -26,7 +26,7 @@ I wanted to create a very flexible tabs component. The main goal was for it to a
 
 As you can see, a tab should be able to render any valid ``jsx``. This gives the developer the ability to pass custom ``props`` for other functionality that might be needed in the future.
 
-### The ``<Tabs/>`` component
+## The ``<Tabs/>`` component
 
 The ``<Tabs/>`` component holds the state and  knows what tab is currently being rendered. It handles the changes to show/hide other tabs. Finally, it also gives the developer the ability to specify a default tab to render when none is selected.
 
@@ -87,7 +87,7 @@ export class Tabs extends Component {
 }
 ```
 
-### The ``<Tab/>`` component
+## The ``<Tab/>`` component
 
 The ``<Tab/>`` component is a stateless component. Its goal is to simply render a Bootstrap-like tab, allow the developer to specify some custom styling, and call its parent (the ``<Tabs/>`` component) when an ``onClick`` event occurs.
 
@@ -112,7 +112,7 @@ export const Tab = (props) => {
 
 ```
 
-### Conclusion
+## Conclusion
 With very little code and yet a lot of flexibility we have managed to implement a simple React ``<Tabs/>`` component. A gist with the source code needed to implement both components and their tests can be found [here](https://gist.github.com/diegocasmo/5cd978e9c5695aefca0c6a8a19fa4c69).
 
 Have you ever implemented something similar? Did you do something differently? Leave a comment below a let's learn from each other :).

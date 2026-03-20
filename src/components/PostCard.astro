@@ -43,7 +43,7 @@ const isExternal = !!post.data.externalLink;
     </div>
   )}
   <div>
-    <a href={postUrl} class="read-more button inline" target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener" : undefined}>
+    <a href={postUrl} class="read-more button inline" target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener" : undefined} aria-label={`Read more about ${post.data.title}`}>
       [Read more]
     </a>
   </div>

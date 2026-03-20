@@ -19,7 +19,7 @@ than can improve your code. This list is not by any means exhaustive
 said, I have focused on listing good programming practices that
 have had the greatest impact on the quality of the code I write.
 
-### Test Driven Development (TDD)
+## Test Driven Development (TDD)
 
 Writing tests first offers many advantages such as verifiability,
 regression prevention, and documentation, among others. But one of
@@ -41,7 +41,7 @@ while refactoring, as you can still be able to tell if the new code
 correctly implements the required behavior of the old code, without
 having to update any behavior tests at all.
 
-### Use Pure Functions
+## Use Pure Functions
 
 A pure function is defined as a method which, given the same input,
 will always return the same output and depend on no external mutable
@@ -87,7 +87,7 @@ There are many concepts to functional programming other than pure
 functions, but the use of it will enforce code that uses pure
 functions.
 
-### Single Source of Truth (SSOT)
+## Single Source of Truth (SSOT)
 
 The concept of a single source of truth refers to the idea of storing
 application data in only one place. Any other link to a specific
@@ -139,7 +139,7 @@ positively and include `is` to imply `true/false`. With relatively
 low effort, this good practice will tremendously improve the
 readability of your code.
 
-### Favor the Verb-noun Approach for Naming Methods
+## Favor the Verb-noun Approach for Naming Methods
 
 Naming things is one of those problems that have haunted software
 developers for quite a long time. That being said, there are a few
@@ -158,7 +158,7 @@ clearly understand the code you have written and save them time by
 letting them understand what the method does without having to read
 its implementation.
 
-### Conclusion
+## Conclusion
 
 In this blog post, I have listed a few good programming practices
 that have helped me improve the quality of the code I write. As

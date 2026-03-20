@@ -49,9 +49,9 @@ And finally, ``A(w)`` can be expressed as (the combine step):
 
 The only issue though, is that the points which the algorithm needs to use to compute ``A(w)`` for an ``n`` (power of 2) need to be carefully chosen. The method  the author suggests is using the [complex nth-roots of unity](https://en.wikipedia.org/wiki/Root_of_unity). By using the complex nth-roots of unity for an ``n`` power of 2, then at successive levels of recursion tree we will have ``(n/2^k)th`` roots of unity for  ``k=0, 1, 2, 3, ...``.
 
-### The Fast Fourier Transform Algorithm
+## The Fast Fourier Transform Algorithm
 
-#### [Pseudocode:](http://beust.com/algorithms.pdf) (Page 71)
+### [Pseudocode:](http://beust.com/algorithms.pdf) (Page 71)
 
 ```
 function FFT(A, ω)
@@ -67,7 +67,7 @@ function FFT(A, ω)
   return A(ω^0), . . . , A(ω^n−1)
 ```
 
-#### Implementation:
+### Implementation:
 
 ``` ruby
 class FFT
@@ -99,7 +99,7 @@ class FFT
 end
 ```
 
-#### Tests:
+### Tests:
 
 ``` ruby
 require 'minitest/autorun'
@@ -144,5 +144,5 @@ describe FFT do
 end
 ```
 
-### Conclusion
+## Conclusion
 The Fast Fourier Transform algorithm is a really nice way to demonstrate how mathematical ingenuity plays a big role in the design and analysis of algorithms. Changing the representation of the data given to us for a specific task can bring great benefits to both the understanding of the overall process and the efficiency in the computations needed to produce the desired output.

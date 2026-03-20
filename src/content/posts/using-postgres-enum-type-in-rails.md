@@ -23,7 +23,7 @@ Depending on the problem that you are trying to solve, this approach could poten
 
 In this blog post, I'll show how to use the Postgres enum type with Rails to avoid the aforementioned pit falls.
 
-### Postgres Enumerated Types
+## Postgres Enumerated Types
 
 Postgres supports enumerated types, which are data types that comprise a static, ordered set of values. To create an enum type, use the Postgres `CREATE TYPE` command. In a Rails project, generate a migration as follows `rails g migration AddStatusToProjects`:
 
@@ -47,7 +47,7 @@ end
 
 The migration creates a `project_status` enumerated type. Next, it adds a `status` column to the `projects` table of type `project_status`. By using the Postgres enumerated type, the `status` attribute is constrain at the database level to be one of `active`|`archived`. Lastly, set `config.active_record.schema_format = :sql` in the environment configuration files, so that the database schema includes the `project_status` enumerated type definition.
 
-### Active Record Enum
+## Active Record Enum
 
 The initial definition of the `status` Active Record enum needs to be slightly modified. Simply use a hash to explicitly map the relation between the attribute and database value as follows:
 
@@ -58,7 +58,7 @@ class Project < ActiveRecord::Base
 end
 ```
 
-### Unit Tests
+## Unit Tests
 
 Unit tests can be tremendously simplified by using the `shoulda-matchers` gem:
 
@@ -76,7 +76,7 @@ end
 
 The first unit test verifies the `status` column is defined in the `Project` model and its column type is `enum`. Also, it makes sure the `status` enum values are correctly defined as specified in the `status` hash. Finally, the last test confirms the `Project` model allows the `status` attribute to be set using the `:active` and `:archived` symbols.
 
-### Conclusion
+## Conclusion
 
 And that was it! The `Project` model defines and validates an enum for the `status` attribute which is mapped to meaningful string values in the database. Additionally, the `status` column is constrain at the database level to be one of the specified values in the Postgres enumerated type.
 

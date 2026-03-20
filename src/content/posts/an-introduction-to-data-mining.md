@@ -13,7 +13,7 @@ Decision making might be one of the most common yet more difficult things to do.
 
 In this blog post I will explore how I used data mining to answer some of the questions raised by the concerns described above.
 
-### Data Driven Decision Making
+## Data Driven Decision Making
 Data driven decision making refers to the analysis of data to lead decisions which enhance success. A precise analysis of data provides invaluable information for decision making, as the results of the analysis are the direct outcome of user behavior.
 
 When doing data mining, clean and well understood data is the foundation to conduct an accurate analysis. If data needs to be manipulated or cleansed in order to create a proper dataset, make sure you do so before starting the analysis. These are a good starting point for creating a clean dataset (some might not apply to your specific needs):
@@ -32,8 +32,8 @@ We can start off our analysis after the data has been preprocessed. One of the s
 - `N-grams`: N-grams are a sequence of `n`-terms. The most popular n-gram analysis is the sequence of two terms (bigram). Bigrams are an easy alternative to implement when term frequency analysis does not give us enough information of what the data is all about.
 - `Term co-occurrences`: A term co-occurrence analysis determines what two words occur together most frequently (not necessarily side-by-side). This analysis can be extended to receive a particular word as input and then output with what other word does it co-occur the most.
 
-### Data Visualization
+## Data Visualization
 When doing data mining, it is also important to properly showcase the analysis results. If you are working with Python, I recommend taking a look at [Vincent](https://github.com/wrobstory/vincent). As the description of the library says, ``The data capabilities of Python. The visualization capabilities of JavaScript.``, Vincent allows to easily exhibit the results of an analysis in a coherent and professional way.
 
-### Conclusion
+## Conclusion
 The analysis of data has enabled us to backup our decisions with direct input from user behavior, which in turn enhances our chances of a successful decision making process. I highly recommend reading [this series of articles](http://marcobonzanini.com/2015/03/02/mining-twitter-data-with-python-part-1/) about data mining with Python and Twitter, as it provides an excellent foundation for getting started with it.

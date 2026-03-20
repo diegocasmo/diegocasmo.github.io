@@ -20,7 +20,7 @@ As a result of this, we decided to change our development workflow to a more col
 
 One of the tools we chose for our plan of action was [Cucumber](https://cucumber.io/). In this blogpost I will guide you through the basics and good practices of writing acceptance tests with it.
 
-### Acceptance Tests
+## Acceptance Tests
 An acceptance test demonstrates what a feature (or system) needs to do in order for the stakeholders to find it acceptable. At Ubiqua, we like to think of testing in the following way:
 
 - Acceptance tests: build the right thing.
@@ -28,7 +28,7 @@ An acceptance test demonstrates what a feature (or system) needs to do in order 
 
 Cucumber allows us to write acceptance tests by specifying a concrete number of executable examples (build the right thing) of how the system should behave under certain circumstances. Writing down these examples encourages a team to think about the different use-cases that a feature needs to serve which in turn assists in revealing insights about other feature use-cases that were unknown at the beginning of the iteration. Such practices help to avoid a [solution looking for a problem](http://xyproblem.info/) and consecutively boost the team's productivity.
 
-### Overview of a Cucumber Feature
+## Overview of a Cucumber Feature
 A Cucumber feature is a set of examples of how the system should behave under certain circumstances. Each feature is made of a number of examples called ``Scenarios``. Scenarios must be independent and usually follow this pattern:
 
 - Context: Put the system in a particular state (``Given``).
@@ -37,7 +37,7 @@ A Cucumber feature is a set of examples of how the system should behave under ce
 
 Features in Cucumber are written in ``Gherkin``. Gherkin is a language used to facilitate communication with stakeholders to illustrate what the software should do. The greatest advantage of using Gherkin is that it is designed for human readability and thus helps developers to interact with stakeholders and create documentation at the same time.
 
-### A Cucumber Feature Example
+## A Cucumber Feature Example
 
 A simple Cucumber feature usually consists of the following components:
 
@@ -82,5 +82,5 @@ Some of the code has been abstracted for simplicity, but the main idea of what a
 
 Just as unit tests do, Cucumber will run each step in the scenario and mark it as passing if no exceptions are thrown. If an exception is thrown, it will stop executing the steps of that scenario and mark it as failing. If all the steps in the scenario pass, then it will mark that scenario as passing. It is common to use Cucumber with an assertion library such as [RSpec](http://rspec.info/) to be able to compare the result of particular action to the expected value.
 
-### Conclusion
+## Conclusion
 We have found acceptance tests have helped us to be more efficient and to have the courage to perform major surgery to our codebase. At the same time, as we are making our product more robust and reliable, we are creating documentation for it which is easy to read and explain to other people. I would highly recommend reading [The Cucumber Book](http://www.amazon.com/The-Cucumber-Book-Behaviour-Driven-Development/dp/1934356808), as it will help you to both improve your software engineering skills and have a greater understanding of acceptance testing (using Cucumber as a tool for it) and its goal.

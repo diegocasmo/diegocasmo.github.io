@@ -58,6 +58,11 @@
   color: var(--accent);
   user-select: none;
   cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .menu__dropdown {

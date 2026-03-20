@@ -16,7 +16,7 @@
 .post-meta {
   font-size: inherit;
   margin-bottom: 10px;
-  color: color-mix(in srgb, var(--foreground) 65%, transparent);
+  color: color-mix(in srgb, var(--foreground) 75%, transparent);
 }
 
 .post-title {
@@ -113,7 +113,7 @@
 
 /* Metadata in single posts */
 article time {
-  color: color-mix(in srgb, var(--foreground) 65%, transparent);
+  color: color-mix(in srgb, var(--foreground) 75%, transparent);
 }
 
 /* Video embeds */
@@ -206,7 +206,7 @@ iframe[src*="codepen"] {
 }
 
 .footnotes h2 {
-  /* Hide the screen reader only heading visually */
+  /* Uses .sr-only pattern from terminal.css — duplicated here for specificity on generated markup */
   position: absolute;
   width: 1px;
   height: 1px;

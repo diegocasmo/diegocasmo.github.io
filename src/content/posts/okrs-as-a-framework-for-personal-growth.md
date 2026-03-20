@@ -77,7 +77,7 @@ life and those around me. Using OKRs has helped me to create and
 sustain habits that aid me to consistently grow as a person and
 professional.
 
-### Conclusion
+## Conclusion
 
 Measuring how my day-to-day actions relate to my personal goals has
 been a complete game changer. OKRs is the one framework that has
