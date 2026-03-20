@@ -1,6 +1,6 @@
 # diegocasmo.github.io
 
-Personal blog built with [Astro 5](https://astro.build/), deployed to GitHub Pages.
+Personal blog built with [Astro](https://astro.build/), deployed to GitHub Pages.
 
 ## Commands
 
@@ -10,6 +10,12 @@ npm run dev       # Start dev server
 npm run build     # Typecheck + build
 npm run preview   # Preview production build
 npm run check     # TypeScript/Astro check only
+```
+
+## Tests
+
+```sh
+npm test            # Run Playwright smoke tests against preview server
 ```
 
 ## Deploy

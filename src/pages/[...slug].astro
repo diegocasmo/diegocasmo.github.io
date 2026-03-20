@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import PostLayout from '../layouts/PostLayout.astro';
 
 export async function getStaticPaths() {
@@ -8,7 +8,7 @@ export async function getStaticPaths() {
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return posts.map((post, index) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: {
       post,
       prevPost: index < posts.length - 1 ? posts[index + 1] : null,
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <PostLayout {...post.data}>
@@ -32,14 +32,14 @@ const { Content } = await post.render();
     <div class="pagination__buttons">
       {prevPost && (
         <>
-          <a href={`/${prevPost.slug}/`} class="button inline prev">
+          <a href={`/${prevPost.id}/`} class="button inline prev">
             &lt; [<span class="button__text">{prevPost.data.title}</span>]
           </a>
           {prevPost && nextPost && <span>::</span>}
         </>
       )}
       {nextPost && (
-        <a href={`/${nextPost.slug}/`} class="button inline next">
+        <a href={`/${nextPost.id}/`} class="button inline next">
           [<span class="button__text">{nextPost.data.title}</span>] &gt;
         </a>
       )}
