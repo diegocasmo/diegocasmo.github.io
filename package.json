@@ -21,6 +21,7 @@
     "@astrojs/rss": "^4.0.13",
     "@astrojs/sitemap": "^3.6.0",
     "@playwright/test": "^1.58.2",
+    "serve": "^14.2.6",
     "typescript": "^5.9.3"
   }
 }
