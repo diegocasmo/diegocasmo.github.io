@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 const { posts, currentPage, totalPages } = Astro.props;
 ---
 
-<BaseLayout title={`Posts — Page ${currentPage}`} description="Blog by Diego Castillo — software engineer writing about web development, architecture, and building products.">
+<BaseLayout title={`Posts — Page ${currentPage}`} description="Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.">
   <div class="posts">
     <h1 class="posts-title">Posts — Page {currentPage}</h1>
     {posts.map((post) => <PostCard post={post} />)}

@@ -6,7 +6,7 @@ export interface Props {
   ogType?: string;
 }
 
-const { title, description = 'Blog by Diego Castillo — software engineer writing about web development, architecture, and building products.', image, ogType } = Astro.props;
+const { title, description = 'Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.', image, ogType } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -163,6 +163,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             dropdown.addEventListener("click", e => e.stopPropagation());
           }
         });
+      })();
+
+      // Toggle border on sticky header when scrolled
+      (() => {
+        const header = document.querySelector(".header");
+        if (!header) return;
+        window.addEventListener("scroll", () => {
+          header.classList.toggle("header--scrolled", window.scrollY > 50);
+        }, { passive: true });
       })();
     </script>
   </body>
