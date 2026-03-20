@@ -16,7 +16,7 @@ The correctness of the merge sort algorithm is self-evident as long as a proper 
 
 To analyze the running time of merge sort algorithm, we can take a look at the relation of ``a/b^d`` presented by the master method (where ``a = # recursive calls``, ``b = branching factor``, ``d = exponent of the combine step running time``), ``a`` would be equal to ``2``, ``b = 2``, and ``d = 1``, which will lead to ``a/b^d = 1``, and that corresponds to a running time of ``O(nlogn)``. In other words, the rate of work shrinkage per subproblem is equal to the rate of subproblem proliferation (same amount of work at each level of the recursion tree).
 
-#### Pseudocode:
+### Pseudocode:
 
 ```
 function mergesort(a[1 . . . n])
@@ -37,7 +37,7 @@ function merge(x[1 . . . k], y[1 . . . l])
     return y[1] ◦ merge(x[1 . . . k], y[2 . . . l])
 ```
 
-#### Implementation:
+### Implementation:
 
 ``` ruby
 class MergeSort
@@ -69,7 +69,7 @@ class MergeSort
 end
 ```
 
-#### Tests:
+### Tests:
 
 ``` ruby
 require 'minitest/autorun'
@@ -104,6 +104,6 @@ describe MergeSort do
 end
 ```
 
-### Conclusion
+## Conclusion
 
 Just as the author explained, sorting problems immediately lend towards a divide-and-conquer approach. Next, I will be revisiting/learning more about medians, matrix multiplication, and the fast Fourier transform.

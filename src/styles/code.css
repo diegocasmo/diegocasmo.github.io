@@ -41,6 +41,11 @@
   background: color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
+.copy-button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* Collapsible code blocks */
 .collapsible {
   position: relative;

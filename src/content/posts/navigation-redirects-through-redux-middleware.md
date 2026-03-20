@@ -10,14 +10,14 @@ Routing in client-side applications usually starts off as a small number of rout
 
 The goal of this blog post is to explain how to use [Redux](https://github.com/reactjs/redux) middleware to create a solution for client-side navigation redirects which is intuitive, scalable, and easy to maintain.
 
-### A Redux Walk-through
+## A Redux Walk-through
 [Redux is a predictable state container for JavaScript applications](http://redux.js.org/). It offers a simple solution to storing and handling state changes. Redux can be used with any view library, though it's very commonly used with [React](https://facebook.github.io/react/).
 
 In Redux, the whole application state is stored in a single place: the ``store``. The state of the application can only be modified through an ``action``. When an action is dispatched, it's handled by a ``reducer`` which proceeds to update the store as needed.
 
 A Redux ``middleware`` provides and extension to the Redux work flow. It allows the developer to capture an action and execute some custom code before or after it's dispatched.
 
-### Redux Middleware In Action
+## Redux Middleware In Action
 Let's now assume we are working on a simple TODO application using React and Redux. The TODO application allows a user to see all TODO's at ``/`` (the index route) and click a single TODO at ``/:todoId`` to view its details or edit it.  We want to add a new feature to our TODO application: give the user the ability to delete a single TODO when viewing its details at ``/:todoId``. If the TODO is successfully deleted, the user should be redirected to the index page.
 
 In  order to delete a TODO, we create a couple of new actions in the application:
@@ -82,7 +82,7 @@ let store = createStore(
 );
 ```
 
-### Conclusion
+## Conclusion
 I have been using Redux middleware for handling navigation redirects for quite a while now, and this solution has proven to be intuitive, scalable, and easy to maintain. Redux middleware are also commonly used for logging, crash reporting, and talking to an asynchronous API.
 
 Do you have a different solution for dealing with navigation redirects in client-side applications? Leave a comment below :).

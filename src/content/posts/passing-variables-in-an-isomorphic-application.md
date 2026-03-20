@@ -12,10 +12,10 @@ The problem I had to solve was how to pass variables (containing the data necess
 
 The goal of this blog post is to explain how I used React's context feature to pass variables from the server to the client without loosing the benefits of isomorphic rendering.
 
-### The Challenge
+## The Challenge
 I found a couple of solutions to similar problems online, but none of them worked for the same reason: the HTML rendered by the server wasn't the same as the one rendered by the client. In an isomorphic application, the HTML rendered by the server must be the same as the one rendered by the client, otherwise you would loose the benefits of it and get a [React check-sum warning](http://stackoverflow.com/a/34315767/6373590).
 
-### The Solution
+## The Solution
 I had already worked with the well known state container ``Redux``, and I figured I could use something similar to the ``react-redux`` [Provider](https://github.com/reactjs/react-redux/blob/master/src/components/Provider.js) component. So I went ahead and took a look at the source code and found out this component internally uses React's context feature (unknown to me at this time) to make the state of the application seemingly available to all container components.
 
 React's context feature allows to pass data through the component tree without having to pass the props down manually at every level. It's actually  similar to using global variables to pass state through the application, thus it must be used sparingly (also its API is an experimental feature which is likely to change in the future).
@@ -126,5 +126,5 @@ App.contextTypes = {
 
 Now all container components such as ``HomeContainer`` can access ``appData`` through ``props`` as you would normally do in React.
 
-### Conclusion
+## Conclusion
 Implementing React's context feature was a fun learning experience and I hope this post serves as a guide of how to do so without having to add more dependencies to an application. Have you ever had to solve a similar issue? How did you manage to do it?

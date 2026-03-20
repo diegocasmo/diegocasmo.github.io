@@ -10,10 +10,10 @@ tags: ["devops"]
 
 In this tutorial, I will show you how to setup a virtual machine instance with shared folders and SSH from your host to the guest. This tutorial assumes you have already setup an Ubuntu server virtual machine.
 
-### SSH from Host into Guest Machine Setup:
+## SSH from Host into Guest Machine Setup:
 SSH is a protocol used to securely log onto remote systems. It is the most frequent way to access remote Unix-like servers.
 
-#### Instructions:
+### Instructions:
   - Start the VM
   - Go to ``Settings > Network > Advanced > Port Forwarding``
   - Click in the ``Add new port forwarding rule`` green button in the top right of the window
@@ -35,10 +35,10 @@ sudo apt-get install openssh-server
 
   - And that's it! Now type ``ssh username@localhost -p 2281`` to SSH from your host machine to the guest
 
-### Shared Folders Setup:
+## Shared Folders Setup:
 Shared folders provide an easy way to exchange files between the host and the guest machine. This means you can access and modify your local files with your favorite tools and still run the server and its dependencies on your virtual machine.
 
-#### Instructions:
+### Instructions:
   - Install VirtualBox Guest Additions:
     - Locate the VirtualBox Guest Additions at ``/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso``
     - Copy it to a location that is accessible when browsing for files
@@ -76,5 +76,5 @@ sudo mount -t vboxsf -o uid=1000,gid=1000 shared_folder_name path/to/shared/fold
 
   - And that's it! You should now be able to see your shared folders at ``path/to/shared/folders`` in the guest
 
-### Conclusion
+## Conclusion
 I hope you found this tutorial easy to follow and useful. I have also been reading a lot about Vagrant, as it seems to be another popular choice by developers. I plan on giving it a try in the following months, and will let you know my opinion about it. If you have any questions or suggestions, feel free to leave a comment below.
