@@ -1,9 +1,17 @@
-# https://diegocasmo.github.io/
+# diegocasmo.github.io
 
-A repository for my [personal blog](https://diegocasmo.github.io/) made with Gatsby.
+Personal blog built with [Astro 5](https://astro.build/), deployed to GitHub Pages.
 
-## Usage
+## Commands
 
-- Run `npm ci` to install dependencies
-- Run `npm run dev` to start the server and access the blog in development mode
-- Run `npm run deploy` to deploy changes to GitHub Pages
+```sh
+npm ci            # Install dependencies (clean)
+npm run dev       # Start dev server
+npm run build     # Typecheck + build
+npm run preview   # Preview production build
+npm run check     # TypeScript/Astro check only
+```
+
+## Deploy
+
+Deployment happens automatically via GitHub Actions on push to `main`.
