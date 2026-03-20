@@ -140,6 +140,7 @@
   
   .menu--mobile {
     display: flex;
+    margin-top: 4px;
   }
   
   .menu--mobile .menu__dropdown {
