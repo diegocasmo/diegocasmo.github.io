@@ -2,7 +2,15 @@
 .header {
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--background);
+  border-bottom: 1px solid transparent;
+}
+
+.header--scrolled {
+  border-bottom-color: var(--accent);
 }
 
 .header__inner {

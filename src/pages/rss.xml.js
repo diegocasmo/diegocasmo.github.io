@@ -7,7 +7,7 @@ export async function GET(context) {
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   return rss({
     title: 'Diego Castillo',
-    description: 'Blog by Diego Castillo — software engineer writing about web development, architecture, and building products.',
+    description: 'Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.',
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
