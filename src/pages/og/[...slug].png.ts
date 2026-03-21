@@ -84,7 +84,7 @@ export const GET: APIRoute = async ({ props }) => {
                   type: 'div',
                   props: {
                     style: {
-                      fontSize: title.length > 60 ? '36px' : '48px',
+                      fontSize: title.length > 60 ? '44px' : '60px',
                       fontWeight: 600,
                       color: '#e2e2e2',
                       lineHeight: 1.3,
@@ -102,7 +102,7 @@ export const GET: APIRoute = async ({ props }) => {
                   type: 'div',
                   props: {
                     style: {
-                      fontSize: '24px',
+                      fontSize: '30px',
                       color: '#b0b0b0',
                       lineHeight: 1.5,
                       overflow: 'hidden',
@@ -127,7 +127,7 @@ export const GET: APIRoute = async ({ props }) => {
                       type: 'div',
                       props: {
                         style: {
-                          fontSize: '18px',
+                          fontSize: '22px',
                           color: '#d4a857',
                           border: '2px solid #d4a857',
                           borderRadius: '4px',
