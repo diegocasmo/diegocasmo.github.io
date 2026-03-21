@@ -64,6 +64,7 @@ Slugs are date-prefix-free. Legacy redirects (date-prefixed and `/posts/` paths)
 - **Sitemap** — `@astrojs/sitemap` at `/sitemap-index.xml`
 - **RSS** — `@astrojs/rss` at `/rss.xml`
 - **robots.txt** — in `public/`
+- **OG images** — auto-generated at build time via `src/pages/og/[...slug].png.ts` using satori + @resvg/resvg-js; override per-post with the `image` frontmatter field
 
 ## Design System
 
@@ -109,3 +110,4 @@ Interactive algorithm visualizations used in `.mdx` posts. Components live in `s
 - **Do not** remove or weaken any SEO meta tags, structured data, or social sharing tags
 - **Do not** use JS animation libraries (GSAP, Framer Motion, etc.) — animations must be pure CSS keyframes
 - **Do not** bypass `AlgoViz.astro` for interactive animations — it provides play/pause, progress tracking, and accessibility (`prefers-reduced-motion`, ARIA live regions)
+- **Do not** add JS-based image generation at runtime — OG images are generated statically at build time

@@ -19,9 +19,10 @@ export async function getStaticPaths() {
 
 const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await render(post);
+const ogImage = post.data.image || `/og/${post.id}.png`;
 ---
 
-<PostLayout {...post.data}>
+<PostLayout {...post.data} ogImage={ogImage}>
   <Content />
 
   <div class="pagination">

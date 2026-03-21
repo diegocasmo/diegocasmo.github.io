@@ -8,14 +8,15 @@ export interface Props {
   pubDate: Date;
   updatedDate?: Date;
   image?: string;
+  ogImage?: string;
   tags?: string[];
   ogType?: string;
 }
 
-const { title, description, pubDate, updatedDate, image, tags = [], ogType = "article" } = Astro.props;
+const { title, description, pubDate, updatedDate, image, ogImage, tags = [], ogType = "article" } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} image={image} ogType={ogType}>
+<BaseLayout title={title} description={description} image={ogImage || image} ogType={ogType}>
   <article itemscope itemtype="http://schema.org/Article">
     <h1 class="post-title" itemprop="headline">{title}</h1>
     <meta itemprop="datePublished" content={pubDate.toISOString()} />
