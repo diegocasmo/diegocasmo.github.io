@@ -113,19 +113,6 @@ export const GET: APIRoute = async ({ props }) => {
                     children: description,
                   },
                 },
-              ],
-            },
-          },
-          // Bottom row: tags + site URL
-          {
-            type: 'div',
-            props: {
-              style: {
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-end',
-              },
-              children: [
                 // Tags
                 {
                   type: 'div',
@@ -134,6 +121,7 @@ export const GET: APIRoute = async ({ props }) => {
                       display: 'flex',
                       gap: '8px',
                       flexWrap: 'wrap',
+                      marginTop: '20px',
                     },
                     children: tags.slice(0, 3).map((tag) => ({
                       type: 'div',
@@ -148,17 +136,6 @@ export const GET: APIRoute = async ({ props }) => {
                         children: tag,
                       },
                     })),
-                  },
-                },
-                // Site URL
-                {
-                  type: 'div',
-                  props: {
-                    style: {
-                      fontSize: '18px',
-                      color: '#d4a857',
-                    },
-                    children: 'diegocasmo.github.io',
                   },
                 },
               ],
