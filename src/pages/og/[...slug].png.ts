@@ -68,53 +68,52 @@ export const GET: APIRoute = async ({ props }) => {
               },
             },
           },
-          // Terminal prompt decoration
+          // Title + Description (vertically centered)
           {
             type: 'div',
             props: {
               style: {
                 display: 'flex',
-                alignItems: 'center',
-                marginBottom: '32px',
-                fontSize: '16px',
-                color: '#d4a857',
-              },
-              children: '~ $ cat post.md',
-            },
-          },
-          // Title
-          {
-            type: 'div',
-            props: {
-              style: {
-                fontSize: title.length > 60 ? '32px' : '40px',
-                fontWeight: 600,
-                color: '#e2e2e2',
-                lineHeight: 1.3,
-                marginBottom: '20px',
-                overflow: 'hidden',
-                display: '-webkit-box',
-                WebkitLineClamp: 3,
-                WebkitBoxOrient: 'vertical',
-              },
-              children: title,
-            },
-          },
-          // Description
-          {
-            type: 'div',
-            props: {
-              style: {
-                fontSize: '18px',
-                color: '#8a8a8a',
-                lineHeight: 1.5,
-                overflow: 'hidden',
-                display: '-webkit-box',
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: 'vertical',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 flex: 1,
               },
-              children: description,
+              children: [
+                // Title
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      fontSize: title.length > 60 ? '36px' : '48px',
+                      fontWeight: 600,
+                      color: '#e2e2e2',
+                      lineHeight: 1.3,
+                      marginBottom: '20px',
+                      overflow: 'hidden',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                    },
+                    children: title,
+                  },
+                },
+                // Description
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      fontSize: '24px',
+                      color: '#b0b0b0',
+                      lineHeight: 1.5,
+                      overflow: 'hidden',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                    },
+                    children: description,
+                  },
+                },
+              ],
             },
           },
           // Bottom row: tags + site URL
@@ -136,15 +135,15 @@ export const GET: APIRoute = async ({ props }) => {
                       gap: '8px',
                       flexWrap: 'wrap',
                     },
-                    children: tags.slice(0, 4).map((tag) => ({
+                    children: tags.slice(0, 3).map((tag) => ({
                       type: 'div',
                       props: {
                         style: {
-                          fontSize: '14px',
+                          fontSize: '18px',
                           color: '#d4a857',
-                          border: '1px solid #d4a857',
+                          border: '2px solid #d4a857',
                           borderRadius: '4px',
-                          padding: '4px 10px',
+                          padding: '6px 14px',
                         },
                         children: tag,
                       },
@@ -156,7 +155,7 @@ export const GET: APIRoute = async ({ props }) => {
                   type: 'div',
                   props: {
                     style: {
-                      fontSize: '16px',
+                      fontSize: '18px',
                       color: '#d4a857',
                     },
                     children: 'diegocasmo.github.io',
