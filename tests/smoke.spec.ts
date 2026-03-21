@@ -35,6 +35,21 @@ test('tags index lists tags', async ({ page }) => {
   await expect(page.locator('a.tag-item').first()).toBeVisible();
 });
 
+test('merge-sort animations render and controls work', async ({ page }) => {
+  await page.goto('/merge-sort/');
+  // Animation container renders
+  await expect(page.locator('.algo-viz').first()).toBeVisible();
+  // Toggle button shows "Play" initially
+  const toggle = page.locator('.algo-viz__toggle').first();
+  await expect(toggle).toBeVisible();
+  await expect(toggle).toHaveText('Play');
+  // Click play, button changes to "Pause"
+  await toggle.click();
+  await expect(toggle).toHaveText('Pause');
+  // SEO preserved
+  await expect(page.locator('article[itemtype="http://schema.org/Article"]')).toBeVisible();
+});
+
 test('individual tag page shows posts', async ({ page }) => {
   await page.goto('/tags/');
   const firstTag = page.locator('a.tag-item').first();

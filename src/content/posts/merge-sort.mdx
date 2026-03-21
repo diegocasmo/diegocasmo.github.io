@@ -6,11 +6,28 @@ author: "Diego Castillo"
 tags: ["algorithms"]
 ---
 
+import AlgoViz from '../../components/animations/AlgoViz.astro';
+import MergeSort from '../../components/animations/MergeSort.astro';
+
 The next algorithm in the divide-and-conquer design paradigm chapter the [book](http://beust.com/algorithms.pdf) examines is the merge sort algorithm. Sorting problems are suitable for using the divide-and-conquer design paradigm: given an array of numbers ``a[i...n]``, return a sorted version of ``a``. These are the steps taken by the merge sort algorithm to sort an array of numbers:
 
 - Split the array into two halves
+
+<AlgoViz title="Splitting: Divide Phase" id="ms-split" duration={5800}>
+  <MergeSort step={1} />
+</AlgoViz>
+
 - Recursively sort each half
+
+<AlgoViz title="Comparing: How Merge Works" id="ms-compare" duration={7200}>
+  <MergeSort step={2} />
+</AlgoViz>
+
 - Merge the two sorted arrays
+
+<AlgoViz title="Merging: Combining Two Sorted Halves" id="ms-merge" duration={8800}>
+  <MergeSort step={3} />
+</AlgoViz>
 
 The correctness of the merge sort algorithm is self-evident as long as a proper merge subroutine is implemented. But how can we merge two subarrays ``x`` and ``y`` into a single sorted array ``z``? The method the author proposes is by looking at the very first index of each subarray, ``x[1]`` and ``y[1]``, and whichever one is the smallest will be the very first element of the sorted array ``z``. The rest of ``z`` can then be built recursively.
 
@@ -103,6 +120,10 @@ describe MergeSort do
   end
 end
 ```
+
+<AlgoViz title="Full Merge Sort: End-to-End" id="ms-full" duration={7800}>
+  <MergeSort step={4} />
+</AlgoViz>
 
 ## Conclusion
 

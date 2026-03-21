@@ -1,0 +1,269 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  id: string;
+  duration: number;
+}
+
+const { title, description, id, duration } = Astro.props;
+---
+
+<figure class="algo-viz" data-state="idle" id={id}>
+  <figcaption class="algo-viz__caption">{title}</figcaption>
+  {description && <p class="algo-viz__description">{description}</p>}
+  <div class="algo-viz__stage" aria-hidden="true" data-duration={duration}>
+    <slot />
+  </div>
+  <div class="algo-viz__progress" aria-hidden="true">
+    <div class="algo-viz__progress-bar"></div>
+  </div>
+  <div class="algo-viz__controls" role="group" aria-label="Animation controls">
+    <button class="algo-viz__btn algo-viz__toggle" aria-label="Play animation">
+      Play
+    </button>
+  </div>
+  <div class="algo-viz__status sr-only" role="status" aria-live="polite"></div>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.algo-viz').forEach((viz) => {
+    const stage = viz.querySelector<HTMLElement>('.algo-viz__stage');
+    const toggle = viz.querySelector<HTMLButtonElement>('.algo-viz__toggle');
+    const status = viz.querySelector<HTMLElement>('.algo-viz__status');
+
+    if (!stage || !toggle || !status) return;
+
+    const _stage = stage;
+    const _toggle = toggle;
+    const _status = status;
+    const totalDuration = parseInt(_stage.dataset.duration || '0', 10);
+
+    let timerId: ReturnType<typeof setTimeout> | null = null;
+    let startedAt = 0;
+    let elapsed = 0;
+
+    function setState(state: string) {
+      viz.dataset.state = state;
+      _status.textContent =
+        state === 'playing' ? 'Animation playing' :
+        state === 'paused' ? 'Animation paused' :
+        state === 'done' ? 'Animation complete' :
+        '';
+
+      if (state === 'playing') {
+        _toggle.textContent = 'Pause';
+        _toggle.setAttribute('aria-label', 'Pause animation');
+      } else if (state === 'paused') {
+        _toggle.textContent = 'Play';
+        _toggle.setAttribute('aria-label', 'Resume animation');
+      } else if (state === 'done') {
+        _toggle.textContent = 'Play';
+        _toggle.setAttribute('aria-label', 'Replay animation');
+      } else {
+        _toggle.textContent = 'Play';
+        _toggle.setAttribute('aria-label', 'Play animation');
+      }
+    }
+
+    function clearTimer() {
+      if (timerId !== null) {
+        clearTimeout(timerId);
+        timerId = null;
+      }
+    }
+
+    function startTimer(remaining: number) {
+      clearTimer();
+      startedAt = Date.now();
+      timerId = setTimeout(() => {
+        setState('done');
+        timerId = null;
+      }, remaining);
+    }
+
+    const progressTrack = viz.querySelector<HTMLElement>('.algo-viz__progress');
+    const progressBar = viz.querySelector<HTMLElement>('.algo-viz__progress-bar');
+
+    function restartProgressBar() {
+      if (!progressTrack || !progressBar) return;
+      viz.style.setProperty('--duration', totalDuration + 'ms');
+      // Remove and re-add to restart CSS animation
+      const clone = progressBar.cloneNode(true) as HTMLElement;
+      progressBar.replaceWith(clone);
+    }
+
+    function play() {
+      elapsed = 0;
+      _stage.classList.add('is-animating');
+      _stage.classList.remove('is-paused');
+      restartProgressBar();
+      setState('playing');
+      startTimer(totalDuration);
+    }
+
+    function pause() {
+      elapsed += Date.now() - startedAt;
+      clearTimer();
+      _stage.classList.add('is-paused');
+      setState('paused');
+    }
+
+    function resume() {
+      _stage.classList.remove('is-paused');
+      setState('playing');
+      startTimer(totalDuration - elapsed);
+    }
+
+    function replay() {
+      elapsed = 0;
+      clearTimer();
+      _stage.classList.remove('is-animating', 'is-paused');
+      // Force reflow to restart animations
+      _stage.getBoundingClientRect();
+      _stage.classList.add('is-animating');
+      restartProgressBar();
+      setState('playing');
+      startTimer(totalDuration);
+    }
+
+    _toggle.addEventListener('click', () => {
+      const state = viz.dataset.state;
+      if (state === 'idle') {
+        play();
+      } else if (state === 'playing') {
+        pause();
+      } else if (state === 'paused') {
+        resume();
+      } else if (state === 'done') {
+        replay();
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .algo-viz {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    border: 2px solid var(--accent);
+    margin: 25px auto;
+    padding: 0;
+    position: relative;
+  }
+
+  .algo-viz__caption {
+    background: var(--accent);
+    color: var(--background);
+    font-weight: 600;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .algo-viz__description {
+    padding: 8px 12px 0;
+    margin: 0;
+    font-size: 0.85em;
+    color: color-mix(in srgb, var(--foreground) 70%, transparent);
+  }
+
+  .algo-viz__stage {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .algo-viz__stage svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Gate all animations behind .is-animating */
+  .algo-viz__stage:not(.is-animating) * {
+    animation: none !important;
+  }
+
+  /* Pause state */
+  .algo-viz__stage.is-paused * {
+    animation-play-state: paused !important;
+  }
+
+  .algo-viz__progress {
+    height: 3px;
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
+    overflow: hidden;
+    display: none;
+  }
+
+  .algo-viz[data-state="playing"] .algo-viz__progress,
+  .algo-viz[data-state="paused"] .algo-viz__progress,
+  .algo-viz[data-state="done"] .algo-viz__progress {
+    display: block;
+  }
+
+  .algo-viz__progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+  }
+
+  .algo-viz[data-state="playing"] .algo-viz__progress-bar,
+  .algo-viz[data-state="paused"] .algo-viz__progress-bar {
+    animation: algo-viz-progress var(--duration) linear forwards;
+  }
+
+  .algo-viz[data-state="paused"] .algo-viz__progress-bar {
+    animation-play-state: paused;
+  }
+
+  .algo-viz[data-state="done"] .algo-viz__progress-bar {
+    width: 100%;
+  }
+
+  @keyframes algo-viz-progress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  .algo-viz__controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-top: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    flex-wrap: wrap;
+  }
+
+  .algo-viz__btn {
+    font-family: inherit;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: var(--accent);
+    background: transparent;
+    border: 2px solid var(--accent);
+    padding: 4px 14px;
+    cursor: pointer;
+    transition: background 0.15s linear;
+  }
+
+  .algo-viz__btn:hover {
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  .algo-viz__btn:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .algo-viz__stage * {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+    }
+  }
+</style>
