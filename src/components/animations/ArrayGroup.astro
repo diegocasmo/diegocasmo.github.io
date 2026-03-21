@@ -1,0 +1,90 @@
+---
+/**
+ * ArrayGroup — reusable SVG primitive for rendering a labeled group of array elements.
+ *
+ * Renders:
+ *   1. A faint bounding rect behind the elements (visual grouping)
+ *   2. One cell (<rect> + <text>) per value (unless showCells is false)
+ *   3. An optional label above the group
+ *
+ * All positioning is in SVG user-space units. The caller sets the group's
+ * position via a wrapping <g transform="translate(x, y)">.
+ *
+ * Props:
+ *   values      — numbers to render (also determines bounding box width)
+ *   label       — optional text label above the group
+ *   active      — use accent styling for cells (default false)
+ *   showCells   — render cells inside the group (default true).
+ *                 Set to false when you need per-cell animation control
+ *                 and will render cells manually alongside the bounding box.
+ *   cellWidth   — width  of each cell rect (default 56)
+ *   cellHeight  — height of each cell rect (default 40)
+ *   gap         — space between cells          (default 12)
+ *   padding     — inner padding of bounding box (default 6)
+ */
+export interface Props {
+  values: number[];
+  label?: string;
+  active?: boolean;
+  showCells?: boolean;
+  cellWidth?: number;
+  cellHeight?: number;
+  gap?: number;
+  padding?: number;
+}
+
+const {
+  values,
+  label,
+  active = false,
+  showCells = true,
+  cellWidth: W = 56,
+  cellHeight: H = 40,
+  gap: GAP = 12,
+  padding: PAD = 6,
+} = Astro.props;
+
+const groupW = values.length * W + (values.length - 1) * GAP + PAD * 2;
+const groupH = H + PAD * 2;
+const cellClass = active ? 'ms-cell ms-cell--active' : 'ms-cell';
+---
+
+{/* Bounding box */}
+<rect
+  x={0}
+  y={label ? 16 : 0}
+  width={groupW}
+  height={groupH}
+  rx="0"
+  class="ag-bound"
+/>
+
+{/* Optional label */}
+{label && (
+  <text x={groupW / 2} y={10} text-anchor="middle" class="ms-label">{label}</text>
+)}
+
+{/* Cells */}
+{showCells && values.map((v, i) => (
+  <g transform={`translate(${PAD + i * (W + GAP)}, ${(label ? 16 : 0) + PAD})`}>
+    <rect width={W} height={H} rx="0" class={cellClass} />
+    <text
+      x={W / 2}
+      y={H / 2 + 1}
+      text-anchor="middle"
+      dominant-baseline="central"
+      class="ms-text"
+    >
+      {v}
+    </text>
+  </g>
+))}
+
+<style>
+  .ag-bound {
+    fill: color-mix(in srgb, var(--foreground) 4%, transparent);
+    stroke: color-mix(in srgb, var(--foreground) 15%, transparent);
+    stroke-width: 1;
+    stroke-dasharray: 4 3;
+  }
+</style>

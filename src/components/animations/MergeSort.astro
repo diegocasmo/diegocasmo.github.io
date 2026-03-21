@@ -1,0 +1,554 @@
+---
+import ArrayGroup from './ArrayGroup.astro';
+
+export interface Props {
+  step: 1 | 2 | 3 | 4;
+}
+
+const { step } = Astro.props;
+
+// Shared constants
+const W = 56;
+const H = 40;
+const GAP = 12;
+const PAD = 6;
+
+// Group width helper: n cells + gaps + padding
+function gw(n: number) { return n * W + (n - 1) * GAP + PAD * 2; }
+
+// Bounding box height (no label)
+const BH = H + PAD * 2; // 52
+
+// --- Step 1 & 4 layout (divide tree) ---
+// viewBox = 700 wide
+const VW = 700;
+
+// Center a total width in viewBox
+function cx(totalW: number) { return (VW - totalW) / 2; }
+
+// Level 0: 1 group of 8
+const L0_X = cx(gw(8)); // (700-544)/2 = 78
+
+// Level 1: 2 groups of 4, gap=30
+const L1_GAP = 30;
+const L1_X0 = cx(gw(4) * 2 + L1_GAP); // 63
+const L1_X1 = L1_X0 + gw(4) + L1_GAP;  // 365
+
+// Level 2: 4 groups of 2 (inner gap=16, outer gap=36)
+const L2_IN = 16;
+const L2_OUT = 36;
+const L2_TOTAL = gw(2) * 4 + L2_IN * 2 + L2_OUT;
+const L2_X0 = cx(L2_TOTAL);
+const L2_X1 = L2_X0 + gw(2) + L2_IN;
+const L2_X2 = L2_X1 + gw(2) + L2_OUT;
+const L2_X3 = L2_X2 + gw(2) + L2_IN;
+
+// Level 3: 8 groups of 1 (pair gap=4, inner=16, outer=36)
+const L3_PG = 4;
+const L3_TOTAL = gw(1) * 8 + L3_PG * 4 + L2_IN * 2 + L2_OUT;
+const L3_START = cx(L3_TOTAL);
+const l3xs = [
+  L3_START,
+  L3_START + gw(1) + L3_PG,
+  L3_START + (gw(1) + L3_PG) + gw(1) + L2_IN,
+  L3_START + (gw(1) + L3_PG) + gw(1) + L2_IN + gw(1) + L3_PG,
+  L3_START + (gw(1) + L3_PG) + gw(1) + L2_IN + (gw(1) + L3_PG) + gw(1) + L2_OUT,
+  L3_START + (gw(1) + L3_PG) + gw(1) + L2_IN + (gw(1) + L3_PG) + gw(1) + L2_OUT + gw(1) + L3_PG,
+  L3_START + (gw(1) + L3_PG) + gw(1) + L2_IN + (gw(1) + L3_PG) + gw(1) + L2_OUT + (gw(1) + L3_PG) + gw(1) + L2_IN,
+  L3_START + (gw(1) + L3_PG) + gw(1) + L2_IN + (gw(1) + L3_PG) + gw(1) + L2_OUT + (gw(1) + L3_PG) + gw(1) + L2_IN + gw(1) + L3_PG,
+];
+
+// Y positions for tree levels
+const LY = [5, 75, 145, 215];
+
+// Group center X helper
+function gcx(x: number, n: number) { return x + gw(n) / 2; }
+
+// Connector Y: bottom of level = LY[i] + BH, top of next = LY[i+1]
+function connY(level: number): [number, number] { return [LY[level] + BH, LY[level + 1]]; }
+
+// --- Step 2 layout ---
+const S2_LEFT_X = 92;
+const S2_RIGHT_X = 412;
+const S2_RESULT_X = 184;
+const S2_SRC_Y = 10;
+const S2_RES_Y = 110;
+
+// --- Step 3 layout ---
+const S3_LEFT_X = 34;
+const S3_RIGHT_X = 394;
+const S3_RESULT_X = cx(gw(8)); // centered 8-group
+const S3_SRC_Y = 10;
+const S3_RES_Y = 110;
+
+// --- Step 4 conquer layout ---
+// Sorted pairs row (merge level 2)
+const M2_Y = 215;
+// Sorted quads row (merge level 1)
+const M1_Y = 285;
+// Final sorted array (merge level 0)
+const M0_Y = 355;
+
+const values = [5, 2, 8, 1, 9, 3, 7, 4];
+---
+
+{step === 1 && (
+  <svg viewBox={`0 0 ${VW} 280`} xmlns="http://www.w3.org/2000/svg" class="ms-svg">
+    {/* Level 0: Full array [5,2,8,1,9,3,7,4] */}
+    <g class="ms-level ms-level--0" transform={`translate(${L0_X}, ${LY[0]})`}>
+      <ArrayGroup values={values} />
+    </g>
+
+    {/* Connectors L0 → L1 */}
+    <g class="ms-connectors ms-connectors--0">
+      <line x1={gcx(L0_X, 8)} y1={connY(0)[0]} x2={gcx(L1_X0, 4)} y2={connY(0)[1]} class="ms-line" />
+      <line x1={gcx(L0_X, 8)} y1={connY(0)[0]} x2={gcx(L1_X1, 4)} y2={connY(0)[1]} class="ms-line" />
+    </g>
+
+    {/* Level 1: [5,2,8,1] and [9,3,7,4] */}
+    <g class="ms-level ms-level--1">
+      <g transform={`translate(${L1_X0}, ${LY[1]})`}>
+        <ArrayGroup values={[5, 2, 8, 1]} active />
+      </g>
+      <g transform={`translate(${L1_X1}, ${LY[1]})`}>
+        <ArrayGroup values={[9, 3, 7, 4]} active />
+      </g>
+    </g>
+
+    {/* Connectors L1 → L2 */}
+    <g class="ms-connectors ms-connectors--1">
+      <line x1={gcx(L1_X0, 4)} y1={connY(1)[0]} x2={gcx(L2_X0, 2)} y2={connY(1)[1]} class="ms-line" />
+      <line x1={gcx(L1_X0, 4)} y1={connY(1)[0]} x2={gcx(L2_X1, 2)} y2={connY(1)[1]} class="ms-line" />
+      <line x1={gcx(L1_X1, 4)} y1={connY(1)[0]} x2={gcx(L2_X2, 2)} y2={connY(1)[1]} class="ms-line" />
+      <line x1={gcx(L1_X1, 4)} y1={connY(1)[0]} x2={gcx(L2_X3, 2)} y2={connY(1)[1]} class="ms-line" />
+    </g>
+
+    {/* Level 2: [5,2] [8,1] [9,3] [7,4] */}
+    <g class="ms-level ms-level--2">
+      <g transform={`translate(${L2_X0}, ${LY[2]})`}><ArrayGroup values={[5, 2]} active /></g>
+      <g transform={`translate(${L2_X1}, ${LY[2]})`}><ArrayGroup values={[8, 1]} active /></g>
+      <g transform={`translate(${L2_X2}, ${LY[2]})`}><ArrayGroup values={[9, 3]} active /></g>
+      <g transform={`translate(${L2_X3}, ${LY[2]})`}><ArrayGroup values={[7, 4]} active /></g>
+    </g>
+
+    {/* Connectors L2 → L3 */}
+    <g class="ms-connectors ms-connectors--2">
+      <line x1={gcx(L2_X0, 2)} y1={connY(2)[0]} x2={gcx(l3xs[0], 1)} y2={connY(2)[1]} class="ms-line" />
+      <line x1={gcx(L2_X0, 2)} y1={connY(2)[0]} x2={gcx(l3xs[1], 1)} y2={connY(2)[1]} class="ms-line" />
+      <line x1={gcx(L2_X1, 2)} y1={connY(2)[0]} x2={gcx(l3xs[2], 1)} y2={connY(2)[1]} class="ms-line" />
+      <line x1={gcx(L2_X1, 2)} y1={connY(2)[0]} x2={gcx(l3xs[3], 1)} y2={connY(2)[1]} class="ms-line" />
+      <line x1={gcx(L2_X2, 2)} y1={connY(2)[0]} x2={gcx(l3xs[4], 1)} y2={connY(2)[1]} class="ms-line" />
+      <line x1={gcx(L2_X2, 2)} y1={connY(2)[0]} x2={gcx(l3xs[5], 1)} y2={connY(2)[1]} class="ms-line" />
+      <line x1={gcx(L2_X3, 2)} y1={connY(2)[0]} x2={gcx(l3xs[6], 1)} y2={connY(2)[1]} class="ms-line" />
+      <line x1={gcx(L2_X3, 2)} y1={connY(2)[0]} x2={gcx(l3xs[7], 1)} y2={connY(2)[1]} class="ms-line" />
+    </g>
+
+    {/* Level 3: Individual elements */}
+    <g class="ms-level ms-level--3">
+      {values.map((v, i) => (
+        <g transform={`translate(${l3xs[i]}, ${LY[3]})`}>
+          <ArrayGroup values={[v]} active />
+        </g>
+      ))}
+    </g>
+  </svg>
+)}
+
+{step === 2 && (
+  <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" class="ms-svg">
+    {/* Left array: [2, 5] with bounding box */}
+    <g class="ms-step2-left" transform={`translate(${S2_LEFT_X}, ${S2_SRC_Y})`}>
+      <ArrayGroup values={[2, 5]} label="Left" showCells={false} />
+      {[2, 5].map((v, i) => (
+        <g transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`} class={`ms-s2-left-${i}`}>
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text x={W / 2} y={H / 2 + 1} text-anchor="middle" dominant-baseline="central" class="ms-text">{v}</text>
+        </g>
+      ))}
+    </g>
+
+    {/* Right array: [1, 8] with bounding box */}
+    <g class="ms-step2-right" transform={`translate(${S2_RIGHT_X}, ${S2_SRC_Y})`}>
+      <ArrayGroup values={[1, 8]} label="Right" showCells={false} />
+      {[1, 8].map((v, i) => (
+        <g transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`} class={`ms-s2-right-${i}`}>
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text x={W / 2} y={H / 2 + 1} text-anchor="middle" dominant-baseline="central" class="ms-text">{v}</text>
+        </g>
+      ))}
+    </g>
+
+    {/* Comparison pointer indicators */}
+    <g class="ms-s2-pointers">
+      <polygon points={`${S2_LEFT_X + PAD + W / 2},${S2_SRC_Y + 16 + BH + 2} ${S2_LEFT_X + PAD + W / 2 - 8},${S2_SRC_Y + 16 + BH + 14} ${S2_LEFT_X + PAD + W / 2 + 8},${S2_SRC_Y + 16 + BH + 14}`} class="ms-pointer ms-s2-ptr-left" />
+      <polygon points={`${S2_RIGHT_X + PAD + W / 2},${S2_SRC_Y + 16 + BH + 2} ${S2_RIGHT_X + PAD + W / 2 - 8},${S2_SRC_Y + 16 + BH + 14} ${S2_RIGHT_X + PAD + W / 2 + 8},${S2_SRC_Y + 16 + BH + 14}`} class="ms-pointer ms-s2-ptr-right" />
+    </g>
+
+    {/* Result row: [1, 2, 5, 8] */}
+    <g class="ms-step2-result" transform={`translate(${S2_RESULT_X}, ${S2_RES_Y})`}>
+      <ArrayGroup values={[1, 2, 5, 8]} label="Merged" showCells={false} active />
+      {[1, 2, 5, 8].map((v, i) => (
+        <g transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`} class={`ms-s2-result-${i}`}>
+          <rect width={W} height={H} rx="0" class="ms-cell ms-cell--active" />
+          <text x={W / 2} y={H / 2 + 1} text-anchor="middle" dominant-baseline="central" class="ms-text">{v}</text>
+        </g>
+      ))}
+    </g>
+
+    {/* Annotations */}
+    <g class="ms-s2-annotations">
+      <text x="320" y="220" text-anchor="middle" class="ms-annotation ms-s2-ann-0">Compare 2 vs 1 → take 1</text>
+      <text x="320" y="220" text-anchor="middle" class="ms-annotation ms-s2-ann-1">Compare 2 vs 8 → take 2</text>
+      <text x="320" y="220" text-anchor="middle" class="ms-annotation ms-s2-ann-2">Compare 5 vs 8 → take 5</text>
+      <text x="320" y="220" text-anchor="middle" class="ms-annotation ms-s2-ann-3">Only 8 remains → take 8</text>
+    </g>
+  </svg>
+)}
+
+{step === 3 && (
+  <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" class="ms-svg">
+    {/* Left sorted half: [1, 2, 5, 8] */}
+    <g class="ms-step3-left" transform={`translate(${S3_LEFT_X}, ${S3_SRC_Y})`}>
+      <ArrayGroup values={[1, 2, 5, 8]} label="Left (sorted)" showCells={false} />
+      {[1, 2, 5, 8].map((v, i) => (
+        <g transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`} class={`ms-s3-left-${i}`}>
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text x={W / 2} y={H / 2 + 1} text-anchor="middle" dominant-baseline="central" class="ms-text">{v}</text>
+        </g>
+      ))}
+    </g>
+
+    {/* Right sorted half: [3, 4, 7, 9] */}
+    <g class="ms-step3-right" transform={`translate(${S3_RIGHT_X}, ${S3_SRC_Y})`}>
+      <ArrayGroup values={[3, 4, 7, 9]} label="Right (sorted)" showCells={false} />
+      {[3, 4, 7, 9].map((v, i) => (
+        <g transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`} class={`ms-s3-right-${i}`}>
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text x={W / 2} y={H / 2 + 1} text-anchor="middle" dominant-baseline="central" class="ms-text">{v}</text>
+        </g>
+      ))}
+    </g>
+
+    {/* Result: [1, 2, 3, 4, 5, 7, 8, 9] */}
+    <g class="ms-step3-result" transform={`translate(${S3_RESULT_X}, ${S3_RES_Y})`}>
+      <ArrayGroup values={[1, 2, 3, 4, 5, 7, 8, 9]} label="Merged result" showCells={false} active />
+      {[1, 2, 3, 4, 5, 7, 8, 9].map((v, i) => (
+        <g transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`} class={`ms-s3-result-${i}`}>
+          <rect width={W} height={H} rx="0" class="ms-cell ms-cell--active" />
+          <text x={W / 2} y={H / 2 + 1} text-anchor="middle" dominant-baseline="central" class="ms-text">{v}</text>
+        </g>
+      ))}
+    </g>
+
+    {/* Annotations */}
+    <g class="ms-s3-annotations">
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-0">1 vs 3 → take 1</text>
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-1">2 vs 3 → take 2</text>
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-2">5 vs 3 → take 3</text>
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-3">5 vs 4 → take 4</text>
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-4">5 vs 7 → take 5</text>
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-5">8 vs 7 → take 7</text>
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-6">8 vs 9 → take 8</text>
+      <text x="350" y="220" text-anchor="middle" class="ms-annotation ms-s3-ann-7">Only 9 remains → take 9</text>
+    </g>
+  </svg>
+)}
+
+{step === 4 && (
+  <svg viewBox={`0 0 ${VW} 410`} xmlns="http://www.w3.org/2000/svg" class="ms-svg">
+    {/* Phase A: Divide */}
+    <g class="ms-level ms-level--0 ms-s4-divide" transform={`translate(${L0_X}, ${LY[0]})`}>
+      <ArrayGroup values={values} />
+    </g>
+
+    <g class="ms-connectors ms-connectors--0 ms-s4-divide">
+      <line x1={gcx(L0_X, 8)} y1={connY(0)[0]} x2={gcx(L1_X0, 4)} y2={connY(0)[1]} class="ms-line" />
+      <line x1={gcx(L0_X, 8)} y1={connY(0)[0]} x2={gcx(L1_X1, 4)} y2={connY(0)[1]} class="ms-line" />
+    </g>
+
+    <g class="ms-level ms-level--1 ms-s4-divide">
+      <g transform={`translate(${L1_X0}, ${LY[1]})`}><ArrayGroup values={[5, 2, 8, 1]} active /></g>
+      <g transform={`translate(${L1_X1}, ${LY[1]})`}><ArrayGroup values={[9, 3, 7, 4]} active /></g>
+    </g>
+
+    <g class="ms-connectors ms-connectors--1 ms-s4-divide">
+      <line x1={gcx(L1_X0, 4)} y1={connY(1)[0]} x2={gcx(L2_X0, 2)} y2={connY(1)[1]} class="ms-line" />
+      <line x1={gcx(L1_X0, 4)} y1={connY(1)[0]} x2={gcx(L2_X1, 2)} y2={connY(1)[1]} class="ms-line" />
+      <line x1={gcx(L1_X1, 4)} y1={connY(1)[0]} x2={gcx(L2_X2, 2)} y2={connY(1)[1]} class="ms-line" />
+      <line x1={gcx(L1_X1, 4)} y1={connY(1)[0]} x2={gcx(L2_X3, 2)} y2={connY(1)[1]} class="ms-line" />
+    </g>
+
+    <g class="ms-level ms-level--2 ms-s4-divide">
+      <g transform={`translate(${L2_X0}, ${LY[2]})`}><ArrayGroup values={[5, 2]} active /></g>
+      <g transform={`translate(${L2_X1}, ${LY[2]})`}><ArrayGroup values={[8, 1]} active /></g>
+      <g transform={`translate(${L2_X2}, ${LY[2]})`}><ArrayGroup values={[9, 3]} active /></g>
+      <g transform={`translate(${L2_X3}, ${LY[2]})`}><ArrayGroup values={[7, 4]} active /></g>
+    </g>
+
+    {/* Phase B: Conquer — bottom-up merge */}
+    <g class="ms-connectors ms-connectors--2 ms-s4-conquer">
+      <line x1={gcx(L2_X0, 2)} y1={LY[2] + BH} x2={gcx(L2_X0, 2)} y2={M2_Y} class="ms-line" />
+      <line x1={gcx(L2_X1, 2)} y1={LY[2] + BH} x2={gcx(L2_X1, 2)} y2={M2_Y} class="ms-line" />
+      <line x1={gcx(L2_X2, 2)} y1={LY[2] + BH} x2={gcx(L2_X2, 2)} y2={M2_Y} class="ms-line" />
+      <line x1={gcx(L2_X3, 2)} y1={LY[2] + BH} x2={gcx(L2_X3, 2)} y2={M2_Y} class="ms-line" />
+    </g>
+
+    <g class="ms-level ms-s4-merge-2 ms-s4-conquer">
+      <g transform={`translate(${L2_X0}, ${M2_Y})`}><ArrayGroup values={[2, 5]} active /></g>
+      <g transform={`translate(${L2_X1}, ${M2_Y})`}><ArrayGroup values={[1, 8]} active /></g>
+      <g transform={`translate(${L2_X2}, ${M2_Y})`}><ArrayGroup values={[3, 9]} active /></g>
+      <g transform={`translate(${L2_X3}, ${M2_Y})`}><ArrayGroup values={[4, 7]} active /></g>
+    </g>
+
+    <g class="ms-connectors ms-connectors--3 ms-s4-conquer ms-s4-conquer--late">
+      <line x1={gcx(L1_X0, 4)} y1={M2_Y + BH} x2={gcx(L1_X0, 4)} y2={M1_Y} class="ms-line" />
+      <line x1={gcx(L1_X1, 4)} y1={M2_Y + BH} x2={gcx(L1_X1, 4)} y2={M1_Y} class="ms-line" />
+    </g>
+
+    <g class="ms-level ms-s4-merge-1 ms-s4-conquer ms-s4-conquer--late">
+      <g transform={`translate(${L1_X0}, ${M1_Y})`}><ArrayGroup values={[1, 2, 5, 8]} active /></g>
+      <g transform={`translate(${L1_X1}, ${M1_Y})`}><ArrayGroup values={[3, 4, 7, 9]} active /></g>
+    </g>
+
+    <g class="ms-connectors ms-connectors--4 ms-s4-conquer ms-s4-conquer--final">
+      <line x1={gcx(L0_X, 8)} y1={M1_Y + BH} x2={gcx(L0_X, 8)} y2={M0_Y} class="ms-line" />
+    </g>
+
+    <g class="ms-level ms-s4-merge-0 ms-s4-conquer ms-s4-conquer--final" data-anim-final>
+      <g transform={`translate(${L0_X}, ${M0_Y})`}><ArrayGroup values={[1, 2, 3, 4, 5, 7, 8, 9]} active /></g>
+    </g>
+  </svg>
+)}
+
+<style is:global>
+  .ms-svg {
+    font-family: 'Fira Code', monospace;
+    width: 100%;
+    max-width: 640px;
+  }
+
+  .ms-cell {
+    fill: color-mix(in srgb, var(--foreground) 10%, transparent);
+    stroke: color-mix(in srgb, var(--foreground) 30%, transparent);
+    stroke-width: 1.5;
+  }
+
+  .ms-cell--active {
+    fill: color-mix(in srgb, var(--accent) 20%, transparent);
+    stroke: var(--accent);
+    stroke-width: 2;
+  }
+
+  .ms-text {
+    fill: var(--foreground);
+    font-size: 14px;
+    font-family: 'Fira Code', monospace;
+  }
+
+  .ms-label {
+    fill: color-mix(in srgb, var(--foreground) 60%, transparent);
+    font-size: 11px;
+    font-family: 'Fira Code', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ms-line {
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-dasharray: 4 3;
+    opacity: 0.6;
+  }
+
+  .ms-pointer {
+    fill: var(--accent);
+    opacity: 0;
+  }
+
+  .ms-annotation {
+    fill: color-mix(in srgb, var(--foreground) 70%, transparent);
+    font-size: 12px;
+    font-family: 'Fira Code', monospace;
+    opacity: 0;
+  }
+
+  /* ===== STEP 1: Array Splitting ===== */
+  .ms-level--0 { opacity: 1; }
+
+  .ms-connectors--0 {
+    opacity: 0;
+    animation: ms-fadeIn 1000ms 1000ms both;
+  }
+
+  .ms-level--1 {
+    opacity: 0;
+    animation: ms-fadeInDown 1000ms 1600ms both;
+  }
+
+  .ms-connectors--1 {
+    opacity: 0;
+    animation: ms-fadeIn 1000ms 2600ms both;
+  }
+
+  .ms-level--2 {
+    opacity: 0;
+    animation: ms-fadeInDown 1000ms 3200ms both;
+  }
+
+  .ms-connectors--2 {
+    opacity: 0;
+    animation: ms-fadeIn 1000ms 4200ms both;
+  }
+
+  .ms-level--1 .ms-cell--active {
+    animation: ms-deactivate 400ms 3200ms both;
+  }
+  .ms-level--2 .ms-cell--active {
+    animation: ms-deactivate 400ms 4800ms both;
+  }
+
+  .ms-level--3 {
+    opacity: 0;
+    animation: ms-fadeInDown 1000ms 4800ms both;
+  }
+
+  /* ===== STEP 2: Comparison During Merge ===== */
+
+  .ms-s2-ptr-left {
+    animation:
+      ms-show 800ms 400ms both,
+      ms-hide 400ms 5200ms both;
+  }
+
+  .ms-s2-ptr-right {
+    animation:
+      ms-show 800ms 400ms both,
+      ms-hide 400ms 6800ms both;
+  }
+
+  .ms-s2-result-0 { opacity: 0; animation: ms-fadeIn 800ms 1200ms both; }
+  .ms-s2-result-1 { opacity: 0; animation: ms-fadeIn 800ms 2800ms both; }
+  .ms-s2-result-2 { opacity: 0; animation: ms-fadeIn 800ms 4400ms both; }
+  .ms-s2-result-3 { opacity: 0; animation: ms-fadeIn 800ms 6000ms both; }
+
+  .ms-s2-right-0 { animation: ms-fadeOut 600ms 1600ms both; }
+  .ms-s2-left-0 { animation: ms-fadeOut 600ms 3200ms both; }
+  .ms-s2-left-1 { animation: ms-fadeOut 600ms 4800ms both; }
+  .ms-s2-right-1 { animation: ms-fadeOut 600ms 6400ms both; }
+
+  .ms-s2-ann-0 { animation: ms-showHide 1600ms 800ms both; }
+  .ms-s2-ann-1 { animation: ms-showHide 1600ms 2400ms both; }
+  .ms-s2-ann-2 { animation: ms-showHide 1600ms 4000ms both; }
+  .ms-s2-ann-3 { animation: ms-showHide 1600ms 5600ms both; }
+
+  /* ===== STEP 3: Full Merge of Two Halves ===== */
+
+  .ms-s3-result-0 { opacity: 0; animation: ms-fadeIn 700ms 800ms both; }
+  .ms-s3-result-1 { opacity: 0; animation: ms-fadeIn 700ms 1800ms both; }
+  .ms-s3-result-2 { opacity: 0; animation: ms-fadeIn 700ms 2800ms both; }
+  .ms-s3-result-3 { opacity: 0; animation: ms-fadeIn 700ms 3800ms both; }
+  .ms-s3-result-4 { opacity: 0; animation: ms-fadeIn 700ms 4800ms both; }
+  .ms-s3-result-5 { opacity: 0; animation: ms-fadeIn 700ms 5800ms both; }
+  .ms-s3-result-6 { opacity: 0; animation: ms-fadeIn 700ms 6800ms both; }
+  .ms-s3-result-7 { opacity: 0; animation: ms-fadeIn 700ms 7800ms both; }
+
+  .ms-s3-left-0 { animation: ms-fadeOut 600ms 1200ms both; }
+  .ms-s3-left-1 { animation: ms-fadeOut 600ms 2200ms both; }
+  .ms-s3-left-2 { animation: ms-fadeOut 600ms 5200ms both; }
+  .ms-s3-left-3 { animation: ms-fadeOut 600ms 7200ms both; }
+
+  .ms-s3-right-0 { animation: ms-fadeOut 600ms 3200ms both; }
+  .ms-s3-right-1 { animation: ms-fadeOut 600ms 4200ms both; }
+  .ms-s3-right-2 { animation: ms-fadeOut 600ms 6200ms both; }
+  .ms-s3-right-3 { animation: ms-fadeOut 600ms 8200ms both; }
+
+  .ms-s3-ann-0 { animation: ms-showHide 1000ms 800ms both; }
+  .ms-s3-ann-1 { animation: ms-showHide 1000ms 1800ms both; }
+  .ms-s3-ann-2 { animation: ms-showHide 1000ms 2800ms both; }
+  .ms-s3-ann-3 { animation: ms-showHide 1000ms 3800ms both; }
+  .ms-s3-ann-4 { animation: ms-showHide 1000ms 4800ms both; }
+  .ms-s3-ann-5 { animation: ms-showHide 1000ms 5800ms both; }
+  .ms-s3-ann-6 { animation: ms-showHide 1000ms 6800ms both; }
+  .ms-s3-ann-7 { animation: ms-showHide 1000ms 7800ms both; }
+
+  /* ===== STEP 4: Full End-to-End ===== */
+
+  .ms-s4-divide.ms-level--0 { opacity: 1; }
+  .ms-s4-divide.ms-connectors--0 { opacity: 0; animation: ms-fadeIn 600ms 600ms both; }
+  .ms-s4-divide.ms-level--1 { opacity: 0; animation: ms-fadeInDown 600ms 1000ms both; }
+  .ms-s4-divide.ms-connectors--1 { opacity: 0; animation: ms-fadeIn 600ms 1600ms both; }
+  .ms-s4-divide.ms-level--2 { opacity: 0; animation: ms-fadeInDown 600ms 2000ms both; }
+
+  .ms-s4-conquer {
+    opacity: 0;
+    animation: ms-fadeIn 800ms 3000ms both;
+  }
+
+  .ms-s4-conquer--late {
+    animation: ms-fadeIn 800ms 5000ms both;
+  }
+
+  .ms-s4-conquer--final {
+    animation: ms-fadeIn 800ms 7000ms both;
+  }
+
+  .ms-s4-divide.ms-level--1 .ms-cell--active {
+    animation: ms-deactivate 400ms 2000ms both;
+  }
+  .ms-s4-divide.ms-level--2 .ms-cell--active {
+    animation: ms-deactivate 400ms 3000ms both;
+  }
+  .ms-s4-merge-2 .ms-cell--active {
+    animation: ms-deactivate 400ms 5000ms both;
+  }
+  .ms-s4-merge-1 .ms-cell--active {
+    animation: ms-deactivate 400ms 7000ms both;
+  }
+
+  /* ===== Keyframes ===== */
+
+  @keyframes ms-fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes ms-fadeInDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes ms-fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0.2; }
+  }
+
+  @keyframes ms-show {
+    from { opacity: 0; }
+    to { opacity: 0.8; }
+  }
+
+  @keyframes ms-hide {
+    from { opacity: 0.8; }
+    to { opacity: 0; }
+  }
+
+  @keyframes ms-deactivate {
+    from {
+      fill: color-mix(in srgb, var(--accent) 20%, transparent);
+      stroke: var(--accent);
+      stroke-width: 2;
+    }
+    to {
+      fill: color-mix(in srgb, var(--foreground) 10%, transparent);
+      stroke: color-mix(in srgb, var(--foreground) 30%, transparent);
+      stroke-width: 1.5;
+    }
+  }
+
+  @keyframes ms-showHide {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+</style>
