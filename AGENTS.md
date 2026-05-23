@@ -1,14 +1,16 @@
 # diegocasmo.github.io
 
-Personal blog by Diego Castillo. Built with Astro 5, TypeScript, vanilla CSS. Deployed to GitHub Pages.
+Personal blog by Diego Castillo. Built with Astro 6, TypeScript, vanilla CSS. Deployed to GitHub Pages.
+
+> `CLAUDE.md` is a symlink to this file — edit here.
 
 ## Philosophy & Principles
 
 - **SEO is non-negotiable** — never degrade existing meta, Open Graph, structured data, or social sharing tags
 - **Accessibility (WCAG 2.1 AA)** — semantic HTML, ARIA attributes, keyboard navigation, visible focus management
-- **Mobile-first responsive design** — single breakpoint at `max-width: 684px`
+- **Mobile-first responsive design** — single breakpoint at `max-width: 684px` (plus a small `@media print` stylesheet)
 - **Readability** — monospace typography (Fira Code), high contrast, generous `line-height: 1.54em`
-- **Social sharing quality** — OG tags, Twitter cards, and `og:image` must always be present on every page
+- **Social sharing quality** — OG tags and Twitter cards on every page; `og:image` is auto-generated for all posts via `/og/[...slug].png.ts` but is currently absent on static/listing pages (`index`, `about`, `products`, `404`, paginated, tags) — a gap to backfill
 - **Minimal dependencies** — vanilla CSS, no frameworks, no unnecessary JS; the site is intentionally static
 - **Content direction** — evolving from web dev toward systems programming, CS fundamentals, and low-level engineering
 
@@ -20,6 +22,7 @@ npm run dev         # Dev server
 npm run build       # Typecheck + build (astro check && astro build)
 npm run preview     # Preview production build
 npm run check       # TypeScript/Astro check only
+npm test            # Run Playwright smoke tests (auto-starts preview unless CI=true)
 ```
 
 ## Project Structure
@@ -30,9 +33,14 @@ src/
 ├── components/       # Reusable Astro components
 │   └── animations/   # AlgoViz player + algorithm visualizations
 ├── pages/            # File-based routing
+│   ├── index.astro       # Homepage (latest posts)
 │   ├── [...slug].astro   # Individual post pages (/{slug}/)
+│   ├── 404.astro         # Custom 404 page
+│   ├── about.astro       # /about/
 │   ├── page/             # Paginated listing (/page/{n}/)
-│   └── tags/             # Tag listings (/tags/{tag}/)
+│   ├── tags/             # Tag listings (/tags/{tag}/)
+│   ├── og/               # Build-time OG image generation
+│   └── rss.xml.js        # RSS feed
 ├── content/posts/    # Markdown blog posts (content collection)
 ├── styles/           # terminal.css, menu.css, and other vanilla CSS
 public/               # Static assets, robots.txt, fonts
@@ -71,12 +79,14 @@ Slugs are date-prefix-free. Legacy redirects (date-prefixed and `/posts/` paths)
 - **Aesthetic** — terminal/hacker theme: dark background (`#1c1e22`), golden accent (`#d4a857`), monospace throughout
 - **CSS custom properties** — defined in `terminal.css` (`--background`, `--foreground`, `--accent`, `--radius`)
 - **Vanilla CSS only** — no Tailwind, no CSS-in-JS, no preprocessors
-- **Single responsive breakpoint** — `max-width: 684px`
+- **Single responsive breakpoint** — `max-width: 684px` (plus a small `@media print` stylesheet)
 - **Syntax highlighting** — Shiki with `tokyo-night` theme
 
 ## Animations
 
 Interactive algorithm visualizations used in `.mdx` posts. Components live in `src/components/animations/`.
+
+> `.mdx` is enabled via `@astrojs/mdx`; currently only `merge-sort.mdx` uses it (the other 29 posts are plain `.md`).
 
 **Architecture:**
 - `AlgoViz.astro` — generic player shell (play/pause/replay controls, progress bar, accessibility announcements, `prefers-reduced-motion` support). Wraps algorithm content via `<slot />`
@@ -99,8 +109,10 @@ Interactive algorithm visualizations used in `.mdx` posts. Components live in `s
 
 ## Git & Deploy
 
-- **Deploy**: GitHub Actions on push to `main` → `withastro/action@v3` → GitHub Pages
-- **Build pipeline**: runs `astro check` before `astro build`
+- **Deploy**: GitHub Actions on push to `main` (`.github/workflows/deploy.yml`) — Node 22 → `npm ci` → `npm run build` → `actions/upload-pages-artifact@v3` → `actions/deploy-pages@v4`
+- **CI**: `.github/workflows/ci.yml` runs on push and PR to `main` — `npm run build` then `npm test` (Playwright/Chromium). PRs fail if either breaks.
+- **Build pipeline**: `astro check` runs before `astro build` (via the `build` script)
+- **Dependabot** (`.github/dependabot.yml`): daily direct-dep npm bumps, 2-day cooldown, max 3 open PRs, commit prefix `chore(package.json):`
 
 ## Boundaries
 
