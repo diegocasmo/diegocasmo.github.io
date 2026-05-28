@@ -6,22 +6,14 @@ author: "Diego Castillo"
 tags: ["architecture", "career"]
 ---
 
-LLMs taught users they can state intent in plain language and watch software act. Expectations shifted quickly.
+LLMs taught users they can describe an outcome in plain language and watch software act on it. Expectations shifted fast.
 
-By intent, I mean describing the outcome and letting the system handle the steps.
+Once I tried it, I wanted it almost everywhere. It's not a new idea, but it works well enough now to stick. Instead of picking an Instagram filter, I say how I want the photo to look. Instead of keyword hunting on Pinterest, I describe the room I'm imagining and get options that feel right. On Amazon, I might not know the product name, but I can describe the job to be done and expect to find it. I tell the app what to do, and it does the thing.
 
-Once I tried it, I wanted it *almost* everywhere. This is not new, but it works well enough now to stick. Instead of picking an Instagram filter, I say how I want the photo to look. Instead of keyword hunting on Pinterest, I describe the room I imagine and get options that feel right. On Amazon, I may not know the product name, but I can describe the job to be done and expect to find it. I tell the app what to do, and it does the thing.
+Most software predates this shift, so the old UI is still the base. What's new is that intent starts the flow. Menus and forms still matter, but they sit nearby for when you want to refine or double-check. If a product makes me learn its UI first, it kind of feels dated now.
 
-## Foundation and Fit
+Quality is improving, and intent doesn't feel like a demo anymore. It works best when you can describe what you want better than you can click your way to it. It helps less when the flow has to be fixed and audited.
 
-The direction is simple: intent first, interface second. Most software predates this shift, so the old model remains the base the new pattern builds on. In practice, intent starts the flow. The usual controls sit nearby to refine, verify, and repeat.
+This doesn't replace craft. It raises the bar. Data modeling, permissions, and latency still decide whether any of this actually works. And the obvious risks are still there: hallucinations, prompt injection, cost. You still need someone watching.
 
-Put simply: users speak outcomes, not the product's UI. Menus and forms still matter, but they follow. Same system, different sequence. If a product makes me learn its UI first, it often feels dated.
-
-Quality is improving, and in more cases intent no longer feels like a demo. It often shines when users can describe the goal better than they can navigate to it. It helps less when compliance requires fixed, audited steps.
-
-## Craft and Opportunity
-
-This does not replace craft. It raises expectations. Data modeling, permissions, security, safety, latency, and observability still decide whether intent can land. There are plenty of challenges too: prompt injection, audited flows, non-deterministic outputs, cost, and hallucinations still need rails and review. Some domains will take longer, especially where correctness and compliance dominate.
-
-All this is to say: it is a great time to build. New products can launch intent first. Existing ones can expand what users can do without burying them in UI. The shift is visible every day. Intelligent, helpful, action-oriented software is showing up across tools. It is on its way to being a baseline expectation. Build like users already expect it.
+Anyway, I think it's a great time to build. New products can launch intent-first. Existing ones can expand what users can do without burying them in UI. It's already happening across tools I use every day. It's on its way to being the baseline.
