@@ -6,30 +6,20 @@ author: "Diego Castillo"
 tags: ["career", "productivity"]
 ---
 
-This is the first time I've onboarded at a company while modern LLM capabilities are readily available. The experience has been different, and better.
+This is the first time I've onboarded somewhere with modern LLMs already on tap. The experience has been better.
 
-I joined [Buffer](https://buffer.com/), an async-first, remote company that builds tools to help creators and businesses manage their social media. The team has been excellent at providing guidance, context, and everything needed for a smooth onboarding. But when it comes to engineering, some things are best learned by doing, getting your hands dirty with the actual work.
+I joined [Buffer](https://buffer.com/), an async-first remote company that builds tools for creators and businesses to manage their social media. The team's been great at providing context and guidance, but some things in engineering you only learn by doing. AI tools have made starting that part easier than I expected, especially for building context.
 
-AI tools have made it easier than ever to start contributing. Not just for implementation, but for building context and understanding what's happening in the codebase.
+These tools have been most useful for research. When I run into an unfamiliar pattern or an architecture decision, I ask questions until I understand why the code is the way it is. I still apply my own judgment on what to do next. AI just gets me to that point faster.
 
-## Research and Understanding
+The [GitHub CLI](https://cli.github.com/) and the [Linear](https://linear.app/integrations/cursor-mcp) and [Notion](https://developers.notion.com/docs/mcp) agents have been useful here. Instead of spending hours hunting through repos and docs, I get pointed in roughly the right direction quickly, then dig in myself.
 
-The real value isn't in rushing toward a solution. It's in using AI to thoughtfully understand the codebase. When I encounter unfamiliar patterns or architecture decisions, I ask questions that help me learn the "why" behind the code, not just the "what."
+It extends past the codebase too. When I need to understand how we handle things internally, retrieval, storage, validation, that sort of thing, I point an agent at our docs and have it research how it actually works. Then I can propose something that fits our existing patterns instead of guessing.
 
-[GitHub](https://github.com/github/github-mcp-server), [Linear](https://linear.app/integrations/cursor-mcp), and [Notion](https://developers.notion.com/docs/mcp) agents have been particularly useful here. Instead of spending hours searching through repos and docs, I get pointed in the right direction quickly, then dive deeper.
+Local setup issues are still a thing, of course. AI has been good at parsing cryptic error messages and suggesting fixes. I don't have to wait on someone to be around. In an async environment, immediate help isn't always there.
 
-This extends beyond the codebase too. When I need to understand company-specific workflows and practices, how we handle retrieval, storage, validation, that sort of thing, I point AI to our documentation and have it research how things work internally. Then I can propose solutions that follow our established patterns rather than starting from scratch.
+Plan mode has been useful too. Before committing to a solution, I explore a few approaches and weigh the tradeoffs. I evaluate what the model suggests with whatever engineering experience I've built up, and decide from there.
 
-## Getting Unblocked
+It's tempting to work in a silo when you can unblock yourself more easily. But that misses the point. I still reach out, ask questions, and pair on the harder problems. I just have better context and sharper questions.
 
-Local setup issues are common when joining a new codebase. AI has been great at understanding error messages, suggesting fixes, and helping me get unblocked without waiting for someone else to be available. In an async environment, immediate help isn't always possible.
-
-Plan mode has been useful here too. Before committing to a solution, I explore multiple approaches, weigh trade-offs, and make more informed decisions. I don't just follow what AI suggests. I use my own engineering experience to evaluate what it proposes and decide what makes sense.
-
-## The Balance
-
-It's tempting to work in a silo when you can unblock yourself more easily. But that misses the point. I still reach out to teammates, ask questions, and pair on complex problems. I come to those conversations better prepared, with more context, with specific questions rather than broad confusion.
-
-Onboarding with AI tools available has been smoother. I can ramp up faster, understand the codebase more quickly, and get unblocked more easily. The tools help me contribute sooner while still building the relationships that make remote, async work successful.
-
-Have you onboarded at a company recently? What interesting ways have you used AI during onboarding? I'd love to hear your thoughts and experiences.
+Past onboardings took longer. This one's been faster.
