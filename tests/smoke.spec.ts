@@ -80,6 +80,8 @@ test('about page renders with ProfilePage JSON-LD', async ({ page }) => {
   await page.goto('/about/');
   await expect(page.locator('h1')).toContainText('About');
   await expect(page.locator('a[href="/resume.pdf"]')).toBeVisible();
+  // Inline links keep their surrounding spaces (Astro whitespace regression guard)
+  await expect(page.locator('.page')).toContainText('Senior Software Engineer at Buffer');
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
     .first()
