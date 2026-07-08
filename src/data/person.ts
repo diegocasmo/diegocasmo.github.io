@@ -28,7 +28,7 @@ export function buildPerson({ siteURL, description }: PersonOptions) {
     ],
     knowsAbout: [
       'Software Engineering',
-      'Systems Programming',
+      'Artificial Intelligence',
       'TypeScript',
       'Elixir',
       'Ruby',

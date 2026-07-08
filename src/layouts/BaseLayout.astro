@@ -7,7 +7,7 @@ export interface Props {
   jsonLd?: object | object[];
 }
 
-const { title, description = 'Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.', image, ogType, jsonLd } = Astro.props;
+const { title, description = 'Blog by Diego Castillo - software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products.', image, ogType, jsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image || '/og/default.png', Astro.site);
 

@@ -5,7 +5,7 @@ export async function GET(context) {
   const posts = await getPublishedPosts();
   return rss({
     title: 'Diego Castillo',
-    description: 'Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.',
+    description: 'Blog by Diego Castillo - software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products.',
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
