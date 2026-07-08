@@ -1,42 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { buildPerson } from '../data/person';
 
 const siteURL = Astro.site!.href;
 const description =
   'Diego Castillo is a senior software engineer at Buffer working in TypeScript, Elixir, and Ruby, focused on craftsmanship and simple, thoughtful products.';
 
-const person = {
-  '@type': 'Person',
-  '@id': `${siteURL}#person`,
-  name: 'Diego Castillo',
-  url: siteURL,
-  description,
-  jobTitle: 'Senior Software Engineer',
-  worksFor: { '@type': 'Organization', name: 'Buffer', url: 'https://buffer.com/' },
-  alumniOf: [
-    { '@type': 'CollegeOrUniversity', name: 'Uppsala University' },
-    { '@type': 'CollegeOrUniversity', name: 'Harding University' },
-  ],
-  knowsAbout: [
-    'Software Engineering',
-    'Systems Programming',
-    'TypeScript',
-    'Elixir',
-    'Ruby',
-    'Computer Science',
-  ],
-  sameAs: [
-    'https://github.com/diegocasmo',
-    'https://www.linkedin.com/in/diegocasmo/',
-    'https://x.com/diegocasmo',
-  ],
-};
-
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   url: new URL('/about/', Astro.site).href,
-  mainEntity: person,
+  mainEntity: buildPerson({ siteURL, description }),
 };
 ---
 

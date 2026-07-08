@@ -34,6 +34,7 @@ jobs:
       - uses: actions/deploy-pages@v4
         id: deployment
       - name: Notify IndexNow (Bing, Yandex, et al.)
+        continue-on-error: true
         env:
           INDEXNOW_KEY: 00e20f288adcd95eb830990321119c9c
         run: |

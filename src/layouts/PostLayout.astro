@@ -11,9 +11,10 @@ export interface Props {
   ogImage?: string;
   tags?: string[];
   ogType?: string;
+  externalLink?: string;
 }
 
-const { title, description, pubDate, updatedDate, image, ogImage, tags = [], ogType = "article" } = Astro.props;
+const { title, description, pubDate, updatedDate, image, ogImage, tags = [], ogType = "article", externalLink } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage || image || '/og/default.png', Astro.site);
@@ -45,7 +46,7 @@ const jsonLd = {
 
 <BaseLayout title={title} description={description} image={ogImage || image} ogType={ogType} jsonLd={jsonLd}>
   <Fragment slot="head">
-    <link rel="alternate" type="text/markdown" title={`${title} (Markdown)`} href={markdownURL} />
+    {!externalLink && <link rel="alternate" type="text/markdown" title={`${title} (Markdown)`} href={markdownURL} />}
     <meta property="article:published_time" content={pubDate.toISOString()} />
     {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
     <meta property="article:author" content="Diego Castillo" />

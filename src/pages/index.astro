@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
+import { buildPerson } from '../data/person';
 
 const POSTS_PER_PAGE = 10;
 const allPosts = (await getCollection('posts'))
@@ -24,22 +25,7 @@ const jsonLd = [
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${siteURL}#person`,
-    name: 'Diego Castillo',
-    url: siteURL,
-    jobTitle: 'Senior Software Engineer',
-    worksFor: { '@type': 'Organization', name: 'Buffer', url: 'https://buffer.com/' },
-    alumniOf: [
-      { '@type': 'CollegeOrUniversity', name: 'Uppsala University' },
-      { '@type': 'CollegeOrUniversity', name: 'Harding University' },
-    ],
-    knowsAbout: ['Software Engineering', 'Systems Programming', 'TypeScript', 'Elixir', 'Ruby', 'Computer Science'],
-    sameAs: [
-      'https://github.com/diegocasmo',
-      'https://www.linkedin.com/in/diegocasmo/',
-      'https://x.com/diegocasmo',
-    ],
+    ...buildPerson({ siteURL }),
   },
 ];
 ---
