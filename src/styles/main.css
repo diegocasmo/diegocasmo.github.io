@@ -76,7 +76,7 @@ figure figcaption p {
 
 /* Page styles */
 .page {
-  max-width: 100%;
+  max-width: 760px;
   margin: 0 auto;
 }
 

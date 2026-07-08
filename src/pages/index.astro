@@ -1,26 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
-import { getCollection } from 'astro:content';
+import { getPublishedPosts, POSTS_PER_PAGE } from '../data/posts';
+import { buildPerson } from '../data/person';
 
-const POSTS_PER_PAGE = 10;
-const allPosts = (await getCollection('posts'))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const currentPage = 1;
+const allPosts = await getPublishedPosts();
 const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
 const posts = allPosts.slice(0, POSTS_PER_PAGE);
+
+const siteURL = Astro.site!.href;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteURL}#website`,
+    name: 'Diego Castillo',
+    url: siteURL,
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    ...buildPerson({ siteURL }),
+  },
+];
 ---
 
-<BaseLayout title="Software Engineering Blog" description="Blog by Diego Castillo - software engineer at Buffer exploring systems programming and building products.">
+<BaseLayout title="Software Engineering Blog" description="Blog by Diego Castillo - software engineer at Buffer exploring systems programming and building products." jsonLd={jsonLd}>
   <h1 class="sr-only">Software Engineering Blog</h1>
   <section class="bio">
     <p>
-      Architecting software focused on craftsmanship and simple, thoughtful
-      products. At <a target="_blank" rel="noopener" href="https://buffer.com/">Buffer</a>,
-      I work with a fully remote team building tools that help creators and
-      small businesses. Playing jazz <a target="_blank" rel="noopener" href="https://www.youtube.com/diegocasmo">@diegocasmo</a>.
+      Building products. Playing jazz.
     </p>
   </section>
 
@@ -31,11 +40,9 @@ const posts = allPosts.slice(0, POSTS_PER_PAGE);
   {totalPages > 1 && (
     <div class="pagination">
       <div class="pagination__buttons">
-        {currentPage < totalPages && (
-          <a href="/page/2/" class="button inline next">
-            [<span class="button__text">Older posts</span>] &gt;
-          </a>
-        )}
+        <a href="/page/2/" class="button inline next">
+          [<span class="button__text">Older posts</span>] &gt;
+        </a>
       </div>
     </div>
   )}

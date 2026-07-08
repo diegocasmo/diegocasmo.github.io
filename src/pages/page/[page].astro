@@ -1,13 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
-import { getCollection } from 'astro:content';
+import { getPublishedPosts, POSTS_PER_PAGE } from '../../data/posts';
 
 export async function getStaticPaths() {
-  const POSTS_PER_PAGE = 10;
-  const allPosts = (await getCollection('posts'))
-    .filter(post => !post.data.draft)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const allPosts = await getPublishedPosts();
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
 
