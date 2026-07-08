@@ -33,3 +33,19 @@ jobs:
     steps:
       - uses: actions/deploy-pages@v4
         id: deployment
+      - name: Notify IndexNow (Bing, Yandex, et al.)
+        env:
+          INDEXNOW_KEY: 00e20f288adcd95eb830990321119c9c
+        run: |
+          # Runs after deploy-pages, so the new sitemap is live. Best-effort;
+          # never fails the deploy. IndexNow reaches Bing (Copilot), Yandex, etc.
+          urls=$(curl -sS --max-time 30 https://diegocasmo.github.io/sitemap-0.xml \
+            | grep -oE '<loc>[^<]+</loc>' | sed -E 's|</?loc>||g' \
+            | jq -R . | jq -cs .)
+          if [ -z "$urls" ] || [ "$urls" = "null" ] || [ "$urls" = "[]" ]; then
+            echo "No sitemap URLs found; skipping IndexNow"; exit 0
+          fi
+          curl -sS --max-time 30 -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"diegocasmo.github.io\",\"key\":\"${INDEXNOW_KEY}\",\"keyLocation\":\"https://diegocasmo.github.io/${INDEXNOW_KEY}.txt\",\"urlList\":${urls}}" \
+            || echo "IndexNow ping failed (non-fatal)"

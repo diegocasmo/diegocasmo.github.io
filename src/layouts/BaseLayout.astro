@@ -4,10 +4,12 @@ export interface Props {
   description?: string;
   image?: string;
   ogType?: string;
+  jsonLd?: object | object[];
 }
 
-const { title, description = 'Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.', image, ogType } = Astro.props;
+const { title, description = 'Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.', image, ogType, jsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image || '/og/default.png', Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -27,16 +29,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType || "website"} />
     <meta property="og:url" content={canonicalURL} />
-    {image && <meta property="og:image" content={new URL(image, Astro.url)} />}
+    <meta property="og:site_name" content="Diego Castillo" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:creator" content="diegocasmo" />
-    {image && <meta name="twitter:image" content={new URL(image, Astro.url)} />}
+    <meta name="twitter:site" content="@diegocasmo" />
+    <meta name="twitter:creator" content="@diegocasmo" />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+    <slot name="head" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body>
     <a href="#main-content" class="sr-only skip-link">Skip to content</a>
@@ -54,6 +63,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <button class="menu__trigger" aria-expanded="false" aria-controls="mobile-menu-dropdown">Menu &#9662;</button>
             <ul id="mobile-menu-dropdown" class="menu__dropdown">
               <li><a href="/" aria-current={Astro.url.pathname === "/" ? "page" : undefined}>Home</a></li>
+              <li><a href="/about/" aria-current={Astro.url.pathname.startsWith("/about") ? "page" : undefined}>About</a></li>
               <li><a href="/products/" aria-current={Astro.url.pathname.startsWith("/products") ? "page" : undefined}>Products</a></li>
               <li>
                 <a href="https://github.com/diegocasmo" target="_blank" rel="noopener" aria-label="GitHub">
@@ -77,6 +87,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <nav class="navigation-menu" aria-label="Main navigation">
           <ul class="navigation-menu__inner menu--desktop">
             <li><a href="/" aria-current={Astro.url.pathname === "/" ? "page" : undefined}>Home</a></li>
+            <li><a href="/about/" aria-current={Astro.url.pathname.startsWith("/about") ? "page" : undefined}>About</a></li>
             <li><a href="/products/" aria-current={Astro.url.pathname.startsWith("/products") ? "page" : undefined}>Products</a></li>
             <li>
               <a href="https://github.com/diegocasmo" target="_blank" rel="noopener" aria-label="GitHub">

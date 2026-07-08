@@ -8,11 +8,33 @@ test('homepage loads with posts', async ({ page }) => {
 
 test('blog post renders content', async ({ page }) => {
   await page.goto('/fft/');
-  await expect(
-    page.locator('article[itemtype="http://schema.org/Article"]'),
-  ).toBeVisible();
+  await expect(page.locator('article')).toBeVisible();
   await expect(page.locator('h1.post-title')).toBeVisible();
   await expect(page.locator('.post-content')).toBeVisible();
+  // BlogPosting JSON-LD is present
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .first()
+    .textContent();
+  expect(jsonLd).toContain('BlogPosting');
+});
+
+test('blog post exposes a Markdown variant', async ({ request, page }) => {
+  await page.goto('/fft/');
+  const alternate = page.locator('link[rel="alternate"][type="text/markdown"]');
+  await expect(alternate).toHaveCount(1);
+  const response = await request.get('/fft.md');
+  expect(response.ok()).toBeTruthy();
+  const body = await response.text();
+  expect(body).toContain('title: ');
+});
+
+test('llms.txt lists posts as Markdown', async ({ request }) => {
+  const response = await request.get('/llms.txt');
+  expect(response.ok()).toBeTruthy();
+  const body = await response.text();
+  expect(body).toContain('# Diego Castillo');
+  expect(body).toContain('.md)');
 });
 
 test('RSS feed is valid XML', async ({ request }) => {
@@ -46,8 +68,23 @@ test('merge-sort animations render and controls work', async ({ page }) => {
   // Click play, button changes to "Pause"
   await toggle.click();
   await expect(toggle).toHaveText('Pause');
-  // SEO preserved
-  await expect(page.locator('article[itemtype="http://schema.org/Article"]')).toBeVisible();
+  // SEO preserved: BlogPosting JSON-LD present
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .first()
+    .textContent();
+  expect(jsonLd).toContain('BlogPosting');
+});
+
+test('about page renders with ProfilePage JSON-LD', async ({ page }) => {
+  await page.goto('/about/');
+  await expect(page.locator('h1')).toContainText('About');
+  await expect(page.locator('a[href="/resume.pdf"]')).toBeVisible();
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .first()
+    .textContent();
+  expect(jsonLd).toContain('ProfilePage');
 });
 
 test('individual tag page shows posts', async ({ page }) => {

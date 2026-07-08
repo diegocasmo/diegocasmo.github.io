@@ -11,9 +11,40 @@ const allPosts = (await getCollection('posts'))
 const currentPage = 1;
 const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
 const posts = allPosts.slice(0, POSTS_PER_PAGE);
+
+const siteURL = Astro.site!.href;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteURL}#website`,
+    name: 'Diego Castillo',
+    url: siteURL,
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${siteURL}#person`,
+    name: 'Diego Castillo',
+    url: siteURL,
+    jobTitle: 'Senior Software Engineer',
+    worksFor: { '@type': 'Organization', name: 'Buffer', url: 'https://buffer.com/' },
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'Uppsala University' },
+      { '@type': 'CollegeOrUniversity', name: 'Harding University' },
+    ],
+    knowsAbout: ['Software Engineering', 'Systems Programming', 'TypeScript', 'Elixir', 'Ruby', 'Computer Science'],
+    sameAs: [
+      'https://github.com/diegocasmo',
+      'https://www.linkedin.com/in/diegocasmo/',
+      'https://x.com/diegocasmo',
+    ],
+  },
+];
 ---
 
-<BaseLayout title="Software Engineering Blog" description="Blog by Diego Castillo - software engineer at Buffer exploring systems programming and building products.">
+<BaseLayout title="Software Engineering Blog" description="Blog by Diego Castillo - software engineer at Buffer exploring systems programming and building products." jsonLd={jsonLd}>
   <h1 class="sr-only">Software Engineering Blog</h1>
   <section class="bio">
     <p>

@@ -14,13 +14,46 @@ export interface Props {
 }
 
 const { title, description, pubDate, updatedDate, image, ogImage, tags = [], ogType = "article" } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage || image || '/og/default.png', Astro.site);
+const slug = Astro.url.pathname.replace(/^\/|\/$/g, '');
+const markdownURL = new URL(`/${slug}.md`, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  image: ogImageURL.href,
+  datePublished: pubDate.toISOString(),
+  ...(updatedDate && { dateModified: updatedDate.toISOString() }),
+  author: {
+    '@type': 'Person',
+    name: 'Diego Castillo',
+    url: new URL('/about/', Astro.site).href,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Diego Castillo',
+    url: Astro.site?.href,
+  },
+  ...(tags.length > 0 && { keywords: tags.join(', ') }),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL.href },
+};
 ---
 
-<BaseLayout title={title} description={description} image={ogImage || image} ogType={ogType}>
-  <article itemscope itemtype="http://schema.org/Article">
-    <h1 class="post-title" itemprop="headline">{title}</h1>
-    <meta itemprop="datePublished" content={pubDate.toISOString()} />
-    <span itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Diego Castillo" /></span>
+<BaseLayout title={title} description={description} image={ogImage || image} ogType={ogType} jsonLd={jsonLd}>
+  <Fragment slot="head">
+    <link rel="alternate" type="text/markdown" title={`${title} (Markdown)`} href={markdownURL} />
+    <meta property="article:published_time" content={pubDate.toISOString()} />
+    {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+    <meta property="article:author" content="Diego Castillo" />
+    {tags.map((tag) => <meta property="article:tag" content={tag} />)}
+  </Fragment>
+
+  <article>
+    <h1 class="post-title">{title}</h1>
 
     <div class="post-meta">
       <span>
