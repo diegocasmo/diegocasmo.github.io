@@ -1,10 +1,8 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../data/posts';
 
 export const GET: APIRoute = async ({ site }) => {
-  const posts = (await getCollection('posts'))
-    .filter((post) => !post.data.draft)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const posts = await getPublishedPosts();
 
   const entries = posts.map((post) => {
     // External-link posts have no local Markdown mirror; point at the source.

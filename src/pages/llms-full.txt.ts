@@ -1,15 +1,14 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
-import { cleanMdx } from '../utils/markdown';
+import { getPublishedPosts } from '../data/posts';
+import { renderPostBody } from '../utils/markdown';
 
 export const GET: APIRoute = async ({ site }) => {
-  const posts = (await getCollection('posts'))
-    .filter((post) => !post.data.draft && !post.data.externalLink)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const posts = (await getPublishedPosts()).filter(
+    (post) => !post.data.externalLink
+  );
 
   const sections = posts.map((post) => {
-    const isMdx = (post.filePath ?? '').endsWith('.mdx');
-    const body = isMdx ? cleanMdx(post.body ?? '') : (post.body ?? '');
+    const body = renderPostBody(post);
     const url = new URL(`/${post.id}/`, site).href;
     return `# ${post.data.title}
 

@@ -1,10 +1,8 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../data/posts';
 
 export async function GET(context) {
-  const posts = (await getCollection('posts'))
-    .filter(post => !post.data.draft)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const posts = await getPublishedPosts();
   return rss({
     title: 'Diego Castillo',
     description: 'Blog by Diego Castillo - software engineer at Buffer writing about systems programming, CS fundamentals, and building products.',

@@ -1,10 +1,11 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { cleanMdx } from '../utils/markdown';
+import type { CollectionEntry } from 'astro:content';
+import { getPublishedPosts } from '../data/posts';
+import { renderPostBody } from '../utils/markdown';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = (await getCollection('posts')).filter(
-    (post) => !post.data.draft && !post.data.externalLink
+  const posts = (await getPublishedPosts()).filter(
+    (post) => !post.data.externalLink
   );
 
   return posts.map((post) => ({
@@ -23,14 +24,13 @@ export const GET: APIRoute = ({ props }) => {
     `description: ${description}`,
     `pubDate: ${pubDate.toISOString()}`,
     ...(updatedDate ? [`updatedDate: ${updatedDate.toISOString()}`] : []),
-    ...(tags && tags.length > 0 ? [`tags: ${tags.join(', ')}`] : []),
+    ...(tags.length > 0 ? [`tags: ${tags.join(', ')}`] : []),
     '---',
     '',
     '',
   ].join('\n');
 
-  const isMdx = (post.filePath ?? '').endsWith('.mdx');
-  const body = isMdx ? cleanMdx(post.body ?? '') : (post.body ?? '');
+  const body = renderPostBody(post);
 
   return new Response(frontmatter + body, {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
