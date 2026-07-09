@@ -79,9 +79,11 @@ test('merge-sort animations render and controls work', async ({ page }) => {
 test('about page renders with ProfilePage JSON-LD', async ({ page }) => {
   await page.goto('/about/');
   await expect(page.locator('h1')).toContainText('About');
-  await expect(page.locator('a[href="/resume.pdf"]')).toBeVisible();
+  await expect(page.locator('a[href="/resume.md"]')).toBeVisible();
   // Inline links keep their surrounding spaces (Astro whitespace regression guard)
-  await expect(page.locator('.page')).toContainText('work at Buffer');
+  await expect(page.locator('.page')).toContainText(
+    'team @buffer.com building'
+  );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
     .first()

@@ -50,7 +50,7 @@ src/
 ├── content/posts/    # Markdown blog posts (content collection)
 ├── utils/            # markdown.ts (cleanMdx: strips MDX imports/JSX for .md output)
 ├── styles/           # terminal.css, menu.css, and other vanilla CSS
-public/               # Static assets, robots.txt, resume.pdf, IndexNow key, fonts
+public/               # Static assets, robots.txt, IndexNow key, fonts
 ```
 
 ## Content Schema
