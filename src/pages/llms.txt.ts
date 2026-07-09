@@ -19,6 +19,7 @@ This file indexes the blog's posts as Markdown for LLMs and agents. Each post is
 ## About
 
 - [About Diego Castillo](${new URL('/about/', site).href}): Bio, experience, and contact links.
+- [Resume](${new URL('/resume.md', site).href}): Work history, projects, skills, and education (Markdown).
 - [Products](${new URL('/products/', site).href}): Products Diego has built.
 
 ## Posts
