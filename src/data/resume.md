@@ -4,7 +4,7 @@
 
 Architecting software focused on craftsmanship and simple, thoughtful products.
 
-🔗 [*LinkedIn*](https://www.linkedin.com/in/diegocasmo/) · [*GitHub*](https://github.com/diegocasmo) · [*X*](https://twitter.com/diegocasmo) · [*Blog*](https://diegocasmo.github.io/) 
+🔗 [_LinkedIn_](https://www.linkedin.com/in/diegocasmo/) · [_GitHub_](https://github.com/diegocasmo) · [_X_](https://twitter.com/diegocasmo) · [_Blog_](https://diegocasmo.github.io/)
 
 ---
 
@@ -12,7 +12,7 @@ Architecting software focused on craftsmanship and simple, thoughtful products.
 
 ### Senior Software Engineer
 
-[*Buffer.com*](https://buffer.com/), Remote (Oct 2025 - Present)
+[_Buffer.com_](https://buffer.com/), Remote (Oct 2025 - Present)
 
 - Proposed and led the design of an auto-generated CLI for Buffer’s public API; authored the technical spec, defined the codegen/runtime split, and implemented the initial version, with commands generated directly from the GraphQL schema.
 - Proposed and led Buffer MCP, authoring the technical spec and defining its architecture, authentication model, tool schemas, evaluation pipelines, and test coverage; led OAuth support using Dynamic Client Registration, enabling official Claude and ChatGPT marketplace readiness.
@@ -20,22 +20,22 @@ Architecting software focused on craftsmanship and simple, thoughtful products.
 
 ### Senior II Frontend Engineer
 
-[*Remote.com*](https://remote.com/), Remote (Jun 2021 - Oct 2025)
+[_Remote.com_](https://remote.com/), Remote (Jun 2021 - Oct 2025)
 
 Owned full implementation cycles for product features spanning both frontend and backend. Scoped architecture, created engineering tickets, and made decisions across database design (Ecto schemas, relationships), business logic (Phoenix contexts, controllers, authorization), and UI workflows (React, Next.js). Collaborated directly with product and design to ship features autonomously in a remote, async-first team.
 
 - Enabled employers to add prospects to our new ATS via AI-powered resume parsing and intelligent autofill, streamlining candidate intake.
 - Adapted an employee-focused time-tracking system to automate contractor invoicing based on tracked hours.
 - Shipped live dashboard widgets that surface payment status and other actionable insights for contractors.
-- Earlier at Remote (Frontend, then Senior I; 2021-2024): built the contractor [*invoicing system*](https://remote.com/blog/remote-invoicing-automation), [*Freelancers Hub*](https://remote.com/global-hr/freelancer-hub), the [*Fair Pricing Initiative*](https://remote.com/blog/fair-price-guarantee-contractor-management), and [*Contractor Time Tracking*](https://support.remote.com/hc/en-us/articles/17676669105037-How-time-tracking-works-for-Contractors-).
+- Earlier at Remote (Frontend, then Senior I; 2021-2024): built the contractor [_invoicing system_](https://remote.com/blog/remote-invoicing-automation), [_Freelancers Hub_](https://remote.com/global-hr/freelancer-hub), the [_Fair Pricing Initiative_](https://remote.com/blog/fair-price-guarantee-contractor-management), and [_Contractor Time Tracking_](https://support.remote.com/hc/en-us/articles/17676669105037-How-time-tracking-works-for-Contractors-).
 
 ### Senior Software Engineer
 
-[*Hubstaff*](https://hubstaff.com/tasks), Remote (Aug 2019 - May 2021)
+[_Hubstaff_](https://hubstaff.com/tasks), Remote (Aug 2019 - May 2021)
 
 Delivered full-stack features in a Ruby on Rails monolith with a React frontend. Frequently led projects from spec breakdown through DB schema design, backend logic, and API contracts, extending into React UI. Collaborated with product to define scope and executed autonomously across frontend state and backend performance.
 
-- Developed and maintained key full-stack features, such as [*Epics*](https://hubstaff.com/tasks/agile-epics), [*To-Dos*](https://hubstaff.com/tasks/to-do-list), and the [*Project & Roadmap timeline*](https://hubstaff.com/tasks/project-timeline).
+- Developed and maintained key full-stack features, such as [_Epics_](https://hubstaff.com/tasks/agile-epics), [_To-Dos_](https://hubstaff.com/tasks/to-do-list), and the [_Project & Roadmap timeline_](https://hubstaff.com/tasks/project-timeline).
 - Refactored key Active Record queries for large-scale roadmap rendering and faster app load times.
 
 ### Earlier Roles
@@ -55,7 +55,7 @@ An AI-powered, chat-based tone architect for Line 6 Helix. Solo-built and live: 
 
 ### [Momentum](https://www.findmomentum.xyz/)
 
-A productivity app that helps track and celebrate daily progress through small wins. Same stack, also live. More at [*diegocasmo.github.io/products*](https://diegocasmo.github.io/products/).
+A productivity app that helps track and celebrate daily progress through small wins. Same stack, also live. More at [_diegocasmo.github.io/products_](https://diegocasmo.github.io/products/).
 
 ---
 
@@ -87,20 +87,20 @@ A productivity app that helps track and celebrate daily progress through small w
 
 Aug 2017 - Jun 2019
 
-Thesis: [*VASCO: Developing AI-Crawlers for ML-Blink*](https://github.com/diegocasmo/diegocasmo.github.io/blob/main/static/vasco-developing-ai-crawlers-for-ml-blink.pdf)
+Thesis: [_VASCO: Developing AI-Crawlers for ML-Blink_](https://github.com/diegocasmo/diegocasmo.github.io/blob/main/static/vasco-developing-ai-crawlers-for-ml-blink.pdf)
 
 ### B.Sc. Computer Science, Harding University, USA
 
 Aug 2010 - May 2014
 
-Thesis: [*CakePHP: The Rapid Development PHP Framework*](https://diegocasmo.github.io/cake-php-seminar.pdf)
+Thesis: [_CakePHP: The Rapid Development PHP Framework_](https://diegocasmo.github.io/cake-php-seminar.pdf)
 
 ---
 
 ## **📄 Certifications**
 
-- [*Coursera: Advanced Learning Algorithms (2025)*](https://www.coursera.org/account/accomplishments/verify/UHW3DA1BHDL2?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)
-- [*Coursera: Regression and Classification (2023)*](https://coursera.org/share/dc3c79f61d95ca34898263f1b7e66137)
+- [_Coursera: Advanced Learning Algorithms (2025)_](https://www.coursera.org/account/accomplishments/verify/UHW3DA1BHDL2?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course)
+- [_Coursera: Regression and Classification (2023)_](https://coursera.org/share/dc3c79f61d95ca34898263f1b7e66137)
 
 ---
 
