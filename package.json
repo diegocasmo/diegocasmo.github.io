@@ -10,6 +10,8 @@
     "check": "astro check",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "playwright test",
     "astro": "astro"
   },
@@ -24,6 +26,8 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@playwright/test": "^1.61.1",
+    "prettier": "^3.9.4",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3"
   }
 }
