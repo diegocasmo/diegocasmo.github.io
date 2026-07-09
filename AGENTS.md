@@ -23,6 +23,8 @@ npm run dev         # Dev server
 npm run build       # Typecheck + build (astro check && astro build)
 npm run preview     # Preview production build
 npm run check       # TypeScript/Astro check only
+npm run format      # Format with Prettier (writes in place)
+npm run format:check # Check formatting — CI fails on drift (src/content/ excluded)
 npm test            # Run Playwright smoke tests (auto-starts preview unless CI=true)
 ```
 
@@ -118,11 +120,12 @@ Interactive algorithm visualizations used in `.mdx` posts. Components live in `s
 - TypeScript strict mode
 - Astro components (`.astro` files) — no UI framework (no React, Vue, or Svelte)
 - Minimal inline JS — static site, keep it static
+- **Formatting** — Prettier (`.prettierrc` + `prettier-plugin-astro`); run `npm run format` before pushing, and CI runs `npm run format:check`. `src/content/` is deliberately excluded so published posts stay byte-identical
 
 ## Git & Deploy
 
 - **Deploy**: GitHub Actions on push to `main` (`.github/workflows/deploy.yml`) — Node 22 → `npm ci` → `npm run build` → `actions/upload-pages-artifact@v3` → `actions/deploy-pages@v4`
-- **CI**: `.github/workflows/ci.yml` runs on push and PR to `main` — `npm run build` then `npm test` (Playwright/Chromium). PRs fail if either breaks.
+- **CI**: `.github/workflows/ci.yml` runs on push and PR to `main` — `npm run format:check`, then `npm run build`, then `npm test` (Playwright/Chromium). PRs fail if any of the three breaks.
 - **Build pipeline**: `astro check` runs before `astro build` (via the `build` script)
 - **Dependabot** (`.github/dependabot.yml`): daily direct-dep npm bumps, 2-day cooldown, max 3 open PRs, commit prefix `chore(package.json):`
 
