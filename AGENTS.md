@@ -121,6 +121,7 @@ Interactive algorithm visualizations used in `.mdx` posts. Components live in `s
 - Astro components (`.astro` files) — no UI framework (no React, Vue, or Svelte)
 - Minimal inline JS — static site, keep it static
 - **Formatting** — Prettier (`.prettierrc` + `prettier-plugin-astro`); run `npm run format` before pushing, and CI runs `npm run format:check`. `src/content/` is deliberately excluded so published posts stay byte-identical
+- **External links** — open in a new tab with `target="_blank" rel="noopener"` (see `about.astro`, `products.astro`); internal links (`/...`) use neither. `PostCard.astro` gates this via an `isExternal` check
 
 ## Git & Deploy
 
