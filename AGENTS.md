@@ -56,14 +56,14 @@ public/               # Static assets, robots.txt, resume.pdf, IndexNow key, fon
 Post frontmatter (`src/content.config.ts`):
 
 ```yaml
-title: string          # Required
-description: string    # Required
-pubDate: date          # Required
-updatedDate: date      # Optional
-image: string          # Optional
-externalLink: string   # Optional
-tags: string[]         # Default: []
-draft: boolean         # Default: false — drafts are filtered from all listings
+title: string # Required
+description: string # Required
+pubDate: date # Required
+updatedDate: date # Optional
+image: string # Optional
+externalLink: string # Optional
+tags: string[] # Default: []
+draft: boolean # Default: false — drafts are filtered from all listings
 ```
 
 Slugs are date-prefix-free. Legacy redirects (date-prefixed and `/posts/` paths) are mapped in `astro.config.mjs`.
@@ -99,11 +99,13 @@ Interactive algorithm visualizations used in `.mdx` posts. Components live in `s
 > `.mdx` is enabled via `@astrojs/mdx`; currently only `merge-sort.mdx` uses it (the other 29 posts are plain `.md`).
 
 **Architecture:**
+
 - `AlgoViz.astro` — generic player shell (play/pause/replay controls, progress bar, accessibility announcements, `prefers-reduced-motion` support). Wraps algorithm content via `<slot />`
 - `ArrayGroup.astro` — reusable SVG primitive for rendering labeled number arrays (bounding box + cells). Use `showCells={false}` when animating individual cells independently
 - Algorithm components (e.g., `MergeSort.astro`) — pure SVG + CSS keyframe animations, rendered inside `AlgoViz`
 
 **Authoring a new animation:**
+
 1. Create `src/components/animations/<Algorithm>.astro` with a `step` prop for multi-scene animations
 2. Use `ArrayGroup` for array visualizations; write raw SVG for other structures
 3. Define all animations as CSS keyframes with explicit `ms` durations and delays — no JS animation libraries

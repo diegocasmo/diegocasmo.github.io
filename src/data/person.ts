@@ -21,7 +21,11 @@ export function buildPerson({ siteURL, description }: PersonOptions) {
     url: siteURL,
     ...(description ? { description } : {}),
     jobTitle: 'Senior Software Engineer',
-    worksFor: { '@type': 'Organization', name: 'Buffer', url: 'https://buffer.com/' },
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Buffer',
+      url: 'https://buffer.com/',
+    },
     alumniOf: [
       { '@type': 'CollegeOrUniversity', name: 'Uppsala University' },
       { '@type': 'CollegeOrUniversity', name: 'Harding University' },

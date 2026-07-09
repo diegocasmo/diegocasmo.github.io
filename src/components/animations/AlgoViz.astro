@@ -46,10 +46,13 @@ const { title, description, id, duration } = Astro.props;
     function setState(state: string) {
       viz.dataset.state = state;
       _status.textContent =
-        state === 'playing' ? 'Animation playing' :
-        state === 'paused' ? 'Animation paused' :
-        state === 'done' ? 'Animation complete' :
-        '';
+        state === 'playing'
+          ? 'Animation playing'
+          : state === 'paused'
+            ? 'Animation paused'
+            : state === 'done'
+              ? 'Animation complete'
+              : '';
 
       if (state === 'playing') {
         _toggle.textContent = 'Pause';
@@ -83,7 +86,9 @@ const { title, description, id, duration } = Astro.props;
     }
 
     const progressTrack = viz.querySelector<HTMLElement>('.algo-viz__progress');
-    const progressBar = viz.querySelector<HTMLElement>('.algo-viz__progress-bar');
+    const progressBar = viz.querySelector<HTMLElement>(
+      '.algo-viz__progress-bar'
+    );
 
     function restartProgressBar() {
       if (!progressTrack || !progressBar) return;
@@ -200,9 +205,9 @@ const { title, description, id, duration } = Astro.props;
     display: none;
   }
 
-  .algo-viz[data-state="playing"] .algo-viz__progress,
-  .algo-viz[data-state="paused"] .algo-viz__progress,
-  .algo-viz[data-state="done"] .algo-viz__progress {
+  .algo-viz[data-state='playing'] .algo-viz__progress,
+  .algo-viz[data-state='paused'] .algo-viz__progress,
+  .algo-viz[data-state='done'] .algo-viz__progress {
     display: block;
   }
 
@@ -212,22 +217,26 @@ const { title, description, id, duration } = Astro.props;
     background: var(--accent);
   }
 
-  .algo-viz[data-state="playing"] .algo-viz__progress-bar,
-  .algo-viz[data-state="paused"] .algo-viz__progress-bar {
+  .algo-viz[data-state='playing'] .algo-viz__progress-bar,
+  .algo-viz[data-state='paused'] .algo-viz__progress-bar {
     animation: algo-viz-progress var(--duration) linear forwards;
   }
 
-  .algo-viz[data-state="paused"] .algo-viz__progress-bar {
+  .algo-viz[data-state='paused'] .algo-viz__progress-bar {
     animation-play-state: paused;
   }
 
-  .algo-viz[data-state="done"] .algo-viz__progress-bar {
+  .algo-viz[data-state='done'] .algo-viz__progress-bar {
     width: 100%;
   }
 
   @keyframes algo-viz-progress {
-    from { width: 0%; }
-    to { width: 100%; }
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
   }
 
   .algo-viz__controls {

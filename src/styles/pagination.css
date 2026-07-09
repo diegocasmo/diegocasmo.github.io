@@ -16,10 +16,10 @@
   padding: 5px 10px;
   background: var(--background);
   color: color-mix(in srgb, var(--foreground) 65%, transparent);
-  font-size: calc(var(--font-size) * .8);
+  font-size: calc(var(--font-size) * 0.8);
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   z-index: 1;
 }
 
@@ -95,7 +95,7 @@
   text-align: center;
   margin: 20px 0;
   color: color-mix(in srgb, var(--foreground) 65%, transparent);
-  font-size: calc(var(--font-size) * .9);
+  font-size: calc(var(--font-size) * 0.9);
 }
 
 /* Simple pagination (prev/next only) */

@@ -56,29 +56,37 @@ const cellClass = active ? 'ms-cell ms-cell--active' : 'ms-cell';
   width={groupW}
   height={groupH}
   rx="0"
-  class="ag-bound"
-/>
+  class="ag-bound"></rect>
 
 {/* Optional label */}
-{label && (
-  <text x={groupW / 2} y={10} text-anchor="middle" class="ms-label">{label}</text>
-)}
+{
+  label && (
+    <text x={groupW / 2} y={10} text-anchor="middle" class="ms-label">
+      {label}
+    </text>
+  )
+}
 
 {/* Cells */}
-{showCells && values.map((v, i) => (
-  <g transform={`translate(${PAD + i * (W + GAP)}, ${(label ? 16 : 0) + PAD})`}>
-    <rect width={W} height={H} rx="0" class={cellClass} />
-    <text
-      x={W / 2}
-      y={H / 2 + 1}
-      text-anchor="middle"
-      dominant-baseline="central"
-      class="ms-text"
-    >
-      {v}
-    </text>
-  </g>
-))}
+{
+  showCells &&
+    values.map((v, i) => (
+      <g
+        transform={`translate(${PAD + i * (W + GAP)}, ${(label ? 16 : 0) + PAD})`}
+      >
+        <rect width={W} height={H} rx="0" class={cellClass} />
+        <text
+          x={W / 2}
+          y={H / 2 + 1}
+          text-anchor="middle"
+          dominant-baseline="central"
+          class="ms-text"
+        >
+          {v}
+        </text>
+      </g>
+    ))
+}
 
 <style>
   .ag-bound {

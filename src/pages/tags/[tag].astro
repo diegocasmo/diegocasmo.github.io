@@ -5,13 +5,17 @@ import { getPublishedPosts } from '../../data/posts';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
-  const uniqueTags = [...new Set(allPosts.map(post => post.data.tags).flat())];
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
 
-  return uniqueTags.map(tag => {
-    const filteredPosts = allPosts.filter(post => post.data.tags?.includes(tag));
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags?.includes(tag)
+    );
     return {
       params: { tag },
-      props: { posts: filteredPosts }
+      props: { posts: filteredPosts },
     };
   });
 }
@@ -20,16 +24,23 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<BaseLayout title={`Tag: ${tag}`} description={`All posts tagged with "${tag}"`}>
+<BaseLayout
+  title={`Tag: ${tag}`}
+  description={`All posts tagged with "${tag}"`}
+>
   <div class="posts">
     <h1 class="posts-title">
-      <span style="color: var(--foreground)">Posts for: <span style="color: var(--accent)">#{tag}</span></span>
+      <span style="color: var(--foreground)"
+        >Posts for: <span style="color: var(--accent)">#{tag}</span></span
+      >
     </h1>
-    {posts.length === 0 ? (
-      <p>No posts found with this tag.</p>
-    ) : (
-      posts.map((post) => <PostCard post={post} />)
-    )}
+    {
+      posts.length === 0 ? (
+        <p>No posts found with this tag.</p>
+      ) : (
+        posts.map((post) => <PostCard post={post} />)
+      )
+    }
   </div>
 </BaseLayout>
 
@@ -41,7 +52,7 @@ const { posts } = Astro.props;
     padding-bottom: 0 !important;
     border-bottom: none !important;
   }
-  
+
   .posts-title::after {
     display: none !important;
   }

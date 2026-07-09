@@ -3,12 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPublishedPosts } from '../../data/posts';
 
 const allPosts = await getPublishedPosts();
-const tags = [...new Set(allPosts.map(post => post.data.tags).flat())];
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const tagCounts: Record<string, number> = {};
 
 // Count posts per tag
-allPosts.forEach(post => {
-  post.data.tags?.forEach(tag => {
+allPosts.forEach((post) => {
+  post.data.tags?.forEach((tag) => {
     tagCounts[tag] = (tagCounts[tag] || 0) + 1;
   });
 });
@@ -22,12 +22,14 @@ const sortedTags = tags.sort((a, b) => a.localeCompare(b));
     <h1 class="posts-title">Tags</h1>
 
     <div class="tags-list">
-      {sortedTags.map(tag => (
-        <a href={`/tags/${tag}/`} class="tag-item">
-          <span class="tag-name">#{tag}</span>
-          <span class="tag-count">({tagCounts[tag]})</span>
-        </a>
-      ))}
+      {
+        sortedTags.map((tag) => (
+          <a href={`/tags/${tag}/`} class="tag-item">
+            <span class="tag-name">#{tag}</span>
+            <span class="tag-count">({tagCounts[tag]})</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </BaseLayout>

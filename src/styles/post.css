@@ -10,7 +10,8 @@
 }
 
 .post:not(:last-of-type) {
-  border-bottom: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--foreground) 10%, transparent);
 }
 
 .post-meta {
@@ -30,7 +31,7 @@
 }
 
 .post-title::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 2px;
   display: block;
@@ -55,11 +56,11 @@
 }
 
 .post-tags a::before {
-  content: "#";
+  content: '#';
 }
 
 .post-tags a:not(:last-child)::after {
-  content: ", ";
+  content: ', ';
 }
 
 .post-cover {
@@ -81,7 +82,7 @@
 }
 
 .post ul li:not(:empty)::before {
-  content: "-";
+  content: '-';
   position: absolute;
   left: -20px;
   color: var(--accent);
@@ -143,27 +144,26 @@ article time {
 }
 
 /* Spotify embed */
-iframe[src*="spotify"] {
+iframe[src*='spotify'] {
   border: 8px solid var(--accent) !important;
   border-radius: 0 !important;
   margin: 25px 0;
 }
 
 /* Google Maps */
-iframe[src*="google.com/maps"] {
+iframe[src*='google.com/maps'] {
   border: 8px solid var(--accent);
   margin: 25px 0;
 }
 
 /* SoundCloud */
-iframe[src*="soundcloud"] {
+iframe[src*='soundcloud'] {
   border: 8px solid var(--accent);
   margin: 25px 0;
 }
 
-
 /* CodePen embeds */
-iframe[src*="codepen"] {
+iframe[src*='codepen'] {
   border: 8px solid var(--accent);
   margin: 25px 0;
 }
@@ -190,7 +190,7 @@ iframe[src*="codepen"] {
 }
 
 .posts-title::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 2px;
   display: block;

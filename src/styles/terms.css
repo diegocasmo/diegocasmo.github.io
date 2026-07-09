@@ -70,12 +70,24 @@
 }
 
 /* Size variations for tag cloud */
-.terms-cloud .size-1 { font-size: calc(var(--font-size) * 0.8); }
-.terms-cloud .size-2 { font-size: calc(var(--font-size) * 0.9); }
-.terms-cloud .size-3 { font-size: calc(var(--font-size) * 1); }
-.terms-cloud .size-4 { font-size: calc(var(--font-size) * 1.1); }
-.terms-cloud .size-5 { font-size: calc(var(--font-size) * 1.2); }
-.terms-cloud .size-6 { font-size: calc(var(--font-size) * 1.3); }
+.terms-cloud .size-1 {
+  font-size: calc(var(--font-size) * 0.8);
+}
+.terms-cloud .size-2 {
+  font-size: calc(var(--font-size) * 0.9);
+}
+.terms-cloud .size-3 {
+  font-size: calc(var(--font-size) * 1);
+}
+.terms-cloud .size-4 {
+  font-size: calc(var(--font-size) * 1.1);
+}
+.terms-cloud .size-5 {
+  font-size: calc(var(--font-size) * 1.2);
+}
+.terms-cloud .size-6 {
+  font-size: calc(var(--font-size) * 1.3);
+}
 
 /* Single term page */
 .term-posts {

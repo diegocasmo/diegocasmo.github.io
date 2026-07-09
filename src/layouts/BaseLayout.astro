@@ -7,15 +7,29 @@ export interface Props {
   jsonLd?: object | object[];
 }
 
-const { title, description = 'Blog by Diego Castillo - software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products.', image, ogType, jsonLd } = Astro.props;
+const {
+  title,
+  description = 'Blog by Diego Castillo - software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products.',
+  image,
+  ogType,
+  jsonLd,
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image || '/og/default.png', Astro.site);
 
 // Single source for both the mobile and desktop nav menus.
 const navLinks = [
   { href: '/', label: 'Home', match: (p: string) => p === '/' },
-  { href: '/about/', label: 'About', match: (p: string) => p.startsWith('/about') },
-  { href: '/products/', label: 'Products', match: (p: string) => p.startsWith('/products') },
+  {
+    href: '/about/',
+    label: 'About',
+    match: (p: string) => p.startsWith('/about'),
+  },
+  {
+    href: '/products/',
+    label: 'Products',
+    match: (p: string) => p.startsWith('/products'),
+  },
 ];
 
 const socials = [
@@ -37,7 +51,7 @@ const socials = [
 ];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -52,7 +66,7 @@ const socials = [
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content={ogType || "website"} />
+    <meta property="og:type" content={ogType || 'website'} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="Diego Castillo" />
     <meta property="og:locale" content="en_US" />
@@ -68,9 +82,18 @@ const socials = [
     <meta name="twitter:image" content={ogImage} />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="/rss.xml"
+    />
     <slot name="head" />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {
+      jsonLd && (
+        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      )
+    }
   </head>
   <body>
     <a href="#main-content" class="sr-only skip-link">Skip to content</a>
@@ -79,40 +102,96 @@ const socials = [
         <div class="header__inner">
           <div class="header__logo">
             <a href="/">
-              <div class="logo">
-                Diego Castillo
-              </div>
+              <div class="logo">Diego Castillo</div>
             </a>
           </div>
           <nav class="menu menu--mobile" aria-label="Mobile navigation">
-            <button class="menu__trigger" aria-expanded="false" aria-controls="mobile-menu-dropdown">Menu &#9662;</button>
+            <button
+              class="menu__trigger"
+              aria-expanded="false"
+              aria-controls="mobile-menu-dropdown">Menu &#9662;</button
+            >
             <ul id="mobile-menu-dropdown" class="menu__dropdown">
-              {navLinks.map((link) => (
-                <li><a href={link.href} aria-current={link.match(Astro.url.pathname) ? "page" : undefined}>{link.label}</a></li>
-              ))}
-              {socials.map((social) => (
-                <li>
-                  <a href={social.href} target="_blank" rel="noopener" aria-label={social.label}>
-                    <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d={social.path}/></svg>
-                  </a>
-                </li>
-              ))}
+              {
+                navLinks.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      aria-current={
+                        link.match(Astro.url.pathname) ? 'page' : undefined
+                      }
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              }
+              {
+                socials.map((social) => (
+                  <li>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={social.label}
+                    >
+                      <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d={social.path} />
+                      </svg>
+                    </a>
+                  </li>
+                ))
+              }
             </ul>
           </nav>
         </div>
 
         <nav class="navigation-menu" aria-label="Main navigation">
           <ul class="navigation-menu__inner menu--desktop">
-            {navLinks.map((link) => (
-              <li><a href={link.href} aria-current={link.match(Astro.url.pathname) ? "page" : undefined}>{link.label}</a></li>
-            ))}
-            {socials.map((social) => (
-              <li>
-                <a href={social.href} target="_blank" rel="noopener" aria-label={social.label}>
-                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d={social.path}/></svg>
-                </a>
-              </li>
-            ))}
+            {
+              navLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    aria-current={
+                      link.match(Astro.url.pathname) ? 'page' : undefined
+                    }
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+            {
+              socials.map((social) => (
+                <li>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={social.label}
+                  >
+                    <svg
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d={social.path} />
+                    </svg>
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </nav>
       </header>
@@ -125,73 +204,82 @@ const socials = [
     <script>
       // Menu functionality
       (() => {
-        const container = document.querySelector(".container");
-        const menus = document.querySelectorAll(".menu");
+        const container = document.querySelector('.container');
+        const menus = document.querySelectorAll('.menu');
 
         const closeAllMenus = () => {
-          menus.forEach(menu => {
-            menu.classList.remove("open");
-            const trigger = menu.querySelector<HTMLElement>(".menu__trigger");
-            if (trigger) trigger.setAttribute("aria-expanded", "false");
+          menus.forEach((menu) => {
+            menu.classList.remove('open');
+            const trigger = menu.querySelector<HTMLElement>('.menu__trigger');
+            if (trigger) trigger.setAttribute('aria-expanded', 'false');
           });
         };
 
         // Close menus when clicking outside
-        document.body.addEventListener("click", closeAllMenus);
+        document.body.addEventListener('click', closeAllMenus);
 
         // Close menus on window resize
-        window.addEventListener("resize", closeAllMenus);
+        window.addEventListener('resize', closeAllMenus);
 
         // Close menus on Escape key
-        document.addEventListener("keydown", event => {
-          if (event.key === "Escape") {
-            const openMenu = document.querySelector(".menu.open");
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            const openMenu = document.querySelector('.menu.open');
             if (openMenu) {
               closeAllMenus();
-              const trigger = openMenu.querySelector<HTMLElement>(".menu__trigger");
+              const trigger =
+                openMenu.querySelector<HTMLElement>('.menu__trigger');
               if (trigger) trigger.focus();
             }
           }
         });
 
         // Menu trigger functionality
-        menus.forEach(menu => {
-          const trigger = menu.querySelector<HTMLElement>(".menu__trigger");
-          const dropdown = menu.querySelector<HTMLElement>(".menu__dropdown");
+        menus.forEach((menu) => {
+          const trigger = menu.querySelector<HTMLElement>('.menu__trigger');
+          const dropdown = menu.querySelector<HTMLElement>('.menu__dropdown');
 
           if (trigger && dropdown) {
-            trigger.addEventListener("click", event => {
+            trigger.addEventListener('click', (event) => {
               event.stopPropagation();
 
-              if (menu.classList.contains("open")) {
-                menu.classList.remove("open");
-                trigger.setAttribute("aria-expanded", "false");
+              if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
               } else {
                 // Close other menus
                 closeAllMenus();
-                menu.classList.add("open");
-                trigger.setAttribute("aria-expanded", "true");
+                menu.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
               }
 
               // Adjust dropdown position if it goes outside container
-              if (container && dropdown.getBoundingClientRect().right > container.getBoundingClientRect().right) {
-                dropdown.style.left = "auto";
-                dropdown.style.right = "0";
+              if (
+                container &&
+                dropdown.getBoundingClientRect().right >
+                  container.getBoundingClientRect().right
+              ) {
+                dropdown.style.left = 'auto';
+                dropdown.style.right = '0';
               }
             });
 
-            dropdown.addEventListener("click", e => e.stopPropagation());
+            dropdown.addEventListener('click', (e) => e.stopPropagation());
           }
         });
       })();
 
       // Toggle border on sticky header when scrolled
       (() => {
-        const header = document.querySelector(".header");
+        const header = document.querySelector('.header');
         if (!header) return;
-        window.addEventListener("scroll", () => {
-          header.classList.toggle("header--scrolled", window.scrollY > 0);
-        }, { passive: true });
+        window.addEventListener(
+          'scroll',
+          () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 0);
+          },
+          { passive: true }
+        );
       })();
     </script>
   </body>
@@ -199,16 +287,16 @@ const socials = [
 
 <style is:global>
   /* Import all CSS files in the correct order */
-  @import "../styles/terminal.css";
-  @import "../styles/fonts.css";
-  @import "../styles/main.css";
-  @import "../styles/header.css";
-  @import "../styles/menu.css";
-  @import "../styles/buttons.css";
-  @import "../styles/post.css";
-  @import "../styles/pagination.css";
-  @import "../styles/code.css";
-  @import "../styles/syntax.css";
-  @import "../styles/gist.css";
-  @import "../styles/terms.css";
+  @import '../styles/terminal.css';
+  @import '../styles/fonts.css';
+  @import '../styles/main.css';
+  @import '../styles/header.css';
+  @import '../styles/menu.css';
+  @import '../styles/buttons.css';
+  @import '../styles/post.css';
+  @import '../styles/pagination.css';
+  @import '../styles/code.css';
+  @import '../styles/syntax.css';
+  @import '../styles/gist.css';
+  @import '../styles/terms.css';
 </style>

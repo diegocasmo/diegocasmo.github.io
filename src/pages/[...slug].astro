@@ -30,19 +30,23 @@ const ogImage = post.data.image || `/og/${post.id}.png`;
       <hr />
     </div>
     <div class="pagination__buttons">
-      {prevPost && (
-        <>
-          <a href={`/${prevPost.id}/`} class="button inline prev">
-            &lt; [<span class="button__text">{prevPost.data.title}</span>]
+      {
+        prevPost && (
+          <>
+            <a href={`/${prevPost.id}/`} class="button inline prev">
+              &lt; [<span class="button__text">{prevPost.data.title}</span>]
+            </a>
+            {prevPost && nextPost && <span>::</span>}
+          </>
+        )
+      }
+      {
+        nextPost && (
+          <a href={`/${nextPost.id}/`} class="button inline next">
+            [<span class="button__text">{nextPost.data.title}</span>] &gt;
           </a>
-          {prevPost && nextPost && <span>::</span>}
-        </>
-      )}
-      {nextPost && (
-        <a href={`/${nextPost.id}/`} class="button inline next">
-          [<span class="button__text">{nextPost.data.title}</span>] &gt;
-        </a>
-      )}
+        )
+      }
     </div>
   </div>
 </PostLayout>

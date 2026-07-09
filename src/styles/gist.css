@@ -91,7 +91,8 @@
 .gist .pl-mc,     /* Markup changed */
 .gist .pl-sr,     /* String regex */
 .gist .pl-sra,    /* String regex anchor */
-.gist .pl-sre {   /* String regex escape */
+.gist .pl-sre {
+  /* String regex escape */
   color: var(--accent) !important;
 }
 

@@ -25,25 +25,29 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title="Software Engineering Blog" description="Blog by Diego Castillo - software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products." jsonLd={jsonLd}>
+<BaseLayout
+  title="Software Engineering Blog"
+  description="Blog by Diego Castillo - software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products."
+  jsonLd={jsonLd}
+>
   <h1 class="sr-only">Software Engineering Blog</h1>
   <section class="bio">
-    <p>
-      Building products. Playing jazz.
-    </p>
+    <p>Building products. Playing jazz.</p>
   </section>
 
   <div class="posts">
     {posts.map((post) => <PostCard post={post} />)}
   </div>
 
-  {totalPages > 1 && (
-    <div class="pagination">
-      <div class="pagination__buttons">
-        <a href="/page/2/" class="button inline next">
-          [<span class="button__text">Older posts</span>] &gt;
-        </a>
+  {
+    totalPages > 1 && (
+      <div class="pagination">
+        <div class="pagination__buttons">
+          <a href="/page/2/" class="button inline next">
+            [<span class="button__text">Older posts</span>] &gt;
+          </a>
+        </div>
       </div>
-    </div>
-  )}
+    )
+  }
 </BaseLayout>

@@ -30,7 +30,9 @@ const fonts: SatoriOptions['fonts'] = [
 ];
 
 /** Render a satori node tree to a 1200x630 PNG HTTP response. */
-export async function renderOgPng(node: Parameters<typeof satori>[0]): Promise<Response> {
+export async function renderOgPng(
+  node: Parameters<typeof satori>[0]
+): Promise<Response> {
   const svg = await satori(node, { width: OG_WIDTH, height: OG_HEIGHT, fonts });
   const png = new Resvg(svg, { fitTo: { mode: 'width', value: OG_WIDTH } })
     .render()
