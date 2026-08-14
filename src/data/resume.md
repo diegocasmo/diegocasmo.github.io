@@ -14,15 +14,16 @@ Architecting software focused on craftsmanship and simple, thoughtful products.
 
 [_Buffer.com_](https://buffer.com/), Remote (Oct 2025 - Present)
 
+- Proposed and led Buffer MCP, a server on top of Buffer’s public GraphQL API, defining its architecture, authentication model, tool schemas, error taxonomy, and evaluation pipelines; led OAuth via Dynamic Client Registration, enabling official Claude and ChatGPT marketplace readiness alongside clients like Cursor, Zapier, and Notion.
 - Proposed and led the design of an auto-generated CLI for Buffer’s public API; authored the technical spec, defined the codegen/runtime split, and implemented the initial version, with commands generated directly from the GraphQL schema.
-- Proposed and led Buffer MCP, authoring the technical spec and defining its architecture, authentication model, tool schemas, evaluation pipelines, and test coverage; led OAuth support using Dynamic Client Registration, enabling official Claude and ChatGPT marketplace readiness.
+- Contributed to the public API itself, extending the published GraphQL schema and its visibility rules, and shipped developer documentation generated for both people and agents to read.
 - Designed and implemented the Threads trending and recently used topics features, including MongoDB collections and aggregations, CRON workers, GraphQL resolvers, and associated UI.
 
 ### Senior II Frontend Engineer
 
 [_Remote.com_](https://remote.com/), Remote (Jun 2021 - Oct 2025)
 
-Owned full implementation cycles for product features spanning both frontend and backend. Scoped architecture, created engineering tickets, and made decisions across database design (Ecto schemas, relationships), business logic (Phoenix contexts, controllers, authorization), and UI workflows (React, Next.js). Collaborated directly with product and design to ship features autonomously in a remote, async-first team.
+Owned full implementation cycles end to end across backend and frontend. Made architecture decisions across database design (Ecto schemas, relationships), business logic and the API contracts consumed by the frontend (Phoenix contexts, controllers, authorization), and UI workflows (React, Next.js). Scoped architecture, created engineering tickets, and collaborated directly with product and design to ship features autonomously in a remote, async-first team.
 
 - Enabled employers to add prospects to our new ATS via AI-powered resume parsing and intelligent autofill, streamlining candidate intake.
 - Adapted an employee-focused time-tracking system to automate contractor invoicing based on tracked hours.
@@ -65,9 +66,9 @@ A productivity app that helps track and celebrate daily progress through small w
 - **AI / LLM Systems:** MCP, Evalite, AI SDK
 - **ORMs:** Ecto, Prisma, Active Record
 - **Frontend:** React, Next.js, React Query, Tailwind CSS, Radix UI
-
 - **Frameworks:** Express.js, Phoenix, Rails
 - **Databases:** PostgreSQL, MongoDB
+- **Testing & Validation:** Playwright, Vitest, Jest, MSW, Zod
 - **DevOps:** AWS, Docker, Kubernetes/Helm, Git, CI/CD
 
 ---
