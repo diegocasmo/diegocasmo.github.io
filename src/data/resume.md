@@ -15,7 +15,7 @@ Architecting software focused on craftsmanship and simple, thoughtful products.
 [_Buffer.com_](https://buffer.com/), Remote (Oct 2025 - Present)
 
 - Proposed and led Buffer MCP, a server on top of Buffer’s public GraphQL API, defining its architecture, authentication model, tool schemas, error taxonomy, and evaluation pipelines; led OAuth via Dynamic Client Registration, enabling official Claude and ChatGPT marketplace readiness alongside clients like Cursor, Zapier, and Notion.
-- Proposed and led the design of an auto-generated CLI for Buffer’s public API; authored the technical spec, defined the codegen/runtime split, and implemented the initial version, with commands generated directly from the GraphQL schema.
+- Proposed and led the design of an auto-generated CLI for Buffer’s public API; authored the technical spec, defined the codegen/runtime split, and implemented the initial version, with commands generated directly from the GraphQL schema. Now published as @bufferapp/cli.
 - Contributed to the public API itself, extending the published GraphQL schema and its visibility rules, and shipped developer documentation generated for both people and agents to read.
 - Designed and implemented the Threads trending and recently used topics features, including MongoDB collections and aggregations, CRON workers, GraphQL resolvers, and associated UI.
 
