@@ -52,11 +52,7 @@ Panama & Remote (Mar 2014 - Jul 2017)
 
 ### [ToneBuilder](https://www.tonebuilder.ai/)
 
-An AI-powered, chat-based tone architect for Line 6 Helix. Solo-built and live: Next.js, React, TypeScript, PostgreSQL, and the AI SDK, with a multi-step AI generation pipeline, streaming progress UI, Resend-powered OTP auth, and subscription billing via Lemon Squeezy. Tested with Vitest against a real Postgres database, plus Evalite eval suites in CI.
-
-### [Momentum](https://www.findmomentum.xyz/)
-
-A productivity app that helps track and celebrate daily progress through small wins. Same stack, also live. More at [_diegocasmo.github.io/products_](https://diegocasmo.github.io/products/).
+An AI-powered, chat-based tone architect for Line 6 Helix. Next.js, React, TypeScript, PostgreSQL, and the AI SDK, with a multi-step AI generation pipeline, streaming progress UI, and Resend-powered OTP auth. Tested with Vitest, plus Evalite eval suites. More at [_diegocasmo.github.io/products_](https://diegocasmo.github.io/products/).
 
 ---
 
