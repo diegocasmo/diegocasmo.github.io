@@ -84,13 +84,13 @@ An AI-powered, chat-based tone architect for Line 6 Helix. Next.js, React, TypeS
 
 Aug 2017 - Jun 2019
 
-Thesis: [_VASCO: Developing AI-Crawlers for ML-Blink_](https://github.com/diegocasmo/diegocasmo.github.io/blob/main/public/vasco-developing-ai-crawlers-for-ml-blink.pdf)
+Thesis: [_VASCO: Developing AI-Crawlers for ML-Blink_](https://diegocasmo.github.io/vasco-developing-ai-crawlers-for-ml-blink.pdf)
 
 ### B.Sc. Computer Science, Harding University, USA
 
 Aug 2010 - May 2014
 
-Thesis: [_CakePHP: The Rapid Development PHP Framework_](https://github.com/diegocasmo/diegocasmo.github.io/blob/main/public/cake-php-seminar.pdf)
+Thesis: [_CakePHP: The Rapid Development PHP Framework_](https://diegocasmo.github.io/cake-php-seminar.pdf)
 
 ---
 
