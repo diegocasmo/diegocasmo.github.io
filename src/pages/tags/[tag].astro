@@ -30,17 +30,15 @@ const { posts } = Astro.props;
 >
   <div class="posts">
     <h1 class="posts-title">
-      <span style="color: var(--foreground)"
-        >Posts for: <span style="color: var(--accent)">#{tag}</span></span
-      >
+      <span style="color: var(--foreground)">
+        Posts for: <span style="color: var(--accent)">#{tag}</span>
+      </span>
     </h1>
-    {
-      posts.length === 0 ? (
-        <p>No posts found with this tag.</p>
-      ) : (
-        posts.map((post) => <PostCard post={post} />)
-      )
-    }
+    {posts.length === 0 ? (
+      <p>No posts found with this tag.</p>
+    ) : (
+      posts.map((post) => <PostCard post={post} />)
+    )}
   </div>
 </BaseLayout>
 

@@ -89,14 +89,17 @@ const socials = [
       href="/rss.xml"
     />
     <slot name="head" />
-    {
-      jsonLd && (
-        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-      )
-    }
+    {jsonLd && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(jsonLd)}
+      ></script>
+    )}
   </head>
   <body>
-    <a href="#main-content" class="sr-only skip-link">Skip to content</a>
+    <a href="#main-content" class="sr-only skip-link">
+      Skip to content
+    </a>
     <div class="container center">
       <header class="header">
         <div class="header__inner">
@@ -109,54 +112,12 @@ const socials = [
             <button
               class="menu__trigger"
               aria-expanded="false"
-              aria-controls="mobile-menu-dropdown">Menu &#9662;</button
+              aria-controls="mobile-menu-dropdown"
             >
+              Menu &#9662;
+            </button>
             <ul id="mobile-menu-dropdown" class="menu__dropdown">
-              {
-                navLinks.map((link) => (
-                  <li>
-                    <a
-                      href={link.href}
-                      aria-current={
-                        link.match(Astro.url.pathname) ? 'page' : undefined
-                      }
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))
-              }
-              {
-                socials.map((social) => (
-                  <li>
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener"
-                      aria-label={social.label}
-                    >
-                      <svg
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <path d={social.path} />
-                      </svg>
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
-        </div>
-
-        <nav class="navigation-menu" aria-label="Main navigation">
-          <ul class="navigation-menu__inner menu--desktop">
-            {
-              navLinks.map((link) => (
+              {navLinks.map((link) => (
                 <li>
                   <a
                     href={link.href}
@@ -167,10 +128,8 @@ const socials = [
                     {link.label}
                   </a>
                 </li>
-              ))
-            }
-            {
-              socials.map((social) => (
+              ))}
+              {socials.map((social) => (
                 <li>
                   <a
                     href={social.href}
@@ -190,8 +149,46 @@ const socials = [
                     </svg>
                   </a>
                 </li>
-              ))
-            }
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <nav class="navigation-menu" aria-label="Main navigation">
+          <ul class="navigation-menu__inner menu--desktop">
+            {navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  aria-current={
+                    link.match(Astro.url.pathname) ? 'page' : undefined
+                  }
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            {socials.map((social) => (
+              <li>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={social.label}
+                >
+                  <svg
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d={social.path} />
+                  </svg>
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>

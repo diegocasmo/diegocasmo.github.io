@@ -62,27 +62,25 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <Fragment slot="head">
-    {
-      !externalLink && (
-        <link
-          rel="alternate"
-          type="text/markdown"
-          title={`${title} (Markdown)`}
-          href={markdownURL}
-        />
-      )
-    }
+    {!externalLink && (
+      <link
+        rel="alternate"
+        type="text/markdown"
+        title={`${title} (Markdown)`}
+        href={markdownURL}
+      />
+    )}
     <meta property="article:published_time" content={pubDate.toISOString()} />
-    {
-      updatedDate && (
-        <meta
-          property="article:modified_time"
-          content={updatedDate.toISOString()}
-        />
-      )
-    }
+    {updatedDate && (
+      <meta
+        property="article:modified_time"
+        content={updatedDate.toISOString()}
+      />
+    )}
     <meta property="article:author" content="Diego Castillo" />
-    {tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    {tags.map((tag) => (
+      <meta property="article:tag" content={tag} />
+    ))}
   </Fragment>
 
   <article>
@@ -92,31 +90,25 @@ const jsonLd = {
       <span>
         <FormattedDate date={pubDate} />
       </span>
-      {
-        updatedDate && (
-          <span class="post-updated">
-            Updated: <FormattedDate date={updatedDate} />
-          </span>
-        )
-      }
-      {
-        tags.length > 0 && (
-          <span class="post-tags">
-            {tags.map((tag) => (
-              <a href={`/tags/${tag}/`}>{tag}</a>
-            ))}
-          </span>
-        )
-      }
+      {updatedDate && (
+        <span class="post-updated">
+          Updated: <FormattedDate date={updatedDate} />
+        </span>
+      )}
+      {tags.length > 0 && (
+        <span class="post-tags">
+          {tags.map((tag) => (
+            <a href={`/tags/${tag}/`}>{tag}</a>
+          ))}
+        </span>
+      )}
     </div>
 
-    {
-      image && (
-        <figure class="post-cover">
-          <img src={image} alt={title} />
-        </figure>
-      )
-    }
+    {image && (
+      <figure class="post-cover">
+        <img src={image} alt={title} />
+      </figure>
+    )}
 
     <div class="post-content">
       <slot />
@@ -165,11 +157,11 @@ const jsonLd = {
       });
     });
   </script>
-
   <!-- Twitter embed script -->
   <script
     is:inline
     async
     src="https://platform.twitter.com/widgets.js"
-    charset="utf-8"></script>
+    charset="utf-8"
+  ></script>
 </BaseLayout>
