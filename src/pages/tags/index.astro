@@ -22,14 +22,12 @@ const sortedTags = tags.sort((a, b) => a.localeCompare(b));
     <h1 class="posts-title">Tags</h1>
 
     <div class="tags-list">
-      {
-        sortedTags.map((tag) => (
-          <a href={`/tags/${tag}/`} class="tag-item">
-            <span class="tag-name">#{tag}</span>
-            <span class="tag-count">({tagCounts[tag]})</span>
-          </a>
-        ))
-      }
+      {sortedTags.map((tag) => (
+        <a href={`/tags/${tag}/`} class="tag-item">
+          <span class="tag-name">#{tag}</span>
+          <span class="tag-count">({tagCounts[tag]})</span>
+        </a>
+      ))}
     </div>
   </div>
 </BaseLayout>

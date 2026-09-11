@@ -128,654 +128,629 @@ const M0_Y = 355;
 const values = [5, 2, 8, 1, 9, 3, 7, 4];
 ---
 
-{
-  step === 1 && (
-    <svg
-      viewBox={`0 0 ${VW} 280`}
-      xmlns="http://www.w3.org/2000/svg"
-      class="ms-svg"
+{step === 1 && (
+  <svg
+    viewBox={`0 0 ${VW} 280`}
+    xmlns="http://www.w3.org/2000/svg"
+    class="ms-svg"
+  >
+    {/* Level 0: Full array [5,2,8,1,9,3,7,4] */}
+    <g class="ms-level ms-level--0" transform={`translate(${L0_X}, ${LY[0]})`}>
+      <ArrayGroup values={values} />
+    </g>
+
+    {/* Connectors L0 → L1 */}
+    <g class="ms-connectors ms-connectors--0">
+      <line
+        x1={gcx(L0_X, 8)}
+        y1={connY(0)[0]}
+        x2={gcx(L1_X0, 4)}
+        y2={connY(0)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L0_X, 8)}
+        y1={connY(0)[0]}
+        x2={gcx(L1_X1, 4)}
+        y2={connY(0)[1]}
+        class="ms-line"
+      />
+    </g>
+
+    {/* Level 1: [5,2,8,1] and [9,3,7,4] */}
+    <g class="ms-level ms-level--1">
+      <g transform={`translate(${L1_X0}, ${LY[1]})`}>
+        <ArrayGroup values={[5, 2, 8, 1]} active />
+      </g>
+      <g transform={`translate(${L1_X1}, ${LY[1]})`}>
+        <ArrayGroup values={[9, 3, 7, 4]} active />
+      </g>
+    </g>
+
+    {/* Connectors L1 → L2 */}
+    <g class="ms-connectors ms-connectors--1">
+      <line
+        x1={gcx(L1_X0, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X0, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L1_X0, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X1, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L1_X1, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X2, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L1_X1, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X3, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+    </g>
+
+    {/* Level 2: [5,2] [8,1] [9,3] [7,4] */}
+    <g class="ms-level ms-level--2">
+      <g transform={`translate(${L2_X0}, ${LY[2]})`}>
+        <ArrayGroup values={[5, 2]} active />
+      </g>
+      <g transform={`translate(${L2_X1}, ${LY[2]})`}>
+        <ArrayGroup values={[8, 1]} active />
+      </g>
+      <g transform={`translate(${L2_X2}, ${LY[2]})`}>
+        <ArrayGroup values={[9, 3]} active />
+      </g>
+      <g transform={`translate(${L2_X3}, ${LY[2]})`}>
+        <ArrayGroup values={[7, 4]} active />
+      </g>
+    </g>
+
+    {/* Connectors L2 → L3 */}
+    <g class="ms-connectors ms-connectors--2">
+      <line
+        x1={gcx(L2_X0, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[0], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X0, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[1], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X1, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[2], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X1, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[3], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X2, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[4], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X2, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[5], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X3, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[6], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X3, 2)}
+        y1={connY(2)[0]}
+        x2={gcx(l3xs[7], 1)}
+        y2={connY(2)[1]}
+        class="ms-line"
+      />
+    </g>
+
+    {/* Level 3: Individual elements */}
+    <g class="ms-level ms-level--3">
+      {values.map((v, i) => (
+        <g transform={`translate(${l3xs[i]}, ${LY[3]})`}>
+          <ArrayGroup values={[v]} active />
+        </g>
+      ))}
+    </g>
+  </svg>
+)}
+
+{step === 2 && (
+  <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" class="ms-svg">
+    {/* Left array: [2, 5] with bounding box */}
+    <g class="ms-step2-left" transform={`translate(${S2_LEFT_X}, ${S2_SRC_Y})`}>
+      <ArrayGroup values={[2, 5]} label="Left" showCells={false} />
+      {[2, 5].map((v, i) => (
+        <g
+          transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
+          class={`ms-s2-left-${i}`}
+        >
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text
+            x={W / 2}
+            y={H / 2 + 1}
+            text-anchor="middle"
+            dominant-baseline="central"
+            class="ms-text"
+          >
+            {v}
+          </text>
+        </g>
+      ))}
+    </g>
+
+    {/* Right array: [1, 8] with bounding box */}
+    <g
+      class="ms-step2-right"
+      transform={`translate(${S2_RIGHT_X}, ${S2_SRC_Y})`}
     >
-      {/* Level 0: Full array [5,2,8,1,9,3,7,4] */}
-      <g
-        class="ms-level ms-level--0"
-        transform={`translate(${L0_X}, ${LY[0]})`}
-      >
-        <ArrayGroup values={values} />
-      </g>
-
-      {/* Connectors L0 → L1 */}
-      <g class="ms-connectors ms-connectors--0">
-        <line
-          x1={gcx(L0_X, 8)}
-          y1={connY(0)[0]}
-          x2={gcx(L1_X0, 4)}
-          y2={connY(0)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L0_X, 8)}
-          y1={connY(0)[0]}
-          x2={gcx(L1_X1, 4)}
-          y2={connY(0)[1]}
-          class="ms-line"
-        />
-      </g>
-
-      {/* Level 1: [5,2,8,1] and [9,3,7,4] */}
-      <g class="ms-level ms-level--1">
-        <g transform={`translate(${L1_X0}, ${LY[1]})`}>
-          <ArrayGroup values={[5, 2, 8, 1]} active />
+      <ArrayGroup values={[1, 8]} label="Right" showCells={false} />
+      {[1, 8].map((v, i) => (
+        <g
+          transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
+          class={`ms-s2-right-${i}`}
+        >
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text
+            x={W / 2}
+            y={H / 2 + 1}
+            text-anchor="middle"
+            dominant-baseline="central"
+            class="ms-text"
+          >
+            {v}
+          </text>
         </g>
-        <g transform={`translate(${L1_X1}, ${LY[1]})`}>
-          <ArrayGroup values={[9, 3, 7, 4]} active />
-        </g>
-      </g>
+      ))}
+    </g>
 
-      {/* Connectors L1 → L2 */}
-      <g class="ms-connectors ms-connectors--1">
-        <line
-          x1={gcx(L1_X0, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X0, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L1_X0, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X1, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L1_X1, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X2, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L1_X1, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X3, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-      </g>
+    {/* Comparison pointer indicators */}
+    <g class="ms-s2-pointers">
+      <polygon
+        points={`${S2_LEFT_X + PAD + W / 2},${S2_SRC_Y + 16 + BH + 2} ${S2_LEFT_X + PAD + W / 2 - 8},${S2_SRC_Y + 16 + BH + 14} ${S2_LEFT_X + PAD + W / 2 + 8},${S2_SRC_Y + 16 + BH + 14}`}
+        class="ms-pointer ms-s2-ptr-left"
+      />
+      <polygon
+        points={`${S2_RIGHT_X + PAD + W / 2},${S2_SRC_Y + 16 + BH + 2} ${S2_RIGHT_X + PAD + W / 2 - 8},${S2_SRC_Y + 16 + BH + 14} ${S2_RIGHT_X + PAD + W / 2 + 8},${S2_SRC_Y + 16 + BH + 14}`}
+        class="ms-pointer ms-s2-ptr-right"
+      />
+    </g>
 
-      {/* Level 2: [5,2] [8,1] [9,3] [7,4] */}
-      <g class="ms-level ms-level--2">
-        <g transform={`translate(${L2_X0}, ${LY[2]})`}>
-          <ArrayGroup values={[5, 2]} active />
-        </g>
-        <g transform={`translate(${L2_X1}, ${LY[2]})`}>
-          <ArrayGroup values={[8, 1]} active />
-        </g>
-        <g transform={`translate(${L2_X2}, ${LY[2]})`}>
-          <ArrayGroup values={[9, 3]} active />
-        </g>
-        <g transform={`translate(${L2_X3}, ${LY[2]})`}>
-          <ArrayGroup values={[7, 4]} active />
-        </g>
-      </g>
-
-      {/* Connectors L2 → L3 */}
-      <g class="ms-connectors ms-connectors--2">
-        <line
-          x1={gcx(L2_X0, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[0], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X0, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[1], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X1, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[2], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X1, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[3], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X2, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[4], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X2, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[5], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X3, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[6], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X3, 2)}
-          y1={connY(2)[0]}
-          x2={gcx(l3xs[7], 1)}
-          y2={connY(2)[1]}
-          class="ms-line"
-        />
-      </g>
-
-      {/* Level 3: Individual elements */}
-      <g class="ms-level ms-level--3">
-        {values.map((v, i) => (
-          <g transform={`translate(${l3xs[i]}, ${LY[3]})`}>
-            <ArrayGroup values={[v]} active />
-          </g>
-        ))}
-      </g>
-    </svg>
-  )
-}
-
-{
-  step === 2 && (
-    <svg
-      viewBox="0 0 640 260"
-      xmlns="http://www.w3.org/2000/svg"
-      class="ms-svg"
+    {/* Result row: [1, 2, 5, 8] */}
+    <g
+      class="ms-step2-result"
+      transform={`translate(${S2_RESULT_X}, ${S2_RES_Y})`}
     >
-      {/* Left array: [2, 5] with bounding box */}
-      <g
-        class="ms-step2-left"
-        transform={`translate(${S2_LEFT_X}, ${S2_SRC_Y})`}
-      >
-        <ArrayGroup values={[2, 5]} label="Left" showCells={false} />
-        {[2, 5].map((v, i) => (
-          <g
-            transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
-            class={`ms-s2-left-${i}`}
+      <ArrayGroup
+        values={[1, 2, 5, 8]}
+        label="Merged"
+        showCells={false}
+        active
+      />
+      {[1, 2, 5, 8].map((v, i) => (
+        <g
+          transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
+          class={`ms-s2-result-${i}`}
+        >
+          <rect width={W} height={H} rx="0" class="ms-cell ms-cell--active" />
+          <text
+            x={W / 2}
+            y={H / 2 + 1}
+            text-anchor="middle"
+            dominant-baseline="central"
+            class="ms-text"
           >
-            <rect width={W} height={H} rx="0" class="ms-cell" />
-            <text
-              x={W / 2}
-              y={H / 2 + 1}
-              text-anchor="middle"
-              dominant-baseline="central"
-              class="ms-text"
-            >
-              {v}
-            </text>
-          </g>
-        ))}
-      </g>
+            {v}
+          </text>
+        </g>
+      ))}
+    </g>
 
-      {/* Right array: [1, 8] with bounding box */}
-      <g
-        class="ms-step2-right"
-        transform={`translate(${S2_RIGHT_X}, ${S2_SRC_Y})`}
+    {/* Annotations */}
+    <g class="ms-s2-annotations">
+      <text
+        x="320"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s2-ann-0"
       >
-        <ArrayGroup values={[1, 8]} label="Right" showCells={false} />
-        {[1, 8].map((v, i) => (
-          <g
-            transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
-            class={`ms-s2-right-${i}`}
-          >
-            <rect width={W} height={H} rx="0" class="ms-cell" />
-            <text
-              x={W / 2}
-              y={H / 2 + 1}
-              text-anchor="middle"
-              dominant-baseline="central"
-              class="ms-text"
-            >
-              {v}
-            </text>
-          </g>
-        ))}
-      </g>
-
-      {/* Comparison pointer indicators */}
-      <g class="ms-s2-pointers">
-        <polygon
-          points={`${S2_LEFT_X + PAD + W / 2},${S2_SRC_Y + 16 + BH + 2} ${S2_LEFT_X + PAD + W / 2 - 8},${S2_SRC_Y + 16 + BH + 14} ${S2_LEFT_X + PAD + W / 2 + 8},${S2_SRC_Y + 16 + BH + 14}`}
-          class="ms-pointer ms-s2-ptr-left"
-        />
-        <polygon
-          points={`${S2_RIGHT_X + PAD + W / 2},${S2_SRC_Y + 16 + BH + 2} ${S2_RIGHT_X + PAD + W / 2 - 8},${S2_SRC_Y + 16 + BH + 14} ${S2_RIGHT_X + PAD + W / 2 + 8},${S2_SRC_Y + 16 + BH + 14}`}
-          class="ms-pointer ms-s2-ptr-right"
-        />
-      </g>
-
-      {/* Result row: [1, 2, 5, 8] */}
-      <g
-        class="ms-step2-result"
-        transform={`translate(${S2_RESULT_X}, ${S2_RES_Y})`}
+        Compare 2 vs 1 → take 1
+      </text>
+      <text
+        x="320"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s2-ann-1"
       >
-        <ArrayGroup
-          values={[1, 2, 5, 8]}
-          label="Merged"
-          showCells={false}
-          active
-        />
-        {[1, 2, 5, 8].map((v, i) => (
-          <g
-            transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
-            class={`ms-s2-result-${i}`}
+        Compare 2 vs 8 → take 2
+      </text>
+      <text
+        x="320"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s2-ann-2"
+      >
+        Compare 5 vs 8 → take 5
+      </text>
+      <text
+        x="320"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s2-ann-3"
+      >
+        Only 8 remains → take 8
+      </text>
+    </g>
+  </svg>
+)}
+
+{step === 3 && (
+  <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" class="ms-svg">
+    {/* Left sorted half: [1, 2, 5, 8] */}
+    <g class="ms-step3-left" transform={`translate(${S3_LEFT_X}, ${S3_SRC_Y})`}>
+      <ArrayGroup
+        values={[1, 2, 5, 8]}
+        label="Left (sorted)"
+        showCells={false}
+      />
+      {[1, 2, 5, 8].map((v, i) => (
+        <g
+          transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
+          class={`ms-s3-left-${i}`}
+        >
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text
+            x={W / 2}
+            y={H / 2 + 1}
+            text-anchor="middle"
+            dominant-baseline="central"
+            class="ms-text"
           >
-            <rect width={W} height={H} rx="0" class="ms-cell ms-cell--active" />
-            <text
-              x={W / 2}
-              y={H / 2 + 1}
-              text-anchor="middle"
-              dominant-baseline="central"
-              class="ms-text"
-            >
-              {v}
-            </text>
-          </g>
-        ))}
-      </g>
+            {v}
+          </text>
+        </g>
+      ))}
+    </g>
 
-      {/* Annotations */}
-      <g class="ms-s2-annotations">
-        <text
-          x="320"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s2-ann-0"
-        >
-          Compare 2 vs 1 → take 1
-        </text>
-        <text
-          x="320"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s2-ann-1"
-        >
-          Compare 2 vs 8 → take 2
-        </text>
-        <text
-          x="320"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s2-ann-2"
-        >
-          Compare 5 vs 8 → take 5
-        </text>
-        <text
-          x="320"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s2-ann-3"
-        >
-          Only 8 remains → take 8
-        </text>
-      </g>
-    </svg>
-  )
-}
-
-{
-  step === 3 && (
-    <svg
-      viewBox="0 0 700 280"
-      xmlns="http://www.w3.org/2000/svg"
-      class="ms-svg"
+    {/* Right sorted half: [3, 4, 7, 9] */}
+    <g
+      class="ms-step3-right"
+      transform={`translate(${S3_RIGHT_X}, ${S3_SRC_Y})`}
     >
-      {/* Left sorted half: [1, 2, 5, 8] */}
-      <g
-        class="ms-step3-left"
-        transform={`translate(${S3_LEFT_X}, ${S3_SRC_Y})`}
-      >
-        <ArrayGroup
-          values={[1, 2, 5, 8]}
-          label="Left (sorted)"
-          showCells={false}
-        />
-        {[1, 2, 5, 8].map((v, i) => (
-          <g
-            transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
-            class={`ms-s3-left-${i}`}
+      <ArrayGroup
+        values={[3, 4, 7, 9]}
+        label="Right (sorted)"
+        showCells={false}
+      />
+      {[3, 4, 7, 9].map((v, i) => (
+        <g
+          transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
+          class={`ms-s3-right-${i}`}
+        >
+          <rect width={W} height={H} rx="0" class="ms-cell" />
+          <text
+            x={W / 2}
+            y={H / 2 + 1}
+            text-anchor="middle"
+            dominant-baseline="central"
+            class="ms-text"
           >
-            <rect width={W} height={H} rx="0" class="ms-cell" />
-            <text
-              x={W / 2}
-              y={H / 2 + 1}
-              text-anchor="middle"
-              dominant-baseline="central"
-              class="ms-text"
-            >
-              {v}
-            </text>
-          </g>
-        ))}
-      </g>
+            {v}
+          </text>
+        </g>
+      ))}
+    </g>
 
-      {/* Right sorted half: [3, 4, 7, 9] */}
-      <g
-        class="ms-step3-right"
-        transform={`translate(${S3_RIGHT_X}, ${S3_SRC_Y})`}
-      >
-        <ArrayGroup
-          values={[3, 4, 7, 9]}
-          label="Right (sorted)"
-          showCells={false}
-        />
-        {[3, 4, 7, 9].map((v, i) => (
-          <g
-            transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
-            class={`ms-s3-right-${i}`}
-          >
-            <rect width={W} height={H} rx="0" class="ms-cell" />
-            <text
-              x={W / 2}
-              y={H / 2 + 1}
-              text-anchor="middle"
-              dominant-baseline="central"
-              class="ms-text"
-            >
-              {v}
-            </text>
-          </g>
-        ))}
-      </g>
-
-      {/* Result: [1, 2, 3, 4, 5, 7, 8, 9] */}
-      <g
-        class="ms-step3-result"
-        transform={`translate(${S3_RESULT_X}, ${S3_RES_Y})`}
-      >
-        <ArrayGroup
-          values={[1, 2, 3, 4, 5, 7, 8, 9]}
-          label="Merged result"
-          showCells={false}
-          active
-        />
-        {[1, 2, 3, 4, 5, 7, 8, 9].map((v, i) => (
-          <g
-            transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
-            class={`ms-s3-result-${i}`}
-          >
-            <rect width={W} height={H} rx="0" class="ms-cell ms-cell--active" />
-            <text
-              x={W / 2}
-              y={H / 2 + 1}
-              text-anchor="middle"
-              dominant-baseline="central"
-              class="ms-text"
-            >
-              {v}
-            </text>
-          </g>
-        ))}
-      </g>
-
-      {/* Annotations */}
-      <g class="ms-s3-annotations">
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-0"
-        >
-          1 vs 3 → take 1
-        </text>
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-1"
-        >
-          2 vs 3 → take 2
-        </text>
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-2"
-        >
-          5 vs 3 → take 3
-        </text>
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-3"
-        >
-          5 vs 4 → take 4
-        </text>
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-4"
-        >
-          5 vs 7 → take 5
-        </text>
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-5"
-        >
-          8 vs 7 → take 7
-        </text>
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-6"
-        >
-          8 vs 9 → take 8
-        </text>
-        <text
-          x="350"
-          y="220"
-          text-anchor="middle"
-          class="ms-annotation ms-s3-ann-7"
-        >
-          Only 9 remains → take 9
-        </text>
-      </g>
-    </svg>
-  )
-}
-
-{
-  step === 4 && (
-    <svg
-      viewBox={`0 0 ${VW} 410`}
-      xmlns="http://www.w3.org/2000/svg"
-      class="ms-svg"
+    {/* Result: [1, 2, 3, 4, 5, 7, 8, 9] */}
+    <g
+      class="ms-step3-result"
+      transform={`translate(${S3_RESULT_X}, ${S3_RES_Y})`}
     >
-      {/* Phase A: Divide */}
-      <g
-        class="ms-level ms-level--0 ms-s4-divide"
-        transform={`translate(${L0_X}, ${LY[0]})`}
+      <ArrayGroup
+        values={[1, 2, 3, 4, 5, 7, 8, 9]}
+        label="Merged result"
+        showCells={false}
+        active
+      />
+      {[1, 2, 3, 4, 5, 7, 8, 9].map((v, i) => (
+        <g
+          transform={`translate(${PAD + i * (W + GAP)}, ${16 + PAD})`}
+          class={`ms-s3-result-${i}`}
+        >
+          <rect width={W} height={H} rx="0" class="ms-cell ms-cell--active" />
+          <text
+            x={W / 2}
+            y={H / 2 + 1}
+            text-anchor="middle"
+            dominant-baseline="central"
+            class="ms-text"
+          >
+            {v}
+          </text>
+        </g>
+      ))}
+    </g>
+
+    {/* Annotations */}
+    <g class="ms-s3-annotations">
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-0"
       >
-        <ArrayGroup values={values} />
-      </g>
-
-      <g class="ms-connectors ms-connectors--0 ms-s4-divide">
-        <line
-          x1={gcx(L0_X, 8)}
-          y1={connY(0)[0]}
-          x2={gcx(L1_X0, 4)}
-          y2={connY(0)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L0_X, 8)}
-          y1={connY(0)[0]}
-          x2={gcx(L1_X1, 4)}
-          y2={connY(0)[1]}
-          class="ms-line"
-        />
-      </g>
-
-      <g class="ms-level ms-level--1 ms-s4-divide">
-        <g transform={`translate(${L1_X0}, ${LY[1]})`}>
-          <ArrayGroup values={[5, 2, 8, 1]} active />
-        </g>
-        <g transform={`translate(${L1_X1}, ${LY[1]})`}>
-          <ArrayGroup values={[9, 3, 7, 4]} active />
-        </g>
-      </g>
-
-      <g class="ms-connectors ms-connectors--1 ms-s4-divide">
-        <line
-          x1={gcx(L1_X0, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X0, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L1_X0, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X1, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L1_X1, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X2, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L1_X1, 4)}
-          y1={connY(1)[0]}
-          x2={gcx(L2_X3, 2)}
-          y2={connY(1)[1]}
-          class="ms-line"
-        />
-      </g>
-
-      <g class="ms-level ms-level--2 ms-s4-divide">
-        <g transform={`translate(${L2_X0}, ${LY[2]})`}>
-          <ArrayGroup values={[5, 2]} active />
-        </g>
-        <g transform={`translate(${L2_X1}, ${LY[2]})`}>
-          <ArrayGroup values={[8, 1]} active />
-        </g>
-        <g transform={`translate(${L2_X2}, ${LY[2]})`}>
-          <ArrayGroup values={[9, 3]} active />
-        </g>
-        <g transform={`translate(${L2_X3}, ${LY[2]})`}>
-          <ArrayGroup values={[7, 4]} active />
-        </g>
-      </g>
-
-      {/* Phase B: Conquer — bottom-up merge */}
-      <g class="ms-connectors ms-connectors--2 ms-s4-conquer">
-        <line
-          x1={gcx(L2_X0, 2)}
-          y1={LY[2] + BH}
-          x2={gcx(L2_X0, 2)}
-          y2={M2_Y}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X1, 2)}
-          y1={LY[2] + BH}
-          x2={gcx(L2_X1, 2)}
-          y2={M2_Y}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X2, 2)}
-          y1={LY[2] + BH}
-          x2={gcx(L2_X2, 2)}
-          y2={M2_Y}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L2_X3, 2)}
-          y1={LY[2] + BH}
-          x2={gcx(L2_X3, 2)}
-          y2={M2_Y}
-          class="ms-line"
-        />
-      </g>
-
-      <g class="ms-level ms-s4-merge-2 ms-s4-conquer">
-        <g transform={`translate(${L2_X0}, ${M2_Y})`}>
-          <ArrayGroup values={[2, 5]} active />
-        </g>
-        <g transform={`translate(${L2_X1}, ${M2_Y})`}>
-          <ArrayGroup values={[1, 8]} active />
-        </g>
-        <g transform={`translate(${L2_X2}, ${M2_Y})`}>
-          <ArrayGroup values={[3, 9]} active />
-        </g>
-        <g transform={`translate(${L2_X3}, ${M2_Y})`}>
-          <ArrayGroup values={[4, 7]} active />
-        </g>
-      </g>
-
-      <g class="ms-connectors ms-connectors--3 ms-s4-conquer ms-s4-conquer--late">
-        <line
-          x1={gcx(L1_X0, 4)}
-          y1={M2_Y + BH}
-          x2={gcx(L1_X0, 4)}
-          y2={M1_Y}
-          class="ms-line"
-        />
-        <line
-          x1={gcx(L1_X1, 4)}
-          y1={M2_Y + BH}
-          x2={gcx(L1_X1, 4)}
-          y2={M1_Y}
-          class="ms-line"
-        />
-      </g>
-
-      <g class="ms-level ms-s4-merge-1 ms-s4-conquer ms-s4-conquer--late">
-        <g transform={`translate(${L1_X0}, ${M1_Y})`}>
-          <ArrayGroup values={[1, 2, 5, 8]} active />
-        </g>
-        <g transform={`translate(${L1_X1}, ${M1_Y})`}>
-          <ArrayGroup values={[3, 4, 7, 9]} active />
-        </g>
-      </g>
-
-      <g class="ms-connectors ms-connectors--4 ms-s4-conquer ms-s4-conquer--final">
-        <line
-          x1={gcx(L0_X, 8)}
-          y1={M1_Y + BH}
-          x2={gcx(L0_X, 8)}
-          y2={M0_Y}
-          class="ms-line"
-        />
-      </g>
-
-      <g
-        class="ms-level ms-s4-merge-0 ms-s4-conquer ms-s4-conquer--final"
-        data-anim-final
+        1 vs 3 → take 1
+      </text>
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-1"
       >
-        <g transform={`translate(${L0_X}, ${M0_Y})`}>
-          <ArrayGroup values={[1, 2, 3, 4, 5, 7, 8, 9]} active />
-        </g>
+        2 vs 3 → take 2
+      </text>
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-2"
+      >
+        5 vs 3 → take 3
+      </text>
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-3"
+      >
+        5 vs 4 → take 4
+      </text>
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-4"
+      >
+        5 vs 7 → take 5
+      </text>
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-5"
+      >
+        8 vs 7 → take 7
+      </text>
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-6"
+      >
+        8 vs 9 → take 8
+      </text>
+      <text
+        x="350"
+        y="220"
+        text-anchor="middle"
+        class="ms-annotation ms-s3-ann-7"
+      >
+        Only 9 remains → take 9
+      </text>
+    </g>
+  </svg>
+)}
+
+{step === 4 && (
+  <svg
+    viewBox={`0 0 ${VW} 410`}
+    xmlns="http://www.w3.org/2000/svg"
+    class="ms-svg"
+  >
+    {/* Phase A: Divide */}
+    <g
+      class="ms-level ms-level--0 ms-s4-divide"
+      transform={`translate(${L0_X}, ${LY[0]})`}
+    >
+      <ArrayGroup values={values} />
+    </g>
+
+    <g class="ms-connectors ms-connectors--0 ms-s4-divide">
+      <line
+        x1={gcx(L0_X, 8)}
+        y1={connY(0)[0]}
+        x2={gcx(L1_X0, 4)}
+        y2={connY(0)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L0_X, 8)}
+        y1={connY(0)[0]}
+        x2={gcx(L1_X1, 4)}
+        y2={connY(0)[1]}
+        class="ms-line"
+      />
+    </g>
+
+    <g class="ms-level ms-level--1 ms-s4-divide">
+      <g transform={`translate(${L1_X0}, ${LY[1]})`}>
+        <ArrayGroup values={[5, 2, 8, 1]} active />
       </g>
-    </svg>
-  )
-}
+      <g transform={`translate(${L1_X1}, ${LY[1]})`}>
+        <ArrayGroup values={[9, 3, 7, 4]} active />
+      </g>
+    </g>
+
+    <g class="ms-connectors ms-connectors--1 ms-s4-divide">
+      <line
+        x1={gcx(L1_X0, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X0, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L1_X0, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X1, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L1_X1, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X2, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L1_X1, 4)}
+        y1={connY(1)[0]}
+        x2={gcx(L2_X3, 2)}
+        y2={connY(1)[1]}
+        class="ms-line"
+      />
+    </g>
+
+    <g class="ms-level ms-level--2 ms-s4-divide">
+      <g transform={`translate(${L2_X0}, ${LY[2]})`}>
+        <ArrayGroup values={[5, 2]} active />
+      </g>
+      <g transform={`translate(${L2_X1}, ${LY[2]})`}>
+        <ArrayGroup values={[8, 1]} active />
+      </g>
+      <g transform={`translate(${L2_X2}, ${LY[2]})`}>
+        <ArrayGroup values={[9, 3]} active />
+      </g>
+      <g transform={`translate(${L2_X3}, ${LY[2]})`}>
+        <ArrayGroup values={[7, 4]} active />
+      </g>
+    </g>
+
+    {/* Phase B: Conquer — bottom-up merge */}
+    <g class="ms-connectors ms-connectors--2 ms-s4-conquer">
+      <line
+        x1={gcx(L2_X0, 2)}
+        y1={LY[2] + BH}
+        x2={gcx(L2_X0, 2)}
+        y2={M2_Y}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X1, 2)}
+        y1={LY[2] + BH}
+        x2={gcx(L2_X1, 2)}
+        y2={M2_Y}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X2, 2)}
+        y1={LY[2] + BH}
+        x2={gcx(L2_X2, 2)}
+        y2={M2_Y}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L2_X3, 2)}
+        y1={LY[2] + BH}
+        x2={gcx(L2_X3, 2)}
+        y2={M2_Y}
+        class="ms-line"
+      />
+    </g>
+
+    <g class="ms-level ms-s4-merge-2 ms-s4-conquer">
+      <g transform={`translate(${L2_X0}, ${M2_Y})`}>
+        <ArrayGroup values={[2, 5]} active />
+      </g>
+      <g transform={`translate(${L2_X1}, ${M2_Y})`}>
+        <ArrayGroup values={[1, 8]} active />
+      </g>
+      <g transform={`translate(${L2_X2}, ${M2_Y})`}>
+        <ArrayGroup values={[3, 9]} active />
+      </g>
+      <g transform={`translate(${L2_X3}, ${M2_Y})`}>
+        <ArrayGroup values={[4, 7]} active />
+      </g>
+    </g>
+
+    <g class="ms-connectors ms-connectors--3 ms-s4-conquer ms-s4-conquer--late">
+      <line
+        x1={gcx(L1_X0, 4)}
+        y1={M2_Y + BH}
+        x2={gcx(L1_X0, 4)}
+        y2={M1_Y}
+        class="ms-line"
+      />
+      <line
+        x1={gcx(L1_X1, 4)}
+        y1={M2_Y + BH}
+        x2={gcx(L1_X1, 4)}
+        y2={M1_Y}
+        class="ms-line"
+      />
+    </g>
+
+    <g class="ms-level ms-s4-merge-1 ms-s4-conquer ms-s4-conquer--late">
+      <g transform={`translate(${L1_X0}, ${M1_Y})`}>
+        <ArrayGroup values={[1, 2, 5, 8]} active />
+      </g>
+      <g transform={`translate(${L1_X1}, ${M1_Y})`}>
+        <ArrayGroup values={[3, 4, 7, 9]} active />
+      </g>
+    </g>
+
+    <g class="ms-connectors ms-connectors--4 ms-s4-conquer ms-s4-conquer--final">
+      <line
+        x1={gcx(L0_X, 8)}
+        y1={M1_Y + BH}
+        x2={gcx(L0_X, 8)}
+        y2={M0_Y}
+        class="ms-line"
+      />
+    </g>
+
+    <g
+      class="ms-level ms-s4-merge-0 ms-s4-conquer ms-s4-conquer--final"
+      data-anim-final
+    >
+      <g transform={`translate(${L0_X}, ${M0_Y})`}>
+        <ArrayGroup values={[1, 2, 3, 4, 5, 7, 8, 9]} active />
+      </g>
+    </g>
+  </svg>
+)}
 
 <style is:global>
   .ms-svg {

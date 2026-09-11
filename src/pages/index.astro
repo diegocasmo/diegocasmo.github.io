@@ -33,27 +33,27 @@ const jsonLd = [
   <h1 class="sr-only">Software Engineering Blog</h1>
   <section class="bio">
     <p>
-      Building products. Playing jazz. Architecting software <a
-        href="https://buffer.com/"
-        target="_blank"
-        rel="noopener">@buffer.com</a
-      >.
+      Building products. Playing jazz. Architecting software{' '}
+      <a href="https://buffer.com/" target="_blank" rel="noopener">
+        @buffer.com
+      </a>
+      .
     </p>
   </section>
 
   <div class="posts">
-    {posts.map((post) => <PostCard post={post} />)}
+    {posts.map((post) => (
+      <PostCard post={post} />
+    ))}
   </div>
 
-  {
-    totalPages > 1 && (
-      <div class="pagination">
-        <div class="pagination__buttons">
-          <a href="/page/2/" class="button inline next">
-            [<span class="button__text">Older posts</span>] &gt;
-          </a>
-        </div>
+  {totalPages > 1 && (
+    <div class="pagination">
+      <div class="pagination__buttons">
+        <a href="/page/2/" class="button inline next">
+          [<span class="button__text">Older posts</span>] &gt;
+        </a>
       </div>
-    )
-  }
+    </div>
+  )}
 </BaseLayout>

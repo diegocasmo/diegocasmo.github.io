@@ -7,6 +7,4 @@ const { date } = Astro.props;
 const formattedDate = date.toISOString().split('T')[0];
 ---
 
-<time datetime={date.toISOString()}>
-  {formattedDate}
-</time>
+<time datetime={date.toISOString()}>{formattedDate}</time>

@@ -27,33 +27,29 @@ const { posts, currentPage, totalPages } = Astro.props;
 >
   <div class="posts">
     <h1 class="posts-title">Posts — Page {currentPage}</h1>
-    {posts.map((post) => <PostCard post={post} />)}
+    {posts.map((post) => (
+      <PostCard post={post} />
+    ))}
   </div>
 
   <div class="pagination">
     <div class="pagination__buttons">
-      {
-        currentPage > 2 && (
-          <a href={`/page/${currentPage - 1}/`} class="button inline prev">
-            &lt; [<span class="button__text">Newer posts</span>]
-          </a>
-        )
-      }
-      {
-        currentPage === 2 && (
-          <a href="/" class="button inline prev">
-            &lt; [<span class="button__text">Newer posts</span>]
-          </a>
-        )
-      }
+      {currentPage > 2 && (
+        <a href={`/page/${currentPage - 1}/`} class="button inline prev">
+          &lt; [<span class="button__text">Newer posts</span>]
+        </a>
+      )}
+      {currentPage === 2 && (
+        <a href="/" class="button inline prev">
+          &lt; [<span class="button__text">Newer posts</span>]
+        </a>
+      )}
       {currentPage > 1 && currentPage < totalPages && <span>::</span>}
-      {
-        currentPage < totalPages && (
-          <a href={`/page/${currentPage + 1}/`} class="button inline next">
-            [<span class="button__text">Older posts</span>] &gt;
-          </a>
-        )
-      }
+      {currentPage < totalPages && (
+        <a href={`/page/${currentPage + 1}/`} class="button inline next">
+          [<span class="button__text">Older posts</span>] &gt;
+        </a>
+      )}
     </div>
   </div>
 </BaseLayout>
