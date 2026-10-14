@@ -14,8 +14,8 @@ Architecting software focused on craftsmanship and simple, thoughtful products.
 
 [_Buffer.com_](https://buffer.com/), Remote (Oct 2025 - Present)
 
-- Proposed and led Buffer MCP, a server on top of Buffer’s public GraphQL API, defining its architecture, authentication model, tool schemas, error taxonomy, and evaluation pipelines; led OAuth via Dynamic Client Registration, enabling official Claude and ChatGPT marketplace readiness alongside clients like Cursor, Zapier, and Notion.
-- Proposed and led the design of an auto-generated CLI for Buffer’s public API; authored the technical spec, defined the codegen/runtime split, and implemented the initial version, with commands generated directly from the GraphQL schema. Now published as @bufferapp/cli.
+- Proposed and led Buffer MCP, a server on top of Buffer’s public GraphQL API, defining its architecture, authentication model, tool schemas, error taxonomy, and evaluation pipelines; led OAuth via Dynamic Client Registration, enabling official Claude and ChatGPT marketplace readiness alongside clients like Cursor, Zapier, and Notion. Now serving millions of tool calls a month from over 20,000 organizations.
+- Proposed and led the design of an auto-generated CLI for Buffer’s public API; authored the technical spec, defined the codegen/runtime split, and implemented the initial version, with commands generated directly from the GraphQL schema. Now published on npm as [_@bufferapp/cli_](https://www.npmjs.com/package/@bufferapp/cli).
 - Contributed to the public API itself, extending the published GraphQL schema and its visibility rules, and shipped developer documentation generated for both people and agents to read.
 - Designed and implemented the Threads trending and recently used topics features, including MongoDB collections and aggregations, CRON workers, GraphQL resolvers, and associated UI.
 
@@ -28,7 +28,7 @@ Owned full implementation cycles end to end across backend and frontend. Made ar
 - Enabled employers to add prospects to our new ATS via AI-powered resume parsing and intelligent autofill, streamlining candidate intake.
 - Adapted an employee-focused time-tracking system to automate contractor invoicing based on tracked hours.
 - Shipped live dashboard widgets that surface payment status and other actionable insights for contractors.
-- Earlier at Remote (Frontend, then Senior I; 2021-2024): built the contractor [_invoicing system_](https://remote.com/blog/remote-invoicing-automation), [_Freelancers Hub_](https://remote.com/global-hr/freelancer-hub), the [_Fair Pricing Initiative_](https://remote.com/blog/fair-price-guarantee-contractor-management), and [_Contractor Time Tracking_](https://support.remote.com/hc/en-us/articles/17676669105037-How-time-tracking-works-for-Contractors-).
+- Earlier at Remote (Frontend, then Senior I; 2021-2024): built the contractor invoicing system, [_Freelancers Hub_](https://remote.com/global-hr/freelancer-hub), the Fair Pricing Initiative, and [_Contractor Time Tracking_](https://support.remote.com/hc/en-us/articles/17676669105037-How-time-tracking-works-for-Contractors-).
 
 ### Senior Software Engineer
 
@@ -58,7 +58,7 @@ An AI-powered, chat-based tone architect for Line 6 Helix. Next.js, React, TypeS
 
 ## 🧠 Skills
 
-- **Languages:** TypeScript, Elixir, Ruby
+- **Languages & Runtimes:** TypeScript, Node.js, Elixir, Ruby
 - **AI / LLM Systems:** MCP, Evalite, AI SDK
 - **ORMs:** Ecto, Prisma, Active Record
 - **Frontend:** React, Next.js, React Query, Tailwind CSS, Radix UI
