@@ -11,7 +11,7 @@ This file holds only what the code can't tell you: rules, the reasons behind the
 ```sh
 nvm install                      # Node version from .nvmrc (Astro needs a recent Node 22)
 npm ci
-npx playwright install chromium  # once per machine
+npx playwright install chromium  # again whenever Playwright is updated
 npm run format                   # Prettier; CI runs format:check
 npm run build                    # astro check + astro build
 npm test                         # Playwright smoke tests against `npm run preview`
@@ -37,7 +37,7 @@ npm test                         # Playwright smoke tests against `npm run previ
 - **Person facts (job title, employer, `sameAs`) live in `src/data/person.ts`.** Both the homepage and `/about` use it with the same `#person` `@id`. Visible prose on `/about` and in `src/data/resume.md` needs a separate update.
 - **The filename is the URL slug** (`/{filename}/`, no date prefix). Renaming a post breaks inbound links unless you add a redirect in `astro.config.mjs`. Never remove existing redirects; they keep legacy date-prefixed and `/posts/` URLs alive.
 - **Don't reformat files in `src/content/`.** Prettier skips them on purpose so published posts stay byte-identical.
-- **OG images** are rendered at build time with satori (`src/pages/og/`, `src/utils/og.ts`). satori can't read CSS variables, so `og.ts` repeats the site colors: change both together. The `image` frontmatter field overrides the OG image and also renders as the post's hero image.
+- **OG images** are rendered at build time with satori (`src/pages/og/`, `src/utils/og.ts`). They don't load the site stylesheet, so `og.ts` repeats the site colors: change both together. The `image` frontmatter field overrides the OG image and also renders as the post's hero image.
 - **`.mdx` mirrors go through `cleanMdx`** (`src/utils/markdown.ts`), which drops every line starting with `import`/`export`, even inside code fences. Check the `.md` mirror before converting a code-heavy post to `.mdx`.
 - **Keep the `{' '}` around inline links that span lines in `.astro` files** (see `about.astro`). Without it the words on either side run together; a smoke test guards `/about`.
 - **External links** use `target="_blank" rel="noopener"`; internal links (`/...`) use neither.
