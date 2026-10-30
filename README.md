@@ -5,6 +5,7 @@ Personal blog built with [Astro](https://astro.build/), deployed to GitHub Pages
 ## Commands
 
 ```sh
+nvm install       # Install and use the Node.js version in .nvmrc
 npm ci            # Install dependencies (clean)
 npm run dev       # Start dev server
 npm run build     # Typecheck + build
