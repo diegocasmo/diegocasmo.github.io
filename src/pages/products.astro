@@ -9,7 +9,15 @@ const PRODUCTS = [
     tech: ['Next.js', 'AI SDK', 'TypeScript', 'Prisma', 'PostgreSQL'],
   },
   {
-    title: 'Pocket Ledger',
+    title: 'findmomentum.xyz',
+    description:
+      'A productivity app that helps track and celebrate daily progress through small wins.',
+    url: 'https://findmomentum.xyz/',
+    githubUrl: 'https://github.com/diegocasmo/findmomentum',
+    tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
+  },
+  {
+    title: 'Pocket Ledger (archived)',
     description: 'A local-first expense tracker. No accounts. No cloud.',
     url: 'https://pocket-ledger-rho.vercel.app/calendar',
     githubUrl: 'https://github.com/diegocasmo/pocket-ledger',
@@ -22,14 +30,6 @@ const PRODUCTS = [
       'TanStack Query',
     ],
   },
-  {
-    title: 'findmomentum.xyz',
-    description:
-      'A productivity app that helps track and celebrate daily progress through small wins.',
-    url: 'https://findmomentum.xyz/',
-    githubUrl: 'https://github.com/diegocasmo/findmomentum',
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
-  },
 ];
 
 const LIST_FORMATTER = new Intl.ListFormat('en', {
@@ -40,7 +40,7 @@ const LIST_FORMATTER = new Intl.ListFormat('en', {
 
 <BaseLayout
   title="Products"
-  description="Products built by Diego Castillo — tonebuilder.ai, Pocket Ledger, and findmomentum.xyz."
+  description="Products built by Diego Castillo — tonebuilder.ai, findmomentum.xyz, and Pocket Ledger."
 >
   <div class="page">
     <h1>Products</h1>
