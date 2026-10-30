@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 test('homepage loads with posts', async ({ page }) => {
   await page.goto('/');
@@ -96,4 +98,30 @@ test('individual tag page shows posts', async ({ page }) => {
   const firstTag = page.locator('a.tag-item').first();
   await firstTag.click();
   await expect(page.locator('article.post.on-list').first()).toBeVisible();
+});
+
+test('plain .md posts are mirrored byte-for-byte', async ({ request }) => {
+  const source = readFileSync('src/content/posts/fft.md', 'utf8');
+  const sourceBody = source.replace(/^---\n[\s\S]*?\n---\n/, '').trim();
+  const response = await request.get('/fft.md');
+  expect(await response.text()).toContain(sourceBody);
+});
+
+test('.mdx mirrors have no MDX syntax left', async ({ request }) => {
+  const response = await request.get('/merge-sort.md');
+  expect(response.ok()).toBeTruthy();
+  const body = await response.text();
+  expect(body).not.toMatch(/^\s*(import|export)\s/m);
+  expect(body).not.toMatch(/<\/?[A-Z][^>]*>/);
+});
+
+// Drafts are only filtered in getPublishedPosts(); any other caller can leak them.
+test('only src/data/posts.ts reads the posts collection', () => {
+  const offenders = readdirSync('src', { recursive: true, encoding: 'utf8' })
+    .filter((file) => /\.(astro|ts|js|mjs)$/.test(file))
+    .filter((file) => file !== join('data', 'posts.ts'))
+    .filter((file) =>
+      readFileSync(join('src', file), 'utf8').includes('getCollection(')
+    );
+  expect(offenders).toEqual([]);
 });

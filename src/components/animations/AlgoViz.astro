@@ -1,4 +1,18 @@
 ---
+/**
+ * AlgoViz: player shell (play/pause/replay, progress bar, aria-live status,
+ * prefers-reduced-motion) for an algorithm animation passed as the slot.
+ *
+ * Authoring a new animation:
+ *   1. Create src/components/animations/<Algorithm>.astro with a `step` prop
+ *      for multi-scene animations.
+ *   2. Use ArrayGroup for arrays; write raw SVG for other structures.
+ *   3. Animate with CSS keyframes only, with explicit ms durations and delays.
+ *   4. In the post's .mdx, import AlgoViz and the algorithm component, and wrap
+ *      each scene: <AlgoViz title="..." id="..." duration={totalMs}><Algorithm step={n} /></AlgoViz>
+ *   5. Set `duration` to the longest delay + duration in that step's CSS; the
+ *      player uses it to know when the animation has finished.
+ */
 export interface Props {
   title: string;
   description?: string;
