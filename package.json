@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "Blog by Diego Castillo — software engineer writing about web development, architecture, and building products.",
   "license": "MIT",
+  "engines": {
+    "node": "22"
+  },
   "author": "Diego Castillo",
   "scripts": {
     "dev": "astro dev",

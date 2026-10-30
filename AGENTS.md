@@ -18,6 +18,7 @@ Personal blog by Diego Castillo. Built with Astro 7, TypeScript, vanilla CSS. De
 ## Commands
 
 ```sh
+nvm install         # Install and use the Node.js version in .nvmrc
 npm ci              # Install dependencies (clean)
 npm run dev         # Dev server
 npm run build       # Typecheck + build (astro check && astro build)
