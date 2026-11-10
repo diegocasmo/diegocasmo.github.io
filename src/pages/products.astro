@@ -3,6 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const PRODUCTS = [
   {
+    title: 'Cipher Machine Studios',
+    description:
+      'An experimental, AI-driven workflow that mixes and masters a song from its stems.',
+    githubUrl: 'https://github.com/diegocasmo/cipher-machine-studios',
+    tech: ['Python', 'pedalboard', 'Agent Skills', 'Herdr'],
+  },
+  {
     title: 'tonebuilder.ai',
     description: 'An AI-powered, chat-based tone architect for Line 6 Helix.',
     url: 'https://tonebuilder.ai/',
@@ -40,26 +47,32 @@ const LIST_FORMATTER = new Intl.ListFormat('en', {
 
 <BaseLayout
   title="Products"
-  description="Products built by Diego Castillo — tonebuilder.ai, findmomentum.xyz, and Pocket Ledger."
+  description="Products built by Diego Castillo — Cipher Machine Studios, tonebuilder.ai, findmomentum.xyz, and Pocket Ledger."
 >
   <div class="page">
     <h1>Products</h1>
     {PRODUCTS.map((product) => (
       <article class="product">
         <h2>
-          <a href={product.url} target="_blank" rel="noopener noreferrer">
+          <a
+            href={product.url ?? product.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {product.title}
           </a>
         </h2>
         <p>{product.description}</p>
         <p>Built with: {LIST_FORMATTER.format(product.tech)}.</p>
         <div>
-          <a href={product.url} target="_blank" rel="noopener noreferrer">
-            Try it now
-          </a>
+          {product.url && (
+            <a href={product.url} target="_blank" rel="noopener noreferrer">
+              Try it now
+            </a>
+          )}
           {product.githubUrl && (
             <>
-              {' | '}
+              {product.url && ' | '}
               <a
                 href={product.githubUrl}
                 target="_blank"
