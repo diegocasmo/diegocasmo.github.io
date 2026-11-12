@@ -262,6 +262,3 @@ $RECYCLE.BIN/
 
 # Astro
 .astro/
-
-# Playwright
-test-results/

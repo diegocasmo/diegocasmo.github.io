@@ -11,14 +11,13 @@ This file holds only what the code can't tell you: rules, the reasons behind the
 ```sh
 nvm install                      # Node version from .nvmrc (Astro needs a recent Node 22)
 npm ci
-npx playwright install chromium  # again whenever Playwright is updated
 npm run format                   # Prettier; CI runs format:check
 npm run build                    # astro check + astro build
-npm test                         # Playwright smoke tests against `npm run preview`
+npm test                         # Node smoke tests against the built files
 ```
 
-- Run `npm run build` before `npm test`. Preview serves `dist/` as-is, so a stale build gives stale results.
-- Locally, Playwright reuses any server already on port 4321 (`playwright.config.ts`). Stop stray dev/preview servers first or you test the wrong thing.
+- Run `npm run build` before `npm test`. Tests read `dist/` directly, so a stale build gives stale results.
+- Tests check generated content and markup. Check CSS visibility and JavaScript interactions manually when changing styles or controls.
 - CI (`ci.yml`) runs format check, build, and tests on PRs. Deploy (`deploy.yml`) runs on push to `main` and does **not** wait for CI. That is intentional for this repo; don't "fix" it.
 
 ## Principles
