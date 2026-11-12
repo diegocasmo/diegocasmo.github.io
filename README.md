@@ -16,8 +16,12 @@ npm run check     # TypeScript/Astro check only
 ## Tests
 
 ```sh
-npm test            # Run Playwright smoke tests against preview server
+npm run build       # Generate the files to test
+npm test            # Run Node smoke tests against dist/
 ```
+
+Tests check generated content, links, structured data, RSS, and Markdown exports.
+Check layout and JavaScript interactions manually when changing styles or controls.
 
 ## Deploy
 
