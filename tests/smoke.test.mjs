@@ -121,10 +121,12 @@ test('pagination page 2 contains posts and links to the homepage', () => {
   assert.equal(attribute(previous, 'href'), '/');
 });
 
-test('tags index lists tags', () => {
+test('tags index links to generated pages with posts', () => {
   const document = page('/tags/');
   assert.equal(text(element(document, 'h1')).trim(), 'Tags');
-  element(document, 'a', { class: 'tag-item' });
+  const firstTag = element(document, 'a', { class: 'tag-item' });
+  const tagPage = page(attribute(firstTag, 'href'));
+  element(tagPage, 'article', { class: 'on-list' });
 });
 
 test('merge-sort contains animation markup and initial controls', () => {
@@ -149,13 +151,6 @@ test('about page preserves inline spacing and ProfilePage JSON-LD', () => {
   const entry = jsonLd(document, 'ProfilePage');
   assert.equal(entry.mainEntity['@type'], 'Person');
   assert.equal(entry.mainEntity.name, 'Diego Castillo');
-});
-
-test('tag links lead to generated pages with posts', () => {
-  const tags = page('/tags/');
-  const firstTag = element(tags, 'a', { class: 'tag-item' });
-  const document = page(attribute(firstTag, 'href'));
-  element(document, 'article', { class: 'on-list' });
 });
 
 test('plain Markdown mirrors preserve the source body', () => {
