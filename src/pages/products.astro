@@ -3,6 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const PRODUCTS = [
   {
+    title: 'tonebuilder.ai',
+    description: 'An AI-powered, chat-based tone architect for Line 6 Helix.',
+    url: 'https://tonebuilder.ai/',
+    tech: ['Next.js', 'AI SDK', 'TypeScript', 'Prisma', 'PostgreSQL'],
+  },
+  {
     title: 'stem-to-master',
     description: 'Mix and master your stems autonomously, as code.',
     githubUrl: 'https://github.com/diegocasmo/stem-to-master',
@@ -13,12 +19,6 @@ const PRODUCTS = [
     description: 'An AI-driven color grading tool for videos.',
     githubUrl: 'https://github.com/diegocasmo/colorist',
     tech: ['Python', 'FFmpeg', 'Agent Skills'],
-  },
-  {
-    title: 'tonebuilder.ai',
-    description: 'An AI-powered, chat-based tone architect for Line 6 Helix.',
-    url: 'https://tonebuilder.ai/',
-    tech: ['Next.js', 'AI SDK', 'TypeScript', 'Prisma', 'PostgreSQL'],
   },
   {
     title: 'findmomentum.xyz',
@@ -52,7 +52,7 @@ const LIST_FORMATTER = new Intl.ListFormat('en', {
 
 <BaseLayout
   title="Products"
-  description="Products built by Diego Castillo — stem-to-master, colorist, tonebuilder.ai, findmomentum.xyz, and Pocket Ledger."
+  description="Products built by Diego Castillo: tonebuilder.ai, stem-to-master, colorist, findmomentum.xyz, and Pocket Ledger."
 >
   <div class="page">
     <h1>Products</h1>
