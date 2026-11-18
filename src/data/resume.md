@@ -62,8 +62,7 @@ An AI-powered, chat-based tone architect for Line 6 Helix. Next.js, React, TypeS
 - **AI / LLM Systems:** MCP, Evalite, AI SDK
 - **Building with AI:** Claude Code and Codex, with custom Agent Skills
 - **ORMs:** Ecto, Prisma, Active Record
-- **Frontend:** React, Next.js, React Query, Tailwind CSS, Radix UI
-- **Frameworks:** Express.js, Phoenix, Rails
+- **Frameworks & Libraries:** React, Next.js, Phoenix, Rails, Express.js, React Query, Tailwind CSS, Radix UI
 - **Databases:** PostgreSQL, MongoDB
 - **Testing & Validation:** Playwright, Vitest, Jest, MSW, Zod
 - **DevOps:** AWS, Docker, Kubernetes/Helm, Git, CI/CD
