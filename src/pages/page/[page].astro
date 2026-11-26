@@ -26,7 +26,7 @@ const { posts, currentPage, totalPages } = Astro.props;
   description="Blog by Diego Castillo - software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products."
 >
   <div class="posts">
-    <h1 class="posts-title">Posts — Page {currentPage}</h1>
+    <h1 class="sr-only">Posts — Page {currentPage}</h1>
     {posts.map((post) => (
       <PostCard post={post} />
     ))}

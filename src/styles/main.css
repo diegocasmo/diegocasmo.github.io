@@ -74,13 +74,6 @@ figure figcaption p {
   margin: 0;
 }
 
-/* Page styles */
-.page {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.page h1,
 article h1 {
   position: relative;
   color: var(--accent);
@@ -90,7 +83,6 @@ article h1 {
   border-bottom: 3px dotted var(--accent);
 }
 
-.page h1::after,
 article h1::after {
   content: '';
   position: absolute;

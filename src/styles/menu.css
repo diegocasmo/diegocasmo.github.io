@@ -97,6 +97,19 @@
   padding: 5px;
 }
 
+/* Current page */
+.navigation-menu__inner a[aria-current='page'],
+.menu__dropdown a[aria-current='page'] {
+  background: var(--accent);
+  color: var(--background);
+  text-decoration: none;
+}
+
+/* box-shadow pads the fill without taking layout space, so desktop nav items never move between pages */
+.navigation-menu__inner a[aria-current='page'] {
+  box-shadow: 0 0 0 4px var(--accent);
+}
+
 /* Mobile menu */
 .menu--mobile {
   display: none;

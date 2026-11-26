@@ -29,11 +29,7 @@ const { posts } = Astro.props;
   description={`All posts tagged with "${tag}"`}
 >
   <div class="posts">
-    <h1 class="posts-title">
-      <span style="color: var(--foreground)">
-        Posts for: <span style="color: var(--accent)">#{tag}</span>
-      </span>
-    </h1>
+    <h1 class="sr-only">Posts for: #{tag}</h1>
     {posts.length === 0 ? (
       <p>No posts found with this tag.</p>
     ) : (
@@ -41,17 +37,3 @@ const { posts } = Astro.props;
     )}
   </div>
 </BaseLayout>
-
-<style>
-  .posts-title {
-    color: var(--foreground);
-    margin-top: 0 !important;
-    margin-bottom: 30px !important;
-    padding-bottom: 0 !important;
-    border-bottom: none !important;
-  }
-
-  .posts-title::after {
-    display: none !important;
-  }
-</style>
