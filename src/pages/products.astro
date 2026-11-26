@@ -6,19 +6,16 @@ const PRODUCTS = [
     title: 'tonebuilder.ai',
     description: 'An AI-powered, chat-based tone architect for Line 6 Helix.',
     url: 'https://tonebuilder.ai/',
-    tech: ['Next.js', 'AI SDK', 'TypeScript', 'Prisma', 'PostgreSQL'],
   },
   {
     title: 'stem-to-master',
     description: 'Mix and master your stems autonomously, as code.',
     githubUrl: 'https://github.com/diegocasmo/stem-to-master',
-    tech: ['Python', 'pedalboard', 'NumPy', 'SciPy'],
   },
   {
     title: 'colorist',
     description: 'An AI-driven color grading tool for videos.',
     githubUrl: 'https://github.com/diegocasmo/colorist',
-    tech: ['Python', 'FFmpeg', 'Agent Skills'],
   },
   {
     title: 'findmomentum.xyz',
@@ -26,28 +23,15 @@ const PRODUCTS = [
       'A productivity app that helps track and celebrate daily progress through small wins.',
     url: 'https://findmomentum.xyz/',
     githubUrl: 'https://github.com/diegocasmo/findmomentum',
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
   },
   {
-    title: 'Pocket Ledger (archived)',
+    title: 'Pocket Ledger',
+    archived: true,
     description: 'A local-first expense tracker. No accounts. No cloud.',
     url: 'https://pocket-ledger-rho.vercel.app/calendar',
     githubUrl: 'https://github.com/diegocasmo/pocket-ledger',
-    tech: [
-      'React',
-      'TypeScript',
-      'Vite',
-      'Tailwind CSS',
-      'Dexie',
-      'TanStack Query',
-    ],
   },
 ];
-
-const LIST_FORMATTER = new Intl.ListFormat('en', {
-  style: 'long',
-  type: 'conjunction',
-});
 ---
 
 <BaseLayout
@@ -56,9 +40,9 @@ const LIST_FORMATTER = new Intl.ListFormat('en', {
 >
   <div class="page">
     <h1>Products</h1>
-    {PRODUCTS.map((product) => (
-      <article class="product">
-        <h2>
+    <ul class="products">
+      {PRODUCTS.map((product) => (
+        <li>
           <a
             href={product.url ?? product.githubUrl}
             target="_blank"
@@ -66,35 +50,29 @@ const LIST_FORMATTER = new Intl.ListFormat('en', {
           >
             {product.title}
           </a>
-        </h2>
-        <p>{product.description}</p>
-        <p>Built with: {LIST_FORMATTER.format(product.tech)}.</p>
-        <div>
-          {product.url && (
-            <a href={product.url} target="_blank" rel="noopener noreferrer">
-              Try it now
-            </a>
-          )}
-          {product.githubUrl && (
+          {product.archived && ' (archived)'}: {product.description}
+          {product.url && product.githubUrl && (
             <>
-              {product.url && ' | '}
+              {' '}
+              (
               <a
                 href={product.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Source Code
+                source
               </a>
+              )
             </>
           )}
-        </div>
-      </article>
-    ))}
+        </li>
+      ))}
+    </ul>
   </div>
 </BaseLayout>
 
 <style>
-  .product {
-    margin-bottom: 40px;
+  .products li + li {
+    margin-top: 0.75em;
   }
 </style>
