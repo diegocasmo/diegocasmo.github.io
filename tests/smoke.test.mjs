@@ -147,7 +147,7 @@ test('about page preserves inline spacing and ProfilePage JSON-LD', () => {
     /\s+/g,
     ' '
   );
-  assert.ok(body.includes('team @buffer.com creating'));
+  assert.ok(body.includes('team @buffer.com making'));
   const entry = jsonLd(document, 'ProfilePage');
   assert.equal(entry.mainEntity['@type'], 'Person');
   assert.equal(entry.mainEntity.name, 'Diego Castillo');
