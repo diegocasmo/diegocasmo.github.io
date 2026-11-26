@@ -12,7 +12,7 @@ export const GET: APIRoute = async ({ site }) => {
 
   const body = `# Diego Castillo
 
-> Blog by Diego Castillo, a senior software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products. Written in TypeScript, Elixir, and Ruby.
+> Blog by Diego Castillo, a senior software engineer at Buffer writing about software craftsmanship, building with AI, CS fundamentals, and building products.
 
 This file indexes the blog's posts as Markdown for LLMs and agents. Each post is also available as Markdown by appending \`.md\` to its URL. Full site content is at [llms-full.txt](${new URL('/llms-full.txt', site).href}).
 
